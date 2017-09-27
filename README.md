@@ -7,6 +7,6 @@ Buscaminas versión 2.0
 
   - [ ] **Aplicación:** 
   
-  - [ ] **Declaración:** buscaminas.h
+  - [ ] **Declaración:** [buscaminas.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/buscaminas.h)
   
   - [ ] **Implementación:** 
