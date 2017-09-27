@@ -5,7 +5,7 @@ Buscaminas versión 2.0
 
 **Primer Avance:**
 
-  - [ ] **Aplicación:** 
+  - [ ] **Aplicación:** [main.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/main.cpp)
   
   - [ ] **Declaración:** [buscaminas.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/buscaminas.h)
   
