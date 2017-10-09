@@ -25,7 +25,7 @@ private:
 	void inicializarPuntero();
 
 	/* Pre:
-	 * Post: */
+	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
 	void iniciarJugada();
 
 
