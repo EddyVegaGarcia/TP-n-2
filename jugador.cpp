@@ -40,7 +40,7 @@ void Jugador::inicializarPuntero(){
 void Jugador::iniciarJugada(){
 	int filaUser, colUser;
 	char opcionUser;
-
+        int puntos = 0;
 	cout << "Ingrese 'i j o', donde i y j son el num de fila y columna, y o es la opcion:" << endl;
 	cin >> filaUser >> colUser >> opcionUser;
 
@@ -49,6 +49,8 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarFila(filaUser);
 	pJugada->asignarColumna(colUser);
 	pJugada->asignarOpcion(opcionUser);
-	pJugada->realizarJugada();
+	puntos = pJugada->realizarJugada();
+	puntos =+ obtenerPuntaje() 
+	modificarPuntaje(puntos);
 
 }
