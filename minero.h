@@ -1,3 +1,6 @@
+
+
+
 #ifndef MINERO_H_
 #define MINERO_H_
 
@@ -26,10 +29,15 @@ private:
 
 public:
 
+	//constructor default
+	Minero();
+
+	//constructor con parámetros
+	Minero(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+
 	//pre:  --
 	//post: siembra minas en el mapa de juego segun la dificultad
 	void sembrarMinas(int mapa[][]);
-
 
 };
 
