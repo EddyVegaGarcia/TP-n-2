@@ -27,8 +27,8 @@ void Jugador::asignarAlias(char letra){
 	alias=letra;
 }
 
-void Jugador::asignarPuntaje(int punt){
-	puntaje=punt;
+void Jugador::asignarPuntaje(int puntos){
+	puntaje=puntos;
 }
 
 void Jugador::inicializarPuntero(){
@@ -49,5 +49,6 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarFila(filaUser);
 	pJugada->asignarColumna(colUser);
 	pJugada->asignarOpcion(opcionUser);
+	pJugada->realizarJugada();
 
 }
