@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Destapador.h"
+#include "destapador.h"
 
 using namespace std;
 
