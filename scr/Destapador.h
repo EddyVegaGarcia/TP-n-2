@@ -1,16 +1,18 @@
 #ifndef DESTAPADOR_H_
 #define DESTAPADOR_H_
 
-#include "jugada.h"
-#include "matriz.h"
-#include "mina.h"
+#include "Jugada.h"
+//#include "matriz.h"
+#include "Mapa.h"
+#include "Tablero.h"
+#include "Mina.h"
 
 class Destapador{
 	
 	private:
 		//Atributos
-		int fila;
-		int columna;
+		int filaJugada;
+		int columnaJugada;
 		int ubicacion;
 	
 	public:
@@ -20,6 +22,7 @@ class Destapador{
 		 *Pre:
 		 *
 		 * Post: Se asigna la ubicacion que se desea destapar y se inicializa puntaje en 0.
+		 *Se crea clases para poder utilizarlas.
 		 */
 		Destapador ();
 		
@@ -35,7 +38,7 @@ class Destapador{
 		/*
 		 *Pre:
 		 *
-		 * Post:El valor de la casilla confirma uno vacío, revele tanto esa casilla como vacías e
+		 * Post:La casilla confirma un vacío, revele tanto esa casilla como vacías e
 		 * enumeradas al rededor y se le asigna el puntaje correspondiente. 
 		 */	
 		void destaparPandemia();
@@ -46,54 +49,39 @@ class Destapador{
 		/*
 		 *Pre:
 		 *
-		 * Post: El  valor de la casilla confirma una enumerada, se revela y y se le asigna el puntaje correspondiente.
+		 * Post: El  valor de la casilla se revela y y se le asigna el puntaje correspondiente.
 		 */
-		void destaparEnumerada();
+		void destaparCasilla();
 			
 			
-		
-		/*
-		 *Pre:
-		 *
-		 * Post: El valor de la casilla confirma ser un numero se revela y se le asigna el puntaje correspondiente.
-		 */
-		void destaparNUmerada();
-					
-		
+
 		/*
 		 *Pre:
 		 *
 		 * Post: El valor de la casilla confirma una bomba y por consecuencia 
-		 *el jugador actual opierde ,se revela la mina y se le asigna el puntaje correspondiente.
+		 *el jugador actual pierde y se le asigna el puntaje correspondiente.
+		 *Si se confirma casilla enumerada se le asigna el puntaje correspondiente.
 		 */
-		void destaparMina();
-		 
-		 
-	private:
-		//metodos privados.
-		
-		
-		/*
-		 *Pre:
-		 *
-		 * Post: Asigna la ubicacion de la casilla obtenida de jugada.
-		 */
-		int asignarFila();
+		void asignarPuntaje();
+	
 	
 		/*
 		 *Pre:
 		 *
-		 * Post: Asigna la ubicacion de la casilla obtenida de jugada.
+		 *Post: Se obtiene el valor del puntaje al realizar la jugada revelar.
 		 */
-		int asignarColumna();
-		
+		int obtenerPuntajePorRevelar();
+	
+	private:
+	
 		/*
-		 *Pre: Se pasa por parametro un puntero a la matriz que contiene el tablero.
+		 *Pre:
 		 *
-		 * Post: Cofirma que la casilla toma uno de los tres tipos.
+		 * Post: Crea clases para utilizar sus metodos.
 		 */
-		char obtenerValorCasilla(matriz* matrizMapa);
-
+		void crearClases();
+		 
+		 
 };
 
 #endif /*DESTAPADOR_H_ */
