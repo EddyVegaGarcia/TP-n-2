@@ -25,9 +25,9 @@ class Destapador{
 		Marcador();
 		
 		/*
-		 *Pre: NO MARCAR DONDE YA EXISTE UN MARCADOR.
+		 *Pre: 
 		 *
-		 * Post: Marca la casilla con la ubicacion que se jugó.
+		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
 		 */
 		void marcar();
 			
@@ -43,7 +43,7 @@ class Destapador{
 		/*
 		 *Pre:
 		 *
-		 *Post: Se obtiene el valor del puntaje al realizar la jugada revelar.
+		 *Post: Se obtiene el valor del puntaje al realizar la jugada marcar.
 		 */
 		int obtenerPuntajePorMarcar();
 		
