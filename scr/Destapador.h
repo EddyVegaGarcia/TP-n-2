@@ -77,7 +77,7 @@ class Destapador{
 		 *
 		 * Post: Asigna la ubicacion de la casilla obtenida de jugada.
 		 */
-		int asiganrUbicacion();
+		int asignarUbicacion();
 		
 		/*
 		 *Pre: Se pasa por parametro un puntero a la matriz que contiene el tablero.
