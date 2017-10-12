@@ -10,11 +10,6 @@ private:
 	char dificultad;
 	int cantJugadores;
 
-
-	/* constructor
-	 * post: crea un objeto menu, inicializa todos sus atributos en cero.*/
-	Menu();
-
 	/* post: asigna "fil" al atributo fila */
 	void asignarFila(uint fil);
 
@@ -46,6 +41,10 @@ private:
 
 
 public:
+	
+	/* Constructor
+	 * post: crea un objeto menu, inicializa todos sus atributos en cero.*/
+	Menu();
 
 	/* Post: devuelve la cantidad de filas */
 	uint obtenerFila();
