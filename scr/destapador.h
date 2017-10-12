@@ -2,7 +2,6 @@
 #define DESTAPADOR_H_
 
 #include "jugada.h"
-//#include "matriz.h"
 #include "mapa.h"
 #include "tablero.h"
 #include "mina.h"
@@ -13,7 +12,7 @@ class Destapador{
 		//Atributos
 		int filaJugada;
 		int columnaJugada;
-		int ubicacion;
+		int puntaje;
 	
 	public:
 		//Metodos
