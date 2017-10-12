@@ -9,7 +9,8 @@ class Destapador{
 	
 	private:
 		//Atributos
-		int puntaje;
+		int fila;
+		int columna;
 		int ubicacion;
 	
 	public:
@@ -77,7 +78,14 @@ class Destapador{
 		 *
 		 * Post: Asigna la ubicacion de la casilla obtenida de jugada.
 		 */
-		int asignarUbicacion();
+		int asignarFila();
+	
+		/*
+		 *Pre:
+		 *
+		 * Post: Asigna la ubicacion de la casilla obtenida de jugada.
+		 */
+		int asignarColumna();
 		
 		/*
 		 *Pre: Se pasa por parametro un puntero a la matriz que contiene el tablero.
