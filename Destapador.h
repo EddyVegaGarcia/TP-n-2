@@ -1,5 +1,5 @@
-#ifndef _DESTAPADOR_H_
-#define _DESTAPADOR_H_
+#ifndef DESTAPADOR_H_
+#define DESTAPADOR_H_
 
 #include "jugada.h"
 #include "matriz.h"
@@ -57,8 +57,7 @@ class Destapador{
 		 * Post: El valor de la casilla confirma ser un numero se revela y se le asigna el puntaje correspondiente.
 		 */
 		void destaparNUmerada();
-			
-			
+					
 		
 		/*
 		 *Pre:
