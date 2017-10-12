@@ -7,15 +7,18 @@ using namespace std;
 		this->opcion = opcionDeUsuario;
 	
 	}
-	
-        jugada::jugada(int filaDeUsuario, int columnaDeUsuario){
+
+	void jugada::asignarFila(int filaDeUsuario){
 	    
 		this->fila = filaDeUsuario;
-		this->columna = columnaDeUsuario;
 	
 	}
 	
+	void jugada::asignarColumna(int columnaDeUsuario){
+	    
+		this->columna = columnaDeUsuario;
 	
+	}
 	int jugada::realizarJugada(){
 		
 		int puntos=0;
