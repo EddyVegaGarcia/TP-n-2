@@ -1,45 +1,45 @@
 # TP-n°2
 Buscaminas versión 2.0
 
-# Solución
+## Solución
 
 **Primer Avance: Eddy**
 
-  - [ ] **Destapador:** [Destapador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/Destapador.h)
+  - [ ] **Destapador:** [Destapador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/Destapador.h)
   
   - [ ] **Destapador:**
   
-  - [ ] **Marcador:** [Marcador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/marcador.h)
+  - [ ] **Marcador:** [Marcador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/marcador.h)
   
   - [ ] **Marcador:**
   
 **Primer Avance: Aldana**
 
-  - [ ] **Jugador:** [Jugador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/jugador.h)
+  - [ ] **Jugador:** [Jugador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/jugador.h)
   
-  - [ ] **Jugador:** [Jugador.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/jugador.cpp)
+  - [ ] **Jugador:** [Jugador.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/jugador.cpp)
   
-  - [ ] **Menu:** [Menu.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/menu.h)
+  - [ ] **Menu:** [Menu.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/menu.h)
   
-  - [ ] **Menu:** [Menu.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/menu.cpp)
+  - [ ] **Menu:** [Menu.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/menu.cpp)
   
 **Primer Avance: Daphne**
 
-  - [ ] **Jugada:** [Jugada.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/jugada.h)
+  - [ ] **Jugada:** [Jugada.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/jugada.h)
   
-  - [ ] **Jugada:** [Jugada.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/jugada.cpp)
+  - [ ] **Jugada:** [Jugada.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/jugada.cpp)
   
-  - [ ] **Mina:** [Mina.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/mina.h)
+  - [ ] **Mina:** [Mina.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/mina.h)
   
-  - [ ] **Mina:** [Mina.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/mina.cpp)
+  - [ ] **Mina:** [Mina.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/mina.cpp)
   
 **Primer Avance: Matias**
 
-  - [ ] **Arbitro:** [Arbitro.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/arbitro.h)
+  - [ ] **Arbitro:** [Arbitro.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/arbitro.h)
   
-  - [ ] **Arbitro:** [Arbitro.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/arbitro.cpp)
+  - [ ] **Arbitro:** [Arbitro.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/arbitro.cpp)
   
-  - [ ] **Minero:** [Minero.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/minero.h)
+  - [ ] **Minero:** [Minero.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/minero.h)
   
-  - [ ] **Minero:** [Minero.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/minero.cpp)
+  - [ ] **Minero:** [Minero.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/minero.cpp)
   
