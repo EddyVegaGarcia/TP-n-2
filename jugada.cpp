@@ -8,17 +8,13 @@ using namespace std;
 	
 	}
 	
-	void jugada::asignarFila(int filaDeUsuario){
+        jugada::jugada(int filaDeUsuario, int columnaDeUsuario){
 	    
 		this->fila = filaDeUsuario;
-	
-	}
-	
-	void jugada::asignarColumna(int columnaDeUsuario){
-	    
 		this->columna = columnaDeUsuario;
 	
 	}
+	
 	
 	int jugada::realizarJugada(){
 		
