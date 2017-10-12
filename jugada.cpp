@@ -19,19 +19,30 @@ using namespace std;
 		this->columna = columnaDeUsuario;
 	
 	}
+        void jugada::asignarMapa(matriz* matrizMapa){
+	    
+		this->mapa = matrizMapa;
+	
+	}
+	
+	void jugada::asignarTablero(matriz* matrizTablero){
+	    
+		this->tablero = matrizTablero;
+	
+	}
 	int jugada::realizarJugada(){
 		
 		int puntos=0;
 		
 		if(this->opcion=='m' || this->opcion=='M'){
 			
-			marcador();
+			marcador(this->mapa , this->tablero);
 			
 			puntos = marcador.marcar(this->fila , this ->columna);
 			
 		}else if(this->opcion == 'd' || this->opcion == 'D'){
 			
-			destapador();
+			destapador(this->mapa , this->tablero);
 			
 			destapador.destapar(this->fila , this->columna);
 		      
