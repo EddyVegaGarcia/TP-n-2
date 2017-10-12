@@ -28,14 +28,14 @@ void Destapador::crearclases()
 
 //Separado por metodos para mejor claridad
 
-//no es necesario la fila y columnas porque ya lo obtube em el contructor
+//no es necesario la fila y columnas porque ya lo obtube en el contructor
 void Destapador::destapar() 
 {
   
   if(mapa.validarVacio(this->filaJugada, this->columnaJugada))
     destaparPandemia();
   else  
-    destaparCasilla;
+    destaparCasilla();
   
 }
 
