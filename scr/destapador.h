@@ -1,11 +1,11 @@
 #ifndef DESTAPADOR_H_
 #define DESTAPADOR_H_
 
-#include "Jugada.h"
+#include "jugada.h"
 //#include "matriz.h"
-#include "Mapa.h"
-#include "Tablero.h"
-#include "Mina.h"
+#include "mapa.h"
+#include "tablero.h"
+#include "mina.h"
 
 class Destapador{
 	
