@@ -7,11 +7,11 @@ Buscaminas versión 2.0
 
   - [ ] **Destapador:** [Destapador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/Destapador.h)
   
-  - [ ] **Destapador:**
+  - [ ] **Destapador:** [Destapador.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/destapador.cpp)
   
   - [ ] **Marcador:** [Marcador.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/marcador.h)
   
-  - [ ] **Marcador:**
+  - [ ] **Marcador:** [Marcador.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/marcador.cpp)
   
 **Primer Avance: Aldana**
 
