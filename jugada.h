@@ -34,6 +34,14 @@ class jugada(){
 		//post: la columna queda registrada con el dato recibido.
 		void asignarColumna(int columna);
 	
+	        //pre: se pasa por parametro un puntero a la matriz que contiene el mapa.
+	        //post: se registra en el atributo mapa el valor pasado por referencia.
+	        void jugada::asignarMapa(matriz* matrizMapa){
+	    
+	        //pre: se pasa por parametro un puntero a la matriz que contiene el tablero.
+	        //post: se registra en el atributo tablero el valor pasado por referencia.
+			
+		void jugada::asignarTablero(matriz* matrizTablero){
 		//pre: 
 		//post: segun la opcion que se registro anteriormente se realizara la jugada, es
 		//decir, se destapara la casilla, se marcara esta, o se retirara el jugador, se 
