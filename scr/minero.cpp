@@ -24,14 +24,14 @@ void Minero::Minero(){
 	dificultad='F';
 }
 
-void Minero::Minero(int filaRecibida, int columnaRecibida, char dificultadRecibida){
+void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida){
 
-	dimFila = filaRecibida;
-	dimColumna = columnaRecibida;
+	dimFila = dimFilaRecibida;
+	dimColumna = dimColumnaRecibida;
 	dificultad = dificultadRecibida;
 }
 
-void Minero::sembrarMinas(int mapa[][]){
+Mina* Minero::sembrarMinas(int mapa[][]){
 
 	int totalCeldas = dimFila*dimColumna;
 	int totalMinas;
