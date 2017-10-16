@@ -22,6 +22,12 @@ public:
   
   // algún método para ver los alrededores, 'o algo así' ^_^
   
-  bool estaJuntoAMina(uint uint fila, uint columna);
+  /* Pre: recibe fila y columna de un casillero.
+  * Post: devuelve si la casilla pasada está junto a una mina. */
+  bool estaJuntoAMina(uint fila, uint columna);
+  
+  /* Pre: recibe fila y columna de un casillero.
+  * Post: devuelve si en la casilla con fila y columna pasados por parámetro hay o no una mina. */
+  bool esMina(uint fila, uint columna);
 
 };
