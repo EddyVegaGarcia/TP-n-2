@@ -10,10 +10,10 @@ void Casilla::asignarValor(char valor){
   this->valor=valor;
 }
 
-Casilla::Casilla(uint fila, uint columna){
+Casilla::Casilla(uint fila, uint columna, Mapa* mapa){
   asignarFila(fila);
   asignarColumna(columna);
-  
+  calcularValor(fila, columna, mapa);
 }
   
 uint Casilla::obtenerFila(){
@@ -26,4 +26,8 @@ uint Casilla::obtenerColumna(){
 
 char Casilla::obtenerValor(){
   return valor;
+}
+
+void Casilla::calcularValor(uint fila, uint columna, Mapa* mapa){
+  
 }
