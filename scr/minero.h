@@ -14,6 +14,7 @@ private:
 	int dimFila;
 	int dimColumna;
 	char dificultad;
+	Mina* punteroAMinas;
 
 	//pre:  --
 	//post: --
@@ -38,7 +39,16 @@ public:
 	//pre:  --
 	//post: siembra minas en el mapa de juego segun la dificultad
 	void sembrarMinas(int mapa[][]);
-
+	
+	//pre: recibe la cantidad de minas qu ese deben crear
+	//post: crea un vector de mminas con la cantidad indicada y devuelve
+	//un puntero a este vector
+        Mina* Minero::crearVectorMinasVacias(uint cantidadMinas);
+	 //pre:recibe como parametro el numero de la casilla que quiere transformar, 
+	// y una referencia a la dim y la col que va a cambiar.
+	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
+	//modifica los valores pasados por referencia con estos.
+	void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener);
 };
 
 
