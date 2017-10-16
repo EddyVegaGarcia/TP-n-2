@@ -19,7 +19,7 @@ char Minas::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
            valor ++;
        }
     }
-    while(minasAlmacenadas->avanzarCursor() &&  !minaActual.esMina(filaCasilla, columnaCasilla))
+    while(minasAlmacenadas->avanzarCursor() &&  !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9')
     if (minaActual.esMina(filaCasilla, columnaCasilla)){
         valor = MINA;
     }  
