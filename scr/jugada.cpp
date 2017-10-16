@@ -36,7 +36,7 @@ using namespace std;
 		
 		if(this->opcion=='m' || this->opcion=='M'){
 			
-			marcador(this->mapa , this->tablero);
+			marcador(this->mapa*);
 			
 			puntos = marcador.marcar(this->fila , this ->columna);
 			
