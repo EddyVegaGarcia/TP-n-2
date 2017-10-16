@@ -10,32 +10,28 @@ class Arbitro{
 
 private:
 
-	char* listaJugadores; //podria ser *string, tendriamos que ver bien eso
+	Lista jugadores; //podria ser *string, tendriamos que ver bien eso
+	Lista eliminados;
+	Jugador* jugadorActual;
 
 public:
-	
-	//constructor default, apunta a una lista de un solo jugador
-	Arbitro();
-	
-	//constructor con parámetro
+
+	//pre: cantidadJugadores >= 1
+	//post: crea los jugadores y los enlista
 	Arbitro(int cantidadJugadores);
-	
-	//pre: jugador no repetido
-	//post: 
-	void asignarJugadores;
-	
+
 	//pre:
 	//post: avanza el turno al jugador siguiente
 	void avanzarJugador();
-	
+
 	//pre:
 	//post: verifica si el respectivo jugador gano la partida
-	bool haGanado(Jugador aVerificar);
-	
+	bool haGanado(Jugador aVerificar); //no lo hice
+
 	//pre:
 	//post: muestra por pantalla al jugador en turno
 	void mostrarJugador;
-	
+
 	//pre:
 	//post: elimina al jugador en turno
 	void eliminarJugador;
