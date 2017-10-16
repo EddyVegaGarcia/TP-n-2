@@ -1,5 +1,6 @@
 #include "minas.h"
 #include "minero.h"
+#include "lista.h"
 const char MINA 'X';
 
 
