@@ -6,10 +6,11 @@ private:
   mina* minasAlmacenadas[];
 public:
 
-  //pre: recibe la cantidad de minas que se deben crear.
+  //pre: recibe la dimension de las filas, la dimension de las columnas y 
+  //la dificultad como parametro.
   //post: crea un vector de objetos tipo mina y se asigna un 
   //puntero a dicho vector.
-  Minas(uint cantidadMinas);
+  Minas(uint dimFilas, uint dimcolumnas, uint dificultad);
   
   //pre: recibe la fila y columna de una posiccion valida dentro del 
   //campo de juego.
