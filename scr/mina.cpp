@@ -29,5 +29,5 @@ bool Mina::estaJuntoAMina(uint filaAComparar, uint columnaAComparar){
     }
   }
   
-  retun estaAlrededor;
+  return estaAlrededor;
 }
