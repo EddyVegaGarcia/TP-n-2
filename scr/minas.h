@@ -3,7 +3,7 @@ tipedef unsigned int uint;
 
 class Minas{
 private:
-  mina* minasAlmacenadas;
+  lista<mina>* minasAlmacenadas;
 public:
 
   //pre: recibe la dimension de las filas, la dimension de las columnas y 
