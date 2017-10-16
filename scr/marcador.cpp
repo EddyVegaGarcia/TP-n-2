@@ -5,7 +5,7 @@
 using namespace std;
 
 //constructor
-Marcador::Marcador()
+Marcador::Marcador(mapa* mapa)
 {
 
   crearclases();
@@ -28,7 +28,7 @@ void Marcador::crearclases()
 //Separado por metodos para mejor claridad
 
 /no es necesario la fila y columnas porque ya lo obtube em el contructor
-void Marcador::marcar() 
+int Marcador::marcar(uint fila, uint columna) 
 {
   
   char bandera = B;
