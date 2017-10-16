@@ -29,9 +29,9 @@ Buscaminas versión 2.0
   
   - [ ] **Jugada:** [Jugada.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/jugada.cpp)
   
-  - [ ] **Mina:** [Mina.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/mina.h)
+  - [ ] **Mina:** [Explsion.h](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/explosion.h)
   
-  - [ ] **Mina:** [Mina.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/mina.cpp)
+  - [ ] **Mina:** [Explosion.cpp](https://github.com/EddyVegaGarcia/TP-n-2/blob/master/scr/explicacion.cpp)
   
 **Primer Avance: Matias**
 
