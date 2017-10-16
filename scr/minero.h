@@ -38,7 +38,7 @@ public:
 
 	//pre:  --
 	//post: siembra minas en el mapa de juego segun la dificultad
-	void sembrarMinas(int mapa[][]);
+	Mina* sembrarMinas(int mapa[][]);
 	
 	//pre: recibe la cantidad de minas qu ese deben crear
 	//post: crea un vector de mminas con la cantidad indicada y devuelve
