@@ -31,3 +31,11 @@ bool Mina::estaJuntoAMina(uint filaAComparar, uint columnaAComparar){
   
   return estaAlrededor;
 }
+
+bool Mina::esMina(uint filaAComparar, uint columnaAComparar){
+  bool hayMina=false;
+  if (this->fila==filaAComparar && this->columna==columnaAComparar)
+    hayMina=true;
+  return hayMina;
+}
+
