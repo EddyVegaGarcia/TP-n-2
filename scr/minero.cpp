@@ -31,13 +31,13 @@ void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultad
 	dificultad = dificultadRecibida;
 }
 
-Mina* Minero::sembrarMinas(int mapa[][]){
+lista<Mina>* Minero::sembrarMinas(){//ver parametrs
 
 	int totalCeldas = dimFila*dimColumna;
 	int totalMinas;
 
 	totalMinas = asignarNumeroMaximoMinas(totalCeldas);
-        minas asignarMinasAleatorias(mapa,totalCeldas,totalMinas);
+        minas asignarMinasAleatorias(totalCeldas,totalMinas);
         return punteroAMinas;
 }
 
@@ -52,7 +52,7 @@ int Minero::asignarNumeroMaximoMinas(int totalCeldas){
 	return maximoMinas;
 }
 
-void Minero::asignarMinasAleatorias(int mapa[][],int celdas,int minas){
+void Minero::asignarMinasAleatorias(int celdas,int minas){
 
 
 	srand (time(NULL)); //la semilla deberia ir en el main CREO
