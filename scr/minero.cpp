@@ -1,5 +1,5 @@
 
-
+typedef unsigned int uint;
 
 #include "minero.h"
 
@@ -37,8 +37,8 @@ Mina* Minero::sembrarMinas(int mapa[][]){
 	int totalMinas;
 
 	totalMinas = asignarNumeroMaximoMinas(totalCeldas);
-	asignarMinasAleatorias(mapa,totalCeldas,totalMinas);
-
+        minas asignarMinasAleatorias(mapa,totalCeldas,totalMinas);
+        return punteroAMinas;
 }
 
 int Minero::asignarNumeroMaximoMinas(int totalCeldas){
@@ -77,4 +77,20 @@ void Minero::asignarMinasAleatorias(int mapa[][],int celdas,int minas){
 		tope--;
 	}
 }
+
+Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
+	
+	vectorMinas = new Mina[cantidadMinas];
+	 return vectorMinas;
+    
+}
+
+void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener){
+	
+        filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
+	colAObtener = this->dimColumna (2- filaAObtener);
+
+}
+
+
 
