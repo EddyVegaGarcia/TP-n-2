@@ -21,5 +21,7 @@ public:
   uint obtenerColumna();
   
   // algún método para ver los alrededores, 'o algo así' ^_^
+  
+  bool estaJuntoAMina(uint uint fila, uint columna);
 
-}
+};
