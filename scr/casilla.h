@@ -21,8 +21,8 @@ public:
   /* Post: devuelve el valor */
   char obtenerValor();
 
-  void asignarFila();
-  void asignarColumna();
-  void asignarValor();
+  void asignarFila(uint fila);
+  void asignarColumna(uint columna);
+  void asignarValor(char valor);
 
 };
