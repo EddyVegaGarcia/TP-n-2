@@ -81,6 +81,8 @@ void Minero::asignarMinasAleatorias(int mapa[][],int celdas,int minas){
 Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
 	
 	vectorMinas = new Mina[cantidadMinas];
+	//asigno al atributo el vector a las minas creadas.
+	this->punteroAMinas = vectorMinas;
 	 return vectorMinas;
     
 }
