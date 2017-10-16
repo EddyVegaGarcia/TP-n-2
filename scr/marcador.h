@@ -13,6 +13,7 @@ class Destapador{
 		int puntaje;
 		int filaJugada;
 		int columnaJugada;
+	        mapa* mapa;
 	
 	public:
 		//Metodos
