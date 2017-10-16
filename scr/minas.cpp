@@ -7,7 +7,7 @@ const char MINA 'X';
 Minas::Minas(uint dimFilas, uint dimColumnas, uint dificultad){
     
     Minero minero(dimFilas , dimColumnas , dificultad);
-    Mina* puntero = minero.sembrarMinas();
+    lista<Mina>* puntero = minero.sembrarMinas();
     this->minasAlmacenadas = puntero;
 }
 char Minas::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
