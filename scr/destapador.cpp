@@ -5,31 +5,22 @@
 using namespace std;
 
 //constructor
-Destapador::Destapador ()
+Destapador::Destapador (mapa* matrizMapa, tablero* matrizTablero)
 {
 
-  crearclases();
-  filaJugada -> jugada.obtenerfilaJugada(); //Falta crear el obtener de Jugada
-  columnaJugada -> jugada.obtenerColumnaJugada(); //Falta
-  puntaje = 0;
+  this->mapa = matrizMapa;
+  this->tablero = matrizTablero;
+  this->fila = 0
+  this->columna = 0
+  this->puntaje = 0;
   
-  
-}
-
-//Creo punteros a las clases (sugerencias)
-void Destapador::crearclases()
-{
-
-  Jugada jugada;
-  Mapa mapa;
-  Tablero tablero;
   
 }
 
 //Separado por metodos para mejor claridad
 
-//no es necesario la fila y columnas porque ya lo obtube en el contructor
-void Destapador::destapar() 
+
+void Destapador::destapar(int filaJugada, int columnaJugada) 
 {
   
   if(mapa.validarVacio(this->filaJugada, this->columnaJugada))
