@@ -8,42 +8,52 @@ using namespace std;
 Marcador::Marcador(mapa* mapa)
 {
 
-  crearclases();
-  filaJugada -> jugada.obtenerfilaJugada(); //Falta crear el obtener de Jugada
-  columnaJugada -> jugada.obtenerColumnaJugada(); //Falta
+  filaJugada = 0;
+  columnaJugada = 0;
   puntaje = 0;
+  this->mapa = mapa;
   
  }
- 
-//Creo punteros a las clases (sugerencias)
-void Marcador::crearclases()
-{
 
-  Jugada jugada;
-  Mapa mapa;
-  Tablero tablero;
-  
-}
 
 //Separado por metodos para mejor claridad
 
-/no es necesario la fila y columnas porque ya lo obtube em el contructor
-int Marcador::marcar(uint fila, uint columna) 
+int Marcador::marcar(int filaJugada, int columnaJugada) 
 {
   
-  char bandera = B;
+  char bandera = 'B';
+  char vacio = ' ';
+  this->fila = filaJugada;
+  this->columna = columnaJugada;
   
-  if(!tablero.estaRevelado(this->filaJugada, this->columnaJugada))
+  if(!tablero.estaRevelado(this->filaJugada, this->columnaJugada) && !mapa.validarMina(this->filaJugada, this->columnaJugada))
   {
-    tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, bandera);
-    puntaje (....)
+    
+    puntaje++;
+    
   }
-  else(tablero.obtenerCasilla(this->filaJugada, this->columnaJugada) == bandera)
+  else 
   {
-    //constructor copia tablero
-    tablero.tablero(this->filaJugada, this->columnaJugada);
-    puntaje(....)
+    
+    puntaje--;
+    
+  } 
+  tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, bandera);
+  
+  
+  if((tablero.obtenerCasilla(this->filaJugada, this->columnaJugada) == bandera) && !mapa.validarMina(this->filaJugada, this->columnaJugada))
+  {
+   
+    tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, vacio);
+    puntaje+=2;
+    
   }
+  else
+  {
+    tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, vacio);
+    puntaje-=2;
+    
+  } 
    
 }
 
