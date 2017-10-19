@@ -1,11 +1,6 @@
 #ifndef MARCADOR_H_
 #define MARCADOR_H_
 
-#include "jugada.h"
-#include "mapa.h"
-#include "tablero.h"
-#include "mina.h"
-
 class Destapador{
 	
 	private:
@@ -23,14 +18,14 @@ class Destapador{
 		 *
 		 * Post: Se asigna la ubicacion que se desea marcar y se inicializa puntaje en 0.
 		 */
-		Marcador();
+		Marcador(mapa* matrizMapa, tablero* matrizTablero);
 		
 		/*
 		 *Pre: 
 		 *
 		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
 		 */
-		void marcar();
+		void marcar(int filaJugada, int columnaJugada);
 			
 		
 		/*
