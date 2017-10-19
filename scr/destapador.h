@@ -23,14 +23,14 @@ class Destapador{
 		 * Post: Se asigna la ubicacion que se desea destapar y se inicializa puntaje en 0.
 		 *Se crea clases para poder utilizarlas.
 		 */
-		Destapador ();
+		Destapador (mapa* matrizMapa, tablero* matrizTablero);
 		
 		/*
 		 *Pre: 
 		 *
 		 * Post: Descubre la casilla y efectua segun las tres tipos (vacia, enumerada, mina)
 		 */
-		void destapar();
+		void destapar(int filaJugada, int columnaJugada);
 		
 
 		
