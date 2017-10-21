@@ -1,69 +1,50 @@
 
 
 #include "destapador.h"
+#include "constantes.h"
 
 using namespace std;
 
+		
 //constructor
-Destapador::Destapador (mapa* matrizMapa, tablero* matrizTablero)
+Destapador::Destapador (mapa* mapaActual)
 {
 
-  this->mapa = matrizMapa;
-  this->tablero = matrizTablero;
+  this->mapa = mapaActual;
   this->fila = 0
   this->columna = 0
-  this->puntaje = 0;
   
   
-}
-
-//Separado por metodos para mejor claridad
-
-
-void Destapador::destapar(int filaJugada, int columnaJugada) 
-{
-  
-  if(mapa.validarVacio(this->filaJugada, this->columnaJugada))
-    destaparPandemia();
-  else  
-    destaparCasilla();
   
 }
 
-void Destapar::destaparPandemia()
+//metodos publicos
+int Destapador::destapar(int filaJugada, int columnaJugada) 
 {
-  //recursivo mati ayuda XD
+	int puntaje = 0;
+	this->fila =  filaJugada;
+ 	this->columna = columnaJugada;
+	
+	if(!mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
+		mapa->agregarCasillaDestapada(this->fila, this->columna);
+		char valorCasilla = mapa->obtenerValorCasilla();
+		if(valorCasilla = VACIO)
+		{
+			destaparPandemia();
+		}
+		else
+		{
+			puntaje  = destaparCasillaNoVacia(valorCasilla, *puntaje);
+		}
+	}
+	return  puntaje;
 }
 
-void Destapar::destaparCasilla()
+
+//metodos privadas
+int Destapar::destaparPandemia()
 {
-
-  //creo una variable para pasarlo por ṕarametro(no se enviarlo de frente)
-  char valorCasilla-> mapa.obtenerCasilla(this->filaJugada, this->columnaJugada);
-  tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, detectorMinas);
-  
-  asignarPuntaje();
-
-}
-
-
-//Si es bomba o si es enumerada
-void Destapar::asignarPuntaje()
-{
-
-  if(!mapa.validarMina(this->filaJugada, this->columnaJugada))
-    puntaje++; //no lo se.
-  else
-    puntaje...
-
-}
-
-int Destapar::obtenerPuntajePorRevelar()
-{
-
-  return puntaje;
-
-}
+	
 
 void epidemia(char tablaMinada[][ancho],char tablaBloqueada[][ancho],int fila, int columna,int &contadorCeldas){
 	//si hay un cero, desbloquea los alrededores hasta encontrarse con un numero distinto de cero (recursiva)
@@ -92,4 +73,20 @@ void epidemia(char tablaMinada[][ancho],char tablaBloqueada[][ancho],int fila, i
 
 		}
 	}
+}
+ 
+}
+
+int Destapar::destaparCasillaNoVacia(char valorCasilla)
+{
+	
+	int puntaje = 0;
+  	
+	if(valorCasilla == MINA)
+	{
+		puntaje = PERDIO_PARTIDA;	
+	}
+	
+	return puntaje;
+	
 }
