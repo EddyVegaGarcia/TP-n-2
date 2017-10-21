@@ -8,22 +8,26 @@ Menu::Menu(){
 	asignarColumna(0);
 	asignarDificultad(0);
 	asignarCantJugadores(0);
+	
+	pedirOpcionesDeJuegoAUser();
+	crearAmbiente();
+	
 }
 
-void Menu::asignarFila(uint fil){
-	fila=fil;
+void Menu::asignarFila(uint fila){
+	this->fila=fila;
 }
 
-void Menu::asignarColumna(uint col){
-	columna=col;
+void Menu::asignarColumna(uint columna){
+	this->columna=columna;
 }
 
-void Menu::asignarDificultad(char dif){
-	dificultad=dif;
+void Menu::asignarDificultad(char dificultad){
+	this->dificultad=dificultad;
 }
 
 void Menu::asignarCantJugadores(uint cant){
-	cantJugadores=cant;
+	this->cantJugadores=cant;
 }
 
 
@@ -45,6 +49,12 @@ uint Menu::obtenerCantJugadores(){
 
 
 // Interacción con user
+
+void Menu::pedirOpcionesDeJuegoAUser(){
+	pedirYAsignarDimensiones();
+	pedirYAsignarDificultad();
+	pedirYAsignarCantJugadores();
+}
 
 void Menu::pedirYAsignarDimensiones(){
 	uint filUser, colUser;
@@ -71,5 +81,8 @@ void Menu::pedirYAsignarCantJugadores(){
 	asignarCantJugadores(cantUser);
 }
 
-
-// void Menu::crearAmbiente(char matriz[][]){}
+void Menu::crearAmbiente(){
+	Mapa mapa(fila, columna, dificultad);
+	Mapa* punteroAMapa=&mapa;
+	Juez juez(punteroAMapa);
+}
