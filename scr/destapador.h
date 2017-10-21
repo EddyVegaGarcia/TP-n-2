@@ -7,7 +7,8 @@ class Destapador{
 		//Atributos
 		int filaJugada;
 		int columnaJugada;
-		int puntaje;
+		
+			
 	
 	public:
 		//Metodos
