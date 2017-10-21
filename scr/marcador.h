@@ -39,21 +39,9 @@ class Destapador{
 		/*
 		 *Pre:
 		 *
-		 *Post: Se obtiene el valor del puntaje al realizar la jugada marcar.
+		 Post: Se obtiene el valor del puntaje al realizar la jugada marcar.;
 		 */
-		int obtenerPuntajePorMarcar();
-		
-		
-	private:
-		//metodos privados.
-		
-		/*
-		 *Pre:
-		 *
-		 * Post: Crea clases para utilizar sus metodos.
-		 */
-		void crearClases();
-				
+		int obtenerPuntajePorMarcar()
 		
 };
 
