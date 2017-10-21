@@ -1,6 +1,14 @@
 include "jugada.h"
+include "constantes.h"
 
 using namespace std;
+        
+	jugada::jugada(mapa* mapaActual){
+		this->mapa = mapaActual;
+		this->fila = 0;
+		this->columna = 0;
+		this->puntaje = 0;
+	}
 
 	void jugada::asignarOpcion(char opcionDeUsuario){
 	    
@@ -19,17 +27,7 @@ using namespace std;
 		this->columna = columnaDeUsuario;
 	
 	}
-        void jugada::asignarMapa(matriz* matrizMapa){
-	    
-		this->mapa = matrizMapa;
-	
-	}
-	
-	void jugada::asignarTablero(matriz* matrizTablero){
-	    
-		this->tablero = matrizTablero;
-	
-	}
+  
 	int jugada::realizarJugada(){
 		
 		int puntos=0;
@@ -44,11 +42,11 @@ using namespace std;
 			
 			destapador(this->mapa , this->tablero);
 			
-			destapador.destapar(this->fila , this->columna);
+			puntos = destapador.destapar(this->fila , this->columna);
 		      
 		}else{
 			
-			arbitro.eliminarJugador();
+			puntos = SE_RETIRO
 		}
 		return puntos ;
 	}
