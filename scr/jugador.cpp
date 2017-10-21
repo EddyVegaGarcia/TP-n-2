@@ -20,7 +20,7 @@ int Jugador::obtenerPuntaje(){
 Jugador::Jugador(char letra, Mapa* punteroAMapa){
 	asignarAlias(letra);
 	asignarPuntaje(0);
-	asignarEstado();
+	asignarEstado(SIGUE_JUGANDO);
 	inicializarPunteroAJugada(punteroAMapa);
 }
 
@@ -33,8 +33,8 @@ void Jugador::asignarPuntaje(int puntos){
 	this->puntaje=puntos;
 }
 
-void Jugador::asignarEstado(){
-	this->haPerdido=false;
+void Jugador::asignarEstado(int estado){
+	this->estado=estado;
 }
 	
 	
@@ -58,9 +58,10 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarOpcion(opcionUser);
 	puntos = pJugada->realizarJugada();
 	
-	if (puntos!=PERDIO_PARTIDA){
+	if (puntos!=PERDIO_PARTIDA && PUNTOS!=SE_RETIRO){
 		puntos += obtenerPuntaje() 
 		modificarPuntaje(puntos);
-	} else
-		haPerdido=true;
+	} else {
+		asignarEstado(puntos);		
+	}
 }
