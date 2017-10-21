@@ -1,6 +1,9 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+# include "mapa.h"
+# include "juez.h"
+
 typedef unsigned int uint;
 
 class Menu {
@@ -8,7 +11,7 @@ private:
 	uint fila;
 	uint columna;
 	char dificultad;
-	int cantJugadores;
+	uint cantJugadores;
 
 	/* post: asigna "fil" al atributo fila */
 	void asignarFila(uint fil);
@@ -33,19 +36,6 @@ private:
 	/* post: pide a user la cantidad de jugadores y la asigna. */
 	void pedirYAsignarCantJugadores();
 
-	/// Inicializar matriz
-
-	/* Pre: recibe una matriz bidimensional
-	 * Post: la inicializa.*/
-	// void crearAmbiente(char matriz[][]);
-
-
-public:
-	
-	/* Constructor
-	 * post: crea un objeto menu, inicializa todos sus atributos en cero.*/
-	Menu();
-
 	/* Post: devuelve la cantidad de filas */
 	uint obtenerFila();
 
@@ -57,6 +47,24 @@ public:
 
 	/* Post: devuelve la cantidad de jugadores de la partida */
 	uint obtenerCantJugadores();
+	
+
+	/* Pre: Se llamò al mètodo pedirOpcionesDeJuegoAUser().
+	 * Post: Crea un objeto mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto juez.*/
+	void crearAmbiente();
+	
+	/* Pre:
+	* Post: pide opciones por pantalla al usuario.*/
+	void pedirOpcionesDeJuegoAUser();
+
+
+public:
+	
+	/* Constructor
+	 * post: crea un objeto menu, crea un objeto mapa pidiendo las opciones por pantalla al usuario y pasa su puntero a
+	 * un nuevo objeto juez.*/
+	Menu();
+
 
 };
 
