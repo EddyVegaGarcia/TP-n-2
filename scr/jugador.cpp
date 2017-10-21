@@ -5,8 +5,8 @@ using namespace std;
 
 
 // métodos púbicos
-void Jugador::modificarPuntaje(int punt){
-	puntaje+=punt;
+void Jugador::modificarPuntaje(int puntos){
+	this->puntaje+=puntos;
 }
 char Jugador::obtenerAlias(){
 	return alias;
@@ -17,11 +17,11 @@ int Jugador::obtenerPuntaje(){
 
 
 // constructor, inicializar
-Jugador::Jugador(char letra){
+Jugador::Jugador(char letra, Mapa* punteroAMapa){
 	asignarAlias(letra);
 	asignarPuntaje(0);
 	asignarEstado();
-	inicializarPuntero();
+	inicializarPunteroAJugada(punteroAMapa);
 }
 
 // métodos privados
@@ -38,8 +38,8 @@ void Jugador::asignarEstado(){
 }
 	
 	
-void Jugador::inicializarPuntero(){
-	Jugada jugada;
+void Jugador::inicializarPunteroAJugada(Mapa* punteroAMapa){
+	Jugada jugada(punteroAMapa);
 	this->pJugada=&jugada;
 }
 
