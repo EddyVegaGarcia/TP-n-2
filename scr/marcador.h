@@ -1,13 +1,15 @@
 #ifndef MARCADOR_H_
 #define MARCADOR_H_
 
+
+
 class Destapador{
 	
 	private:
 		//Atributos
 		int puntaje;
-		int filaJugada;
-		int columnaJugada;
+		int fila;
+		int columna;
 	        mapa* mapa;
 	
 	public:
@@ -27,22 +29,28 @@ class Destapador{
 		 */
 		void marcar(int filaJugada, int columnaJugada);
 			
-		
-		/*
-		 *Pre: Se pasa por parametro un valor entero valido.
-		 *
-		 * Post: Segun las reglas de juego se le asigna puntos segun si acertó con el marcador o no.
-		
-		void asignarPuntaje();
-		 */
+	privade:
 	
 		/*
-		 *Pre:
+		 *Pre: 
 		 *
-		 Post: Se obtiene el valor del puntaje al realizar la jugada marcar.;
+		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
 		 */
-		int obtenerPuntajePorMarcar()
+		int realizarMarca();
+	
+		/*
+		 *Pre: 
+		 *
+		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
+		 */
+		int desmarcarCasilla()
 		
+		/*
+		 *Pre: 
+		 *
+		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
+		 */
+		int marcarCasilla()
 };
 
 #endif /*MARCADOR_H_*/
