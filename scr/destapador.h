@@ -7,6 +7,8 @@ class Destapador{
 		//Atributos
 		int filaJugada;
 		int columnaJugada;
+		mapa* mapa;
+	
 		
 			
 	
