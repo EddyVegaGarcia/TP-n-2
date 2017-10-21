@@ -8,7 +8,7 @@ class Jugador {
 private:
 	char alias;
 	int puntaje;
-	bool haPerdido;
+	int estado;
 	Jugada* pJugada;
 
 	/* Pre: ningun jugador existente tiene por alias "letra".
@@ -27,8 +27,8 @@ private:
 	/* Post: crea un objeto jugada y apunta pJugada a jugada. */
 	void inicializarPunteroAJugada(Mapa* punteroAMapa);
 	
-	/* Post: inicializa el estado del jugador, no ha perdido. */
-	void asignarEstado(){
+	/* Post: inicializa el estado del jugador (sigue jugando, se retiro, perdio partida). */
+	void asignarEstado(int estado){
 
 	/* Pre:
 	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
