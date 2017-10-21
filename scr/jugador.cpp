@@ -1,4 +1,5 @@
 #include "jugador.h"
+# include "constantes.h"
 # include <iostream>
 using namespace std;
 
