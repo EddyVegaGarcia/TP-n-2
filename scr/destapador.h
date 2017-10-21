@@ -18,12 +18,11 @@ class Destapador{
 		//Metodos
 		
 		/*
-		 *Pre:
+		 *Pre:recibe un puntero al mapa del cual va a destapar 
 		 *
-		 * Post: Se asigna la ubicacion que se desea destapar y se inicializa puntaje en 0.
-		 *Se crea clases para poder utilizarlas.
+		 * Post: se guarda la casilla destapada y su valor en el mapa para mostrarse
 		 */
-		Destapador (mapa* matrizMapa, tablero* matrizTablero);
+		Destapador (mapa* Mapa);
 		
 		/*
 		 *Pre: 
@@ -31,8 +30,8 @@ class Destapador{
 		 * Post: Descubre la casilla y efectua segun las tres tipos (vacia, enumerada, mina)
 		 */
 		void destapar(int filaJugada, int columnaJugada);
-		
-
+			
+	private:
 		
 		/*
 		 *Pre:
@@ -64,22 +63,7 @@ class Destapador{
 		void asignarPuntaje();
 	
 	
-		/*
-		 *Pre:
-		 *
-		 *Post: Se obtiene el valor del puntaje al realizar la jugada revelar.
-		 */
-		int obtenerPuntajePorRevelar();
-	
-	private:
-	
-		/*
-		 *Pre:
-		 *
-		 * Post: Crea clases para utilizar sus metodos.
-		 */
-		void crearClases();
-		 
+		
 		 
 };
 
