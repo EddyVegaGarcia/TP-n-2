@@ -1,17 +1,18 @@
 
 
 #include "marcador.h"
+#include "constante.h"
 
 using namespace std;
 
 //constructor
-Marcador::Marcador(mapa* mapa)
+Marcador::Marcador(mapa* mapaActual)
 {
 
-  filaJugada = 0;
-  columnaJugada = 0;
-  puntaje = 0;
-  this->mapa = mapa;
+  this->fila = 0;
+  this->columna = 0;
+  this->puntaje = 0;
+  this->mapa = mapaActual;
   
  }
 
@@ -20,46 +21,75 @@ Marcador::Marcador(mapa* mapa)
 
 int Marcador::marcar(int filaJugada, int columnaJugada) 
 {
-  
-  char bandera = 'B';
-  char vacio = ' ';
+  int puntaje = 0;
   this->fila = filaJugada;
   this->columna = columnaJugada;
+
+  if(!mapa->estaDestapadaLaCasilla(this->fila , this->columna)){
+    
+    puntaje = realizarMarca();
   
-  if(!tablero.estaRevelado(this->filaJugada, this->columnaJugada) && !mapa.validarMina(this->filaJugada, this->columnaJugada))
-  {
-    
-    puntaje++;
-    
   }
-  else 
+  
+  return puntaje;
+ 
+}
+
+int Marcador::realizarMarca(){
+  
+  if(mapa->validarMarca(this->fila , this->columna))
   {
     
-    puntaje--;
-    
-  } 
-  tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, bandera);
-  
-  
-  if((tablero.obtenerCasilla(this->filaJugada, this->columnaJugada) == bandera) && !mapa.validarMina(this->filaJugada, this->columnaJugada))
-  {
-   
-    tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, vacio);
-    puntaje+=2;
+    this->puntaje = desmarcarCasilla();
     
   }
   else
   {
-    tablero.asignarValorCasilla(this->filaJugada, this->columnaJugada, vacio);
-    puntaje-=2;
-    
-  } 
-   
-}
-
-int Destapar::obtenerPuntajePorMarcar()
-{
-
+     this->puntaje = marcarCasilla();
+  }
+  
+  
   return puntaje;
-
 }
+
+
+int Marcador::desmarcarCasilla()
+{
+ 
+  mapa->removerMarca(this->fila , this->columna);
+    
+  if(!mapa->validarMina(this->fila , this->columna)
+  {
+    puntaje-=2;
+  }
+  else
+  {
+  
+    puntaje+=2;
+  
+  }
+     
+     
+  return puntaje;
+}
+     
+int Marcador::marcarCasilla()
+{
+  
+  mapa->colocarMarca(this->fila , this->columna);
+  
+  if(!mapa->validarMina(this->fila , this->columna)
+  {
+    puntaje--;
+  }
+  else
+  {
+  
+    puntaje++;
+  
+  } 
+  
+  return puntaje;
+  
+} 
+
