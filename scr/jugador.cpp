@@ -19,26 +19,32 @@ int Jugador::obtenerPuntaje(){
 Jugador::Jugador(char letra){
 	asignarAlias(letra);
 	asignarPuntaje(0);
+	asignarEstado();
 	inicializarPuntero();
 }
 
 // métodos privados
 void Jugador::asignarAlias(char letra){
-	alias=letra;
+	this->alias=letra;
 }
 
 void Jugador::asignarPuntaje(int puntos){
-	puntaje=puntos;
+	this->puntaje=puntos;
 }
 
+void Jugador::asignarEstado(){
+	this->haPerdido=false;
+}
+	
+	
 void Jugador::inicializarPuntero(){
 	Jugada jugada;
-	pJugada=&jugada;
+	this->pJugada=&jugada;
 }
 
 
 void Jugador::iniciarJugada(){
-	int filaUser, colUser;
+	uint filaUser, colUser;
 	char opcionUser;
         int puntos = 0;
 	cout << "Ingrese 'i j o', donde i y j son el num de fila y columna, y o es la opcion:" << endl;
@@ -50,7 +56,10 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarColumna(colUser);
 	pJugada->asignarOpcion(opcionUser);
 	puntos = pJugada->realizarJugada();
-	puntos += obtenerPuntaje() 
-	modificarPuntaje(puntos);
-
+	
+	if (puntos!=HAGANADO){
+		puntos += obtenerPuntaje() 
+		modificarPuntaje(puntos);
+	} else
+		haPerdido=true;
 }
