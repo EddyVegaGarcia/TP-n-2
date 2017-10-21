@@ -50,7 +50,7 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarColumna(colUser);
 	pJugada->asignarOpcion(opcionUser);
 	puntos = pJugada->realizarJugada();
-	puntos =+ obtenerPuntaje() 
+	puntos += obtenerPuntaje() 
 	modificarPuntaje(puntos);
 
 }
