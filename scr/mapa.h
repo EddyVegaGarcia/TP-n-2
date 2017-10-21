@@ -18,6 +18,28 @@ class Mapa(){
 	
 	public:
 		//constructor
+		//pre: recibe como parametro la dim de las filas, la dim de las columnas y la dificultad
+		//post: 
+		void mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+		
+		
+		void mostrarMapa();
+		
+		
+		void mostrarMapa();
+		
+		agregarCasillaDestapada(int filaRecibida,int colRecibida);
+		
+		char obtenerValorCasilla();
+		
+		Lista<Minas>* obtener punteroMinas();
+		
+		Lista<Minas>* obtener punteroMinas();
+		
+		Lista<Minas>* obtener punteroBanderas();
+		
+		bool validarMina(unsigned int fila, unsigned int columna);
+		
 		void mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 			
 			this-> dimFila = filaRecibida;
@@ -69,16 +91,10 @@ class Mapa(){
 					std::endl;
 			}
 		
-		bool estaDestapadaLaCasilla(int filaRecibida,int colRecibida){
-			
-			bool revisarDestapada = this-> pMinas -> buscarValor(filaRecibida, colRecibida));
-			return revisarDestapada;
-		};
-		
 		agregarCasillaDestapada(int filaRecibida,int colRecibida){
 			
 			this-> pMinas-> agregarValor(pMinas->ultimo);
-		};
+		}
 		
 		//pre: lista casillas no vacia
 		//post: devuelve valor de la ultima casilla
@@ -92,7 +108,7 @@ class Mapa(){
 			return this-> pMinas
 		}
 		
-		Lista<Minas>* obtener punteroCasillasDestapadas(){
+		Lista<Minas>* obtener punteroMinas(){
 			
 			return this-> pCasillasDestapadas;
 		}
