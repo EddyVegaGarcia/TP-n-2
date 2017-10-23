@@ -142,27 +142,54 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 /////// Métodos en construccin ///////////////////////////
 //////////////////////////////////////////////////////////
 
-/* De alguna forma se debería llamar al remover ya con la posición.*/
-
-/* en destapador dicen if validarMarca (o sea si está en la lista de banderas) entonces removerMarca.
+/* en marcador dicen if validarMarca (o sea si está en la lista de banderas) entonces removerMarca.
 * Se estaría recorriendo dos veces. Si yo ya encontré la posición cuando me preguntaron si estaba o no, debería poder
 * llamar al remover marca ya con la posicin para no hacerlo buscar de nuevo.*/
 void Mapa::removerMarca(uint filaRecibida, uint columnaRecibida){
-	uint posicion;
-	posicion=obtenerPosicionDeMarca(pBanderas, filaRecibida, columnaRecibida); // ya debería tener la posición
 	pBanderas->remover(posicion);
 }
-
-uint Mapa::obtenerPosicionDeMarca(Lista<Bandera>* pBanderas, uint filaRecibida, uint columnaRecibida){
-}
 	
+/* Propongo que este método vea si está y si está la remueva.
+* De esa forma ya tiene la posción y no se recorre dos veces. Habría que cambiarle una línea al marcador.*/
+bool Mapa::validarMarca(unsigned int fila, unsigned int columna){
+	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
+	if (seEncuentra) {remover(fila, columna)};
+	return seEncuentra;
+}	
 
-/*validarMina, estaDestapadaLaCasilla, validarMarca. Hay que buscar en las listas*/
+bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
+	return (seEncuentraEnLista('b', fila, columna));
+}
+
+bool Mapa::seEncuentraEnLista(char lista, uint &fila, uint &columna){
+	if (lista=='b'){
+		Lista<Bandera>* pLista=pBanderas;
+		Bandera elementoActual;
+	}
+	else if (lista=='c'){
+		Lista<Casilla>* pLista=pCasillasDestapadas;
+		Casilla elementoActual;
+	}
+	else {// lista es 'm'
+		Lista<Mina>* pLista=pMinas;
+		Mina elementoActual;
+	}
+	
+	bool seEncuentra=false;
+	
+	/* elementoActual tiene fila y columna. Buscar comparando elemento->obtenerFila() con la fila q se pasó x parámetro*/
+	/*por ejemplo
+	* plista->iniciarCursor();
+	* while (pLista->avanzarCursor() &&
+	* Pero no s si lo quieren hacer secuenciaaaal o cómo. Tengo sueño, hasta mañana ^_^ */
+	
+	return seEncuentra;
+}
+
+/*validarMina, estaDestapadaLaCasilla, Hay que buscar en las listas*/
 bool Mapa::validarMina(unsigned int fila, unsigned int columna){
+	
 }
 
 bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
-}
-	
-bool Mapa::validarMarca(unsigned int fila, unsigned int columna){
 }
