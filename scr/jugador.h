@@ -11,11 +11,6 @@ private:
 	int estado;
 	Jugada* pJugada;
 
-	/* Pre: ningun jugador existente tiene por alias "letra".
-	 * Post: crea un jugador. Crea una jugada y asigna su dirección al puntero pJugada.
-	 * inicializa alias en letra y puntaje en cero. */
-	Jugador(char letra, Mapa* punteroAMapa);
-
 	/* Pre: "letra" no es alias de ningun otro jugador.
 	 * Post: asigna letra al atributo alias.*/
 	void asignarAlias(char letra);
@@ -29,13 +24,12 @@ private:
 	
 	/* Post: inicializa el estado del jugador (sigue jugando, se retiro, perdio partida). */
 	void asignarEstado(int estado){
-
-	/* Pre:
-	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
-	void iniciarJugada();
-
-
+	
 public:
+	/* Pre: ningun jugador existente tiene por alias "letra".
+	 * Post: crea un jugador. Crea una jugada y asigna su dirección al puntero pJugada.
+	 * inicializa alias en letra y puntaje en cero. */
+	Jugador(char letra, Mapa* punteroAMapa);
 
 	/* Pre: recibe punt de tipo int.
 	 * Post: suma punt a puntaje. */
@@ -46,6 +40,10 @@ public:
 
 	/* Post: devuelve el puntaje del jugador. */
 	int obtenerPuntaje();
+	
+	/* Pre:
+	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
+	void iniciarJugada();
 
 };
 
