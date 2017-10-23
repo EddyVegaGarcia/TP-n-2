@@ -1,6 +1,4 @@
 # include "mapa.h"
-# include "lista.h"
-
 
 Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
@@ -30,6 +28,20 @@ void Mapa::crearListaBanderasYAsignarPuntero(){
 	Lista<Bandera> banderas;
 	this->pBanderas=&banderas;
 }	
+
+
+Lista<Mina>* Mapa::obtenerPunteroMinas(){
+	return this-> pMinas
+}
+
+Lista<Casilla>* Mapa::obtenerPunteroMinas(){
+	return this-> pCasillasDestapadas;
+}
+
+Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
+	return this-> pBanderas;
+}
+
 
 void Mapa::mostrarMapa(){
 
@@ -75,41 +87,59 @@ void Mapa::mostrarMapa(){
 			std::endl;
 	}
 
-void Mapa::agregarCasillaDestapada(int filaRecibida,int colRecibida){
-
-	this-> pMinas-> agregar(pMinas->ultimo); // no se puede hacer pMinas->ultimo
-	// ultimo es atributo privado (y no hay metodo obtenerUltimo), qué quieren hacer, agregar el último elemento     a dónde?
-	// no sé qué quisieron hacer. Sería así:
+/* esto tiene que ser char, calculo el valor acá, no tiene sentido pasarselo a otro método que solo lo devuelva
+* antes habían dicho de separalo en dos pero xq un método la iba a agregar, se iba a calcular el valor
+* y dsp otro método iba a obtener ese valor. Ahora calculamos el valor acá, ya se agrega con el valor calculado,
+* tiene sentido que este método sea char si ya tiene el valor que va a devolver.*/
+void Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida){
 	
-	/* Casilla casillaPorAgregar;
-	* casillaPorAgregar.asignarFila(filaRecibida);
-	* casillaPorAgregar.asignarColumna(columnaRecibida);
-	* this -> pMinas -> agregar(casillaPorAgregar);
-	*/
+	char valor='0';
+	/* calcular el valor que va a tener la casilla */
+	Casilla casillaPorAgregar(filaRecibida, columnaRecibida, valor);
+	this -> pMinas -> agregar(casillaPorAgregar);
 }
 
 //pre: lista casillas no vacia
 //post: devuelve valor de la ultima casilla
+/* Ahora que agregarCasillaDestapada devuelve char, este método sobra.*/
 char Mapa::obtenerValorCasilla(){
 
 	*Casilla punteroCasilla = this -> pMinas -> obtenerPuntero();
 	return *punteroCasilla;
+/*(Arriba es "Casilla*"). (Sería punteroCasilla->obtenerValor(), para q dev char. Igual ya lo puede hacer el otro método.*/
 
 }
-
-Lista<Mina>* Mapa::obtenerPunteroMinas(){
-	return this-> pMinas
+	
+void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
+	Bandera banderaAColocar(filaRecibida, columnaRecibida);
+	this -> pBanderas -> agregar(banderaAColocar);
 }
 
-Lista<Casilla>* Mapa::obtenerPunteroMinas(){
-	return this-> pCasillasDestapadas;
+//////////////////////////////////////////////////////////
+/////// Métodos en construccin ///////////////////////////
+//////////////////////////////////////////////////////////
+
+/* De alguna forma se debería llamar al remover ya con la posición.*/
+
+/* en destapador dicen if validarMarca (o sea si está en la lista de banderas) entonces removerMarca.
+* Se estaría recorriendo dos veces. Si yo ya encontré la posición cuando me preguntaron si estaba o no, debería poder
+* llamar al remover marca ya con la posicin para no hacerlo buscar de nuevo.*/
+void Mapa::removerMarca(uint filaRecibida, uint columnaRecibida){
+	uint posicion;
+	posicion=obtenerPosicionDeMarca(pBanderas, filaRecibida, columnaRecibida); // ya debería tener la posición
+	pBanderas->remover(posicion);
 }
 
-Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
-	return this-> pBanderas;
-
+uint Mapa::obtenerPosicionDeMarca(Lista<Bandera>* pBanderas, uint filaRecibida, uint columnaRecibida){
 }
+	
 
+/*validarMina, estaDestapadaLaCasilla, validarMarca. Hay que buscar en las listas*/
 bool Mapa::validarMina(unsigned int fila, unsigned int columna){
+}
 
+bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
+}
+	
+bool Mapa::validarMarca(unsigned int fila, unsigned int columna){
 }
