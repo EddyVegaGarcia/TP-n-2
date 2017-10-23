@@ -3,7 +3,7 @@
 
 typedef unsigned int uint;
 
-class Bandera {
+class bandera {
 
 private:
   uint fila;
