@@ -15,11 +15,11 @@ Menu::Menu(){
 }
 
 void Menu::asignarFila(uint fila){
-	this->fila=fila;
+	this->dimFila=fila;
 }
 
 void Menu::asignarColumna(uint columna){
-	this->columna=columna;
+	this->dimColumna=columna;
 }
 
 void Menu::asignarDificultad(char dificultad){
@@ -34,10 +34,10 @@ void Menu::asignarCantJugadores(uint cant){
 // obtener
 
 uint Menu::obtenerFila(){
-	return fila;
+	return dimFila;
 }
 uint Menu::obtenerColumna(){
-	return columna;
+	return dimColumna;
 }
 char Menu::obtenerDificultad(){
 	return dificultad;
