@@ -31,14 +31,15 @@ void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultad
 	dificultad = dificultadRecibida;
 }
 
-lista<Mina>* Minero::sembrarMinas(){//ver parametrs
+void Minero::sembrarMinas(Lista<Mina>* punteroAListaMinas){
 
 	int totalCeldas = dimFila*dimColumna;
 	int totalMinas;
-
+	
+	this->pMinas=punteroAListaMinas;
+	
 	totalMinas = asignarNumeroMaximoMinas(totalCeldas);
-        minas asignarMinasAleatorias(totalCeldas,totalMinas);
-        return punteroAMinas;
+        asignarMinasAleatorias(totalCeldas,totalMinas);
 }
 
 int Minero::asignarNumeroMaximoMinas(int totalCeldas){
@@ -78,6 +79,7 @@ void Minero::asignarMinasAleatorias(int celdas,int minas){
 	}
 }
 
+// este método (crearVectorMinasVacias) no se usa.
 Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
 	
 	vectorMinas = new Mina[cantidadMinas];
@@ -85,6 +87,17 @@ Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
 	this->punteroAMinas = vectorMinas;
 	 return vectorMinas;
     
+}
+
+
+void Minero::asignarBomba(int posicionEnUnaDimension){
+	int fila;
+	int columna;
+	pasarDeUnaDimADos(posicionEnUnaDimension, fila, columna);
+	
+	Mina minaPorAgregar(fila, columna);
+	this->pMinas->agregar(minaPorAgregar);
+	
 }
 
 void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener){
