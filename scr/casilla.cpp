@@ -15,6 +15,12 @@ Casilla::Casilla(uint fila, uint columna, Mapa* mapa){
   asignarColumna(columna);
   calcularValor(fila, columna, mapa);
 }
+
+Casilla::Casilla(){
+  asignarFila(0);
+  asignarColumna(0);
+  asignarValor('0');
+}
   
 uint Casilla::obtenerFila(){
   return fila;
