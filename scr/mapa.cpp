@@ -9,9 +9,19 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dificultad = DificultadRecibida;
 
 	pMinas = Minero-> sembrarMinas();
-	pCasillasDestapadas = new lista<Casilla>;
-	pBanderas = new lista<Bandera>;
+	crearListaCasillasYAsignarPuntero();
+	crearListaBanderasYAsignarPuntero();
 }
+
+void Mapa::crearListaCasillasYAsignarPuntero(){
+	Lista<Casilla> casillasDestapadas;
+	Lista<Casilla>* pCasillasDestapadas=&casillasDestapadas;
+}
+
+void Mapa::crearListaBanderasYAsignarPuntero(){
+	Lista<Bandera> banderas;
+	Lista<Bandera>* pBanderas=&banderas;
+}	
 
 void Mapa::mostrarMapa(){
 
