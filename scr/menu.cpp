@@ -84,5 +84,5 @@ void Menu::pedirYAsignarCantJugadores(){
 void Menu::crearAmbiente(){
 	Mapa mapa(fila, columna, dificultad);
 	Mapa* punteroAMapa=&mapa;
-	Juez juez(punteroAMapa);
+	Juez juez(cantJugadores, punteroAMapa);
 }
