@@ -24,20 +24,20 @@ void Minero::Minero(){
 	dificultad='F';
 }
 
-void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida){
+void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida, Lista<Mina>* punteroAListaMinas){
 
 	dimFila = dimFilaRecibida;
 	dimColumna = dimColumnaRecibida;
 	dificultad = dificultadRecibida;
+	pMinas=punteroAListaMinas;
+
 }
 
-void Minero::sembrarMinas(Lista<Mina>* punteroAListaMinas){
+void Minero::sembrarMinas(){
 
 	int totalCeldas = dimFila*dimColumna;
 	int totalMinas;
-	
-	this->pMinas=punteroAListaMinas;
-	
+		
 	totalMinas = asignarNumeroMaximoMinas(totalCeldas);
         asignarMinasAleatorias(totalCeldas,totalMinas);
 }
