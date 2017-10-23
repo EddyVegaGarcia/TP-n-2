@@ -83,9 +83,8 @@ void Minero::asignarMinasAleatorias(int celdas,int minas){
 Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
 	
 	vectorMinas = new Mina[cantidadMinas];
-	//asigno al atributo el vector a las minas creadas.
 	this->punteroAMinas = vectorMinas;
-	 return vectorMinas;
+	return vectorMinas;
     
 }
 
@@ -100,11 +99,9 @@ void Minero::asignarBomba(int posicionEnUnaDimension){
 	
 }
 
-void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener){
-	
+void pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener){
         filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
-	colAObtener = this->dimColumna (2- filaAObtener);
-
+	columnaAObtener = this->dimColumna (2- filaAObtener);
 }
 
 
