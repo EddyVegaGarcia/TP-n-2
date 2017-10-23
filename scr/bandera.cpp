@@ -1,4 +1,4 @@
-#include "Bandera.h"
+#include "bandera.h"
 
 void Bandera::asignarFila(uint fila){
   this->fila=fila;
