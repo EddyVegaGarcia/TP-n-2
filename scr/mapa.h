@@ -1,9 +1,3 @@
-
-
-
-
-
-
 class Mapa(){
 	
 	private:
