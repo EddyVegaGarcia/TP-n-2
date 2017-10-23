@@ -1,5 +1,5 @@
-// tengo una duda con cursores y con como vamos a usar el objeto
-// lo vemos despues 
+
+
 
 #include "arbitro.h"
 #include "lista.h"
@@ -9,22 +9,21 @@ void Arbitro::Arbitro(int cantidadJugadores){
 
 	char caracterDeJugador = 'A';
 
-	eliminados = NULL;
-
 	for(int i=1; i<=cantidadJugadores; i++){
 
-		jugadores.insertarJugador(i,caracterDeJugador);
-		caracterDeJugador++;
+		this-> jugadores-> insertar(caracterDeJugador,i)
 
 	}
 
-	jugadorActual = jugadores.primero;
 
 }
 
 void Arbitro::avanzarJugador(){
 
-	jugadorActual = jugadorActual.siguiente;
+	if (this-> jugadores -> cursor == NULL)
+		this-> jugadores -> cursor -> iniciarCursor();
+	else
+		this-> jugadores -> avanzarCursor();
 
 }
 
@@ -36,12 +35,27 @@ bool Arbitro::haGanado(Jugador aVerificar){
 
 bool Arbitro::mostrarJugador(){
 
-	std::cout<<"Jugador: "<<*jugadorActual.alias<<std::endl;
+	Jugador actual = this-> jugadores -> obtenerCursor();
+
+	std::cout<<"Jugador: "<< Jugador.nombre<< std::endl;
+
+}
+
+void insertarJugador(Jugador nuevo){
+
+	this-> jugadores -> insertar(nuevo);
 
 }
 
 bool Arbitro::mostrarPuntaje(){
 
-	std::cout<<"Puntaje: "<<*jugadorActual.puntaje<<std::endl;
+	Jugador actual = this-> jugadores -> obtenerCursor();
 
+	std::cout<<"Puntaje:"<< Jugador.puntaje<< std::endl;
+
+}
+
+void Arbitro::eliminarJugador(){
+
+	this-> jugadores -> remover();
 }
