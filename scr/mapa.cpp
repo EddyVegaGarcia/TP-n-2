@@ -7,20 +7,28 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dimFila = filaRecibida;
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = DificultadRecibida;
-
-	pMinas = Minero-> sembrarMinas();
+	
+	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
+	
+	Minero minero;
+	minero.sembrarMinas(this->pMinas);
+}
+
+void Mapa::crearListaMinasYAsignarPuntero(){
+	Lista<Mina> minas;
+	this->pMinas=&minas;
 }
 
 void Mapa::crearListaCasillasYAsignarPuntero(){
 	Lista<Casilla> casillasDestapadas;
-	Lista<Casilla>* pCasillasDestapadas=&casillasDestapadas;
+	this->pCasillasDestapadas=&casillasDestapadas;
 }
 
 void Mapa::crearListaBanderasYAsignarPuntero(){
 	Lista<Bandera> banderas;
-	Lista<Bandera>* pBanderas=&banderas;
+	this->pBanderas=&banderas;
 }	
 
 void Mapa::mostrarMapa(){
