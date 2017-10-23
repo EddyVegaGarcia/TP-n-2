@@ -15,6 +15,7 @@ private:
 	int dimColumna;
 	char dificultad;
 	Mina* punteroAMinas;
+	Lista<Mina>* pMinas;
 
 	//pre:  --
 	//post: --
@@ -25,9 +26,8 @@ private:
 	void asignarMinasAleatorias(int mapa[][],int celdas,int minas);
 
 	//pre:  0 > posBomba > celdas totales
-	//post: una bomba queda plantada en el mapa
-	void asignarBomba(int posBomba);  //lo dejo sin hacer hasta saber como vamos a realizar el mapa y la matriz
-
+	//post: agrega una mina a la lista de minas *pMinas.
+	void asignarBomba(int posBomba);
 public:
 
 	//constructor default
@@ -43,8 +43,10 @@ public:
 	//pre: recibe la cantidad de minas qu ese deben crear
 	//post: crea un vector de mminas con la cantidad indicada y devuelve
 	//un puntero a este vector
+	// este sobra. // debug
         Mina* Minero::crearVectorMinasVacias(uint cantidadMinas);
-	 //pre:recibe como parametro el numero de la casilla que quiere transformar, 
+	
+	//pre:recibe como parametro el numero de la casilla que quiere transformar, 
 	// y una referencia a la dim y la col que va a cambiar.
 	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
 	//modifica los valores pasados por referencia con estos.
