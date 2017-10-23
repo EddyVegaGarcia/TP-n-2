@@ -9,8 +9,11 @@ private:
 public:
 
  /*Pre: recibe fila y columna dentro del rango indicado por el jugador
-* Post: crea un objeto casilla, con la fila y columna recibidas. */
+  * Post: crea un objeto casilla, con la fila y columna recibidas. */
   Casilla(uint fila, uint columna);
+  
+  /*Post: crea un objeto casilla, con fila y columna 0. */
+  Casilla();
   
   /* Post: devuelve la fila*/
   uint obtenerFila();
