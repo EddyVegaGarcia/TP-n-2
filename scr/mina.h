@@ -20,8 +20,7 @@ public:
   /* Post: devuelve la fila*/
   uint obtenerColumna();
   
-  // algún método para ver los alrededores, 'o algo así' ^_^
-  
+ 
   /* Pre: recibe fila y columna de un casillero.
   * Post: devuelve si la casilla pasada está junto a una mina. */
   bool estaJuntoAMina(uint fila, uint columna);
