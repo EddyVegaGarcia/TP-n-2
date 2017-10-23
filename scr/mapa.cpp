@@ -161,6 +161,7 @@ bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
 	return (seEncuentraEnLista('b', fila, columna));
 }
 
+/* Busca en una de las tres listas, según indicado x parámetro, y si encuentra asigna la fila y columna.*/
 bool Mapa::seEncuentraEnLista(char lista, uint &fila, uint &columna){
 	if (lista=='b'){
 		Lista<Bandera>* pLista=pBanderas;
