@@ -1,3 +1,8 @@
+# include "lista.h"
+# include "mina.h"
+# include "casilla.h"
+# include "bandera.h"
+
 class Mapa(){
 	
 	private:
@@ -19,19 +24,16 @@ class Mapa(){
 		
 		
 		void mostrarMapa();
-		
-		
-		void mostrarMapa();
-		
+				
 		agregarCasillaDestapada(int filaRecibida,int colRecibida);
 		
 		char obtenerValorCasilla();
 		
-		Lista<Minas>* obtener punteroMinas();
+		Lista<Mina>* obtenerPunteroMinas();
 		
-		Lista<Minas>* obtener punteroMinas();
+		Lista<Casilla>* obtenerPunteroCasillasDestapas();
 		
-		Lista<Minas>* obtener punteroBanderas();
+		Lista<Bandera>* obtenerPunteroBanderas();
 		
 		bool validarMina(unsigned int fila, unsigned int columna);
 
