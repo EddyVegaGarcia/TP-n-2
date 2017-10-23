@@ -87,27 +87,46 @@ void Mapa::mostrarMapa(){
 			std::endl;
 	}
 
+/*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
+char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
+	char valor = '0';
+	pMinas->iniciarCursor();
+	
+	Mina minaActual;
+	if (pMinas->avanzarCursor)
+		minaActual = pMinas->ObtenerCursor();
+	
+	if (minaActual.esMina(filaCasilla, columnaCasilla)){
+		valor = MINA;
+	} else {
+		while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9'){
+			Mina minaActual = pMinas->ObtenerCursor();
+			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
+				valor++;
+		}
+	
+	return valor;
+}
+
 /* esto tiene que ser char, calculo el valor acá, no tiene sentido pasarselo a otro método que solo lo devuelva
 * antes habían dicho de separalo en dos pero xq un método la iba a agregar, se iba a calcular el valor
 * y dsp otro método iba a obtener ese valor. Ahora calculamos el valor acá, ya se agrega con el valor calculado,
 * tiene sentido que este método sea char si ya tiene el valor que va a devolver.*/
-void Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida){
-	
+char Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida){
 	char valor='0';
-	/* calcular el valor que va a tener la casilla */
+	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
 	Casilla casillaPorAgregar(filaRecibida, columnaRecibida, valor);
 	this -> pMinas -> agregar(casillaPorAgregar);
+	return valor;
 }
 
 //pre: lista casillas no vacia
 //post: devuelve valor de la ultima casilla
 /* Ahora que agregarCasillaDestapada devuelve char, este método sobra.*/
 char Mapa::obtenerValorCasilla(){
-
 	*Casilla punteroCasilla = this -> pMinas -> obtenerPuntero();
 	return *punteroCasilla;
 /*(Arriba es "Casilla*"). (Sería punteroCasilla->obtenerValor(), para q dev char. Igual ya lo puede hacer el otro método.*/
-
 }
 	
 void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
