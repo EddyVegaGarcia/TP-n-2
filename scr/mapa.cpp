@@ -112,6 +112,10 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 * antes habían dicho de separalo en dos pero xq un método la iba a agregar, se iba a calcular el valor
 * y dsp otro método iba a obtener ese valor. Ahora calculamos el valor acá, ya se agrega con el valor calculado,
 * tiene sentido que este método sea char si ya tiene el valor que va a devolver.*/
+/* Pero sí, admito que visto desde destapador sería mejor en dos métodos.
+* Y tiene sentido que el mapa sea quien calcule todo xq tiene los datos.
+* Cómo hacemo'? 
+* (nadie lee estos comentarios, no?, qué mal, xD).*/
 char Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida){
 	char valor='0';
 	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
