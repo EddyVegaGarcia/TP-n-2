@@ -1,8 +1,8 @@
 
 
 
-#ifndef Juez_H_
-#define Juez_H_
+#ifndef JUEZ_H_
+#define JUEZ_H_
 
 class Juez{
 
@@ -38,4 +38,4 @@ public:
 
 
 
-#endif /* ARBITRO_H_ */
+#endif /* JUEZ_H_ */
