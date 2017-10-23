@@ -5,7 +5,10 @@ private:
   uint fila;
   uint columna;
   
+  /* Post: signa la fila de la mina.*/
   void asignarFila(uint fila);
+  
+  /* Post: signa la columna de la mina.*/
   void asignarColumna(uint columna);
 
 
@@ -14,14 +17,14 @@ public:
 * Post: crea un objeto mina, con la fila y columna recibidas. */
   Mina(uint fila, uint columna);  
   
-  /* Post: devuelve la fila*/
+  /* Post: devuelve la fila de la mina.*/
   uint obtenerFila();
   
-  /* Post: devuelve la fila*/
+  /* Post: devuelve la columna de la mina.*/
   uint obtenerColumna();
   
  
-  /* Pre: recibe fila y columna de un casillero.
+  /* Pre: recibe fila y columna de un casillero. La posición pasada no corresponde a la posición de una mina.
   * Post: devuelve si la casilla pasada está junto a una mina. */
   bool estaJuntoAMina(uint fila, uint columna);
   
