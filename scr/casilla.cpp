@@ -34,10 +34,9 @@ char Casilla::obtenerValor(){
   return valor;
 }
 
-void Casilla::calcularValor(uint fila, uint columna, Minas* minas){
- 
+void Casilla::calcularValor(uint fila, uint columna){
    char valorObtenido;
-   valorObtenido = minas.calcularValorDeCasilla( fila,  columna);
+   valorObtenido = mapa.calcularValorDeCasilla(fila, columna);
    asignarValor(valorObtenido);
 }
 void Casilla::asignarValor(char valorAsignar){
