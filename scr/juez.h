@@ -1,24 +1,20 @@
 
 
 
-#ifndef ARBITRO_H_
-#define ARBITRO_H_
+#ifndef Juez_H_
+#define Juez_H_
 
-typedef char jugador;
-
-class Arbitro{
+class Juez{
 
 private:
 
-	Lista jugadores; //podria ser *string, tendriamos que ver bien eso
-	Lista eliminados;
-	Jugador* jugadorActual;
+	Lista* jugadores; //podria ser *string, tendriamos que ver bien eso
 
 public:
 
 	//pre: cantidadJugadores >= 1
 	//post: crea los jugadores y los enlista
-	Arbitro(int cantidadJugadores);
+	Arbitro(unsigned int cantidadJugadores);
 
 	//pre:
 	//post: avanza el turno al jugador siguiente
@@ -29,8 +25,10 @@ public:
 	bool haGanado(Jugador aVerificar); //no lo hice
 
 	//pre:
-	//post: muestra por pantalla al jugador en turno
+	//post: muestra por pantalla los datos del jugador en turno
 	void mostrarJugador;
+
+	void insertarJugador(Jugador nuevo);
 
 	//pre:
 	//post: elimina al jugador en turno
