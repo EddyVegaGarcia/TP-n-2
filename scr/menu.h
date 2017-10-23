@@ -8,8 +8,8 @@ typedef unsigned int uint;
 
 class Menu {
 private:
-	uint fila;
-	uint columna;
+	uint dimFila;
+	uint dimColumna;
 	char dificultad;
 	uint cantJugadores;
 
