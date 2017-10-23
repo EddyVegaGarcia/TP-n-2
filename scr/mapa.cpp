@@ -12,8 +12,8 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
 	
-	Minero minero;
-	minero.sembrarMinas(this->pMinas);
+	Minero minero(dimFila,dimColumna,dificultad,pMinas);
+	minero.sembrarMinas();
 }
 
 void Mapa::crearListaMinasYAsignarPuntero(){
