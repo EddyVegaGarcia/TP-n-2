@@ -9,10 +9,6 @@ private:
   uint fila;
   uint columna;
 
-  void asignarFila(uint fila);
-  void asignarColumna(uint columna);
-
-
 public:
 /*Pre: recibe fila y columna dentro del rango indicado por el jugador
 * Post: crea un objeto bandera, con la fila y columna recibidas. */
@@ -26,7 +22,12 @@ public:
 
   /* Post: devuelve la fila*/
   uint obtenerColumna();
-
+  
+  /* Post: asigna la fila pasada como parámetro a la bandera*/
+  void asignarFila(uint fila);
+  
+  /* Post: asigna la columna pasada como parámetro a la bandera*/
+  void asignarColumna(uint columna);
 };
 
 #endif /* BANDERA_H_ */
