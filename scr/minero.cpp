@@ -2,7 +2,7 @@
 typedef unsigned int uint;
 
 #include "minero.h"
-
+#include "constantes.h"
 /**
  * dificultad considerada como Facil - Medio - Dificil por ahora
  * facil=   %20 del tablero son minas
@@ -11,9 +11,7 @@ typedef unsigned int uint;
  * en el main se deberían agregar constantes para facilitar la modificacion de las dificultades
  */
 
-const unsigned int facil=20;
-const unsigned int medio=30;
-const unsigned int dificil=40;
+
 
 void Minero::Minero(){
 
