@@ -1,7 +1,7 @@
 
 
 
-#include "arbitro.h"
+#include "juez.h"
 #include "lista.h"
 
 
