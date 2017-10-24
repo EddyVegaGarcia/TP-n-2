@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include "constantes.h"
 
 class Minero{
 
