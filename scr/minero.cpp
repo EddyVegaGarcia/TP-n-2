@@ -2,7 +2,7 @@
 typedef unsigned int uint;
 
 #include "minero.h"
-#include "constantes.h"
+
 /**
  * dificultad considerada como Facil - Medio - Dificil por ahora
  * facil=   %20 del tablero son minas
