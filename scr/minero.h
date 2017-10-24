@@ -26,32 +26,31 @@ private:
 	//post: llena la lista de minas con la cantidad de minas necesaria en ubicaciones aleatorias
 	void asignarMinasAleatorias(int celdas,int minas);
 
-	//pre:  0 > posBomba > celdas totales
-	//post: agrega una mina a la lista de minas *pMinas.
+	//pre:  recibe la posicion de la bomba, esta debe ser valida, es decir un valor entre cero
+	//y a cantidad total de casillas
+	//post: agrega una mina a la lista de minas *pMinas en la ubicacion correspondiente(fila, columna)
 	void asignarBomba(int posBomba);
-public:
-
-	//constructor default
-	Minero();
-
-	//constructor con parámetros
-	Minero(int filaRecibida, int columnaRecibida, char dificultadRecibida);
-
-	//pre:  --
-	//post: siembra minas en el mapa de juego segun la dificultad
-	Mina* sembrarMinas(int mapa[][]);
-	
-	//pre: recibe la cantidad de minas qu ese deben crear
-	//post: crea un vector de mminas con la cantidad indicada y devuelve
-	//un puntero a este vector
-	// este sobra. // debug
-        Mina* Minero::crearVectorMinasVacias(uint cantidadMinas);
 	
 	//pre:recibe como parametro el numero de la casilla que quiere transformar, 
-	// y una referencia a la dim y la col que va a cambiar.
+	// y una referencia a la fila y la columna que va a modificar.
 	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
 	//modifica los valores pasados por referencia con estos.
 	void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener);
+public:
+
+	//constructor por defecto 
+	Minero();
+
+	//pre: recibe una cantidad de filas, columnas, la dificultad para crear el minero, y un
+	// puntero a una lista de minas onde estas se crearan.
+	//post: crea un minero con estos valores
+	Minero(unsigned int filaRecibida, unsigned int columnaRecibida, char dificultadRecibida,  Lista<Mina>* punteroAListaMinas);
+
+	//pre:
+	//post: lleno la lista de minas con la catidad correspondient de minas en ubicaciones aleatorias
+	void sembrarMinas();
+	
+	
 };
 
 
