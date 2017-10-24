@@ -37,7 +37,7 @@ Lista<Mina>* Mapa::obtenerPunteroMinas(){
 	return this-> pMinas
 }
 
-Lista<Casilla>* Mapa::obtenerPunteroMinas(){
+Lista<Casilla>* Mapa::obtenerPunteroCasillas(){
 	return this-> pCasillasDestapadas;
 }
 
