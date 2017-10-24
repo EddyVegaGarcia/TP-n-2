@@ -48,34 +48,13 @@ Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 
 void Mapa::mostrarMapa(){
 
-	vector = new unsigned int[this->dimColumna];
-	for (unsigned int i=0; i< this->columna; i++)
-		vector[i] = 0;
+	vector = new char[this->dimColumna];
+	
+	llenarVectorFila(i, vector);
 
-	for (unsigned int i=1; i<= this-> dimFila; i++){
-
-		this-> pCasillasDestapadas -> iniciarCursor();
+	
 		
 		
-		Casilla casillaActual;
-		while(this-> pcasillasDestapadas ->avanzarCursor()){
-
-			casillaActual = pCasillasDestapadas -> obtener();
-
-			if (casillaActual.obtenerFila() == i)
-				vector[casillaActual.obtenerColumna] = casillaActual.obtenerValor();
-		}
-		
-		this-> pBanderas -> iniciarCursor();
-		Bandera banderaActual;
-		while(this-> pBanderas ->avanzarCursor()){
-
-			banderaActual = pBanderas -> obtener();
-
-			if (banderaActual.obtenerFila == i)
-				vector[banderaActual.obtenerColumna-1] = 9; //9 para la bandera.
-
-		}
 		
 		// acá habría que ordenar el vector, justo antes de imprimirlo.
 
@@ -89,6 +68,46 @@ void Mapa::mostrarMapa(){
 				std::cout<< vector[i];
 			std::endl;
 	}
+	
+void llenarVectorFila(unsigned int fila, char* vector[]){
+	llenarVectorDeNoMostrado(vector);
+	llenarVectorDeCasillasDestapadas(fila, vector);
+	llenarVectorDeBanderas(fila, vector);
+	
+	
+this-> pBanderas -> iniciarCursor();
+		Bandera banderaActual;
+		while(this-> pBanderas ->avanzarCursor()){
+
+			banderaActual = pBanderas -> obtener();
+
+			if (banderaActual.obtenerFila == i)
+				vector[banderaActual.obtenerColumna-1] = 9; //9 para la bandera.
+
+		}
+}
+	
+void llenarVectorDeNoMostrado(char* vector[]){
+	for(int i = 0; i< this-> dimFila; i++)
+		vector[i] = '*';
+}
+
+	
+void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]){
+
+		this-> pCasillasDestapadas -> iniciarCursor();
+
+		Casilla casillaActual;
+		
+		int casillasAsignadas = 0;
+		while(this->pcasillasDestapadas->avanzarCursor() && casillasAsignadas =<this->dimFila){
+
+			casillaActual = pCasillasDestapadas->obtenerCursor();
+
+			if (casillaActual.obtenerFila() == fila)
+				vector[casillaActual.obtenerColumna] = casillaActual.obtenerValor();
+		}
+}
 
 /*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
