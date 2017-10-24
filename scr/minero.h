@@ -17,13 +17,14 @@ private:
 	Mina* punteroAMinas;
 	Lista<Mina>* pMinas;
 
-	//pre:  --
-	//post: --
+	//pre: recibe el total de celdas que tendra el juego, es decir dim filas * dim columnas
+	//post: devuelve el numero correspondiente de minas segun el total de celdas y la dificultad del minero.
 	int asignarNumeroMaximoMinas(int totalCeldas);
 
-	//pre:  --
-	//post: crea las celdas minadas en el mapa
-	void asignarMinasAleatorias(int mapa[][],int celdas,int minas);
+	//pre: recibe por parametro el total de celdas que tendra el juego y la cantidad de 
+	//minas correspondiente
+	//post: llena la lista de minas con la cantidad de minas necesaria en ubicaciones aleatorias
+	void asignarMinasAleatorias(int celdas,int minas);
 
 	//pre:  0 > posBomba > celdas totales
 	//post: agrega una mina a la lista de minas *pMinas.
