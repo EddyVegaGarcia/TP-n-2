@@ -54,13 +54,8 @@ void Mapa::mostrarMapa(){
 		llenarVectorFila(i + 1, vector);
 		mostrarVector(vector);
 	}
-	
-
-	
 		
-
-		
-	}
+}
 	
 void llenarVectorFila(unsigned int fila, char* vector[]){
 	llenarVectorDeNoMostrado(vector);
