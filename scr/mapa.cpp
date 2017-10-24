@@ -50,23 +50,16 @@ void Mapa::mostrarMapa(){
 
 	vector = new char[this->dimColumna];
 	
-	llenarVectorFila(i, vector);
+	for(int i = 0; i < dimFila; i++ ){
+		llenarVectorFila(i + 1, vector);
+		mostrarVector(vector);
+	}
+	
 
 	
 		
-		
-		
-		// acá habría que ordenar el vector, justo antes de imprimirlo.
 
-		for (unsigned int i = 0; i< this->columna; i++)
-
-			if(vector[i] == 9)
-				std::cout<<Bandera<<;
-			else if (vector[i] == 0) 
-				std::cout<<'*':
-			else 
-				std::cout<< vector[i];
-			std::endl;
+		
 	}
 	
 void llenarVectorFila(unsigned int fila, char* vector[]){
@@ -74,41 +67,63 @@ void llenarVectorFila(unsigned int fila, char* vector[]){
 	llenarVectorDeCasillasDestapadas(fila, vector);
 	llenarVectorDeBanderas(fila, vector);
 	
-	
-this-> pBanderas -> iniciarCursor();
-		Bandera banderaActual;
-		while(this-> pBanderas ->avanzarCursor()){
-
-			banderaActual = pBanderas -> obtener();
-
-			if (banderaActual.obtenerFila == i)
-				vector[banderaActual.obtenerColumna-1] = 9; //9 para la bandera.
-
-		}
 }
 	
 void llenarVectorDeNoMostrado(char* vector[]){
-	for(int i = 0; i< this-> dimFila; i++)
+	for(int i = 0; i< this-> dimColumna; i++)
 		vector[i] = '*';
 }
 
 	
 void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]){
 
-		this-> pCasillasDestapadas -> iniciarCursor();
+	this-> pCasillasDestapadas -> iniciarCursor();
 
-		Casilla casillaActual;
+	Casilla casillaActual;
 		
-		int casillasAsignadas = 0;
-		while(this->pcasillasDestapadas->avanzarCursor() && casillasAsignadas =<this->dimFila){
+	int casillasAsignadas = 0;
+	while(this->pCasillasDestapadas->avanzarCursor() && casillasAsignadas =<this->dimFila){
 
-			casillaActual = pCasillasDestapadas->obtenerCursor();
+		casillaActual = pCasillasDestapadas->obtenerCursor();
 
-			if (casillaActual.obtenerFila() == fila)
-				vector[casillaActual.obtenerColumna] = casillaActual.obtenerValor();
+		if (casillaActual.obtenerFila() == fila){
+			vector[casillaActual.obtenerColumna - 1] = casillaActual.obtenerValor();
+			casillasAsignadas ++;
 		}
+	}	
 }
+void llenarVectorDeBanderas(unsigned int fila,char* vector[]){
+	
+	this->pBanderas->iniciarCursor();
+	
+	Bandera banderaActual;
+	
+	int banderasAsignadas = 0;
+	
+	while(this->pBanderas->avanzarCursor() && banderasAsignadas =< this->dimFila){
+	
+		banderaActual = pBanderas->obtenerCursor();
+		
+		if(banderaActual.obtenerColumna() == fila){
+		
+			vector[banderaActual.obtenerColumna - 1] = '9';
+			banderasAsignadas++;
+		}
+	}
+}
+void mostrarVector(char* vector[]){
+	
+	for (unsigned int i = 0; i< this->columna; i++){
 
+			if(vector[i] == 9)
+				std::cout<<Bandera<<;
+			else if (vector[i] == 0) 
+				std::cout<<'*';
+			else 
+				std::cout<< vector[i];
+			std::endl;
+	}
+}
 /*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	char valor = '0';
