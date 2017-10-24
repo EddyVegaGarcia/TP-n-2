@@ -99,6 +99,8 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	if (pMinas->avanzarCursor)
 		minaActual = pMinas->ObtenerCursor();
 	
+	
+	//MIs OJOS!!!!!! XD hay que revisar acá
 	if (minaActual.esMina(filaCasilla, columnaCasilla)){
 		valor = MINA;
 	} else {
