@@ -6,6 +6,8 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = DificultadRecibida;
 	
+	
+	//no faltan declararlos antes?? y poner lista<>* ??
 	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
@@ -15,6 +17,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 }
 
 void Mapa::crearListaMinasYAsignarPuntero(){
+	//Aquí los asteriscos
 	Lista<Mina> minas;
 	this->pMinas=&minas;
 }
