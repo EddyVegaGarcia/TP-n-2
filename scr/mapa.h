@@ -16,16 +16,23 @@ class Mapa(){
 		
 	
 	public:
-	// todo esto está desactualizado, faltan métodos, etc. Después los agrego, ooo háganlo ustedes y pónganle pre y post, xD
-		//constructor
-		//pre: recibe como parametro la dim de las filas, la dim de las columnas y la dificultad
-		//post: 
-		void mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+		/*todo esto está desactualizado, faltan métodos,etc.
+		 *Después los agrego, ooo háganlo ustedes y pónganle
+		 *pre y post, xD
+		 *constructor
+		 *pre: recibe como parametro la dim de las filas, 
+		 *la dim de las columnas y la dificultad
+		 *post:
+		 */
+		void mapa(int filaRecibida, 
+			  int columnaRecibida, 
+			  char dificultadRecibida);
 		
 		
 		void mostrarMapa();
 				
-		agregarCasillaDestapada(int filaRecibida,int colRecibida);
+		agregarCasillaDestapada(int filaRecibida,
+					int colRecibida);
 		
 		char obtenerValorCasilla();
 		
@@ -35,7 +42,8 @@ class Mapa(){
 		
 		Lista<Bandera>* obtenerPunteroBanderas();
 		
-		bool validarMina(unsigned int fila, unsigned int columna);
+		bool validarMina(unsigned int fila, 
+				 unsigned int columna);
 
 	
 };
