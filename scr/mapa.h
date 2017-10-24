@@ -13,6 +13,20 @@ class Mapa(){
 		Lista<Casilla>* pCasillasDestapadas;
 		Lista<Bandera>* pBanderas;
 		
+	
+		//pre: 
+		//post: se crea una lista de minas y se asigna al atributo
+		void crearListaMinasYAsignarPuntero();
+	
+		//pre: 
+		//post: se crea una lista de casillas destapadas y se asigna al atributo
+		void crearListaCasillasYAsignarPuntero();
+	
+	
+		//pre: 
+		//post: se crea una lista de banderas y se asigna al atributo
+		crearListaBanderasYAsignarPuntero();
+	
 		
 	
 	public:
@@ -24,11 +38,26 @@ class Mapa(){
 		 *la dim de las columnas y la dificultad
 		 *post:
 		 */
-		void mapa(int filaRecibida, 
+	
+		//pre: recibe como parametro la cantidad de filas y de columnas que tendra, y tambien la
+		//dificultad elegida
+		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
+		// una de minas, de casillas destapadas y de marcas.
+		mapa(int filaRecibida, 
 			  int columnaRecibida, 
 			  char dificultadRecibida);
 		
-		
+		//post: se devuelve el puntero a la lista de minas.
+		Lista<Mina>* Mapa::obtenerPunteroMinas();
+	
+		//post: se devuelve el puntero a la lista de casillas destapadas.
+		Lista<Casilla>* Mapa::obtenerPunteroCasillas();
+	
+		//post: se devuelve el puntero a la lista de banderas.
+		Lista<Bandera>* Mapa::obtenerPunteroBanderas();
+	
+		//pre:
+		//post: muestra por pantalla el mapa de juego.
 		void mostrarMapa();
 				
 		agregarCasillaDestapada(int filaRecibida,
