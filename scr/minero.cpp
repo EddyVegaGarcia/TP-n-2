@@ -44,9 +44,9 @@ int Minero::asignarNumeroMaximoMinas(int totalCeldas){
 
 	int maximoMinas;
 
-	if (dificultad=='F')		 maximoMinas = (totalCeldas*100)/facil;
-	else if (dificultad=='M') maximoMinas = (totalCeldas*100)/medio;
-	else 					 maximoMinas = (totalCeldas*100)/dificil;
+	if (dificultad=='F')		 maximoMinas = (totalCeldas*facil)/100;
+	else if (dificultad=='M') maximoMinas = (totalCeldas*medio)/100;
+	else 					 maximoMinas = (totalCeldas*dificil)/100;
 
 	return maximoMinas;
 }
@@ -60,7 +60,7 @@ void Minero::asignarMinasAleatorias(int celdas,int minas){
 	int tope = celdas;
 	int aux;
 
-	int vectorEnteros;
+	vectorEnteros = new int[celdas];
 	for (int i=0;i<celdas;i++)
 		vectorEnteros[i]=i+1; //el vector queda asignado con numeros del 1 al tope
 
@@ -75,16 +75,9 @@ void Minero::asignarMinasAleatorias(int celdas,int minas){
 		vectorEnteros[tope] = aux;
 		tope--;
 	}
+	delete []vectorEnteros;
 }
 
-// este método (crearVectorMinasVacias) no se usa.
-Mina* Minero::crearVectorMinasVacias(uint cantidadMinas){
-	
-	vectorMinas = new Mina[cantidadMinas];
-	this->punteroAMinas = vectorMinas;
-	return vectorMinas;
-    
-}
 
 
 void Minero::asignarBomba(int posicionEnUnaDimension){
