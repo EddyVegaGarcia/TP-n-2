@@ -1,3 +1,6 @@
+
+
+
 #ifndef JUEZ_H_
 #define JUEZ_H_
 
@@ -5,39 +8,25 @@ class Juez{
 
 private:
 
-	Lista* jugadores; //podria ser *string, tendriamos que ver bien eso
-	
-	/*hola otra vez, sigo siendo aldana, yo digo que sería asi:
-	* Lista<Jugador>* jugadores;
-	* Mapa* pMapa;
-	* Chau
-	*/
+	Lista<jugador*>* jugadores;
+	Mapa* tableroDeJuego;
+
 
 public:
 
-	//pre: cantidadJugadores >= 1
-	//post: crea los jugadores y los enlista
-	Juez(unsigned int cantidadJugadores);
+	Juez::Juez(unsigned int cantidadJugadores,Mapa* recibido);
 
-	//pre:
-	//post: avanza el turno al jugador siguiente
-	void avanzarJugador();
+	void Juez::avanzarJugador();
 
-	//pre:
-	//post: verifica si el respectivo jugador gano la partida
-	bool haGanado(Jugador aVerificar); //no lo hice
+	void Juez::mostrarJugador();
 
-	//pre:
-	//post: muestra por pantalla los datos del jugador en turno
-	void mostrarJugador();
-
-	void insertarJugador(Jugador nuevo);
-
-	//pre:
-	//post: elimina al jugador en turno
-	void eliminarJugador();
+	void Juez::insertarJugador(Jugador* nuevo);
 
 };
+
+
+
+#endif /* JUEZ_H_ */
 
 
 
