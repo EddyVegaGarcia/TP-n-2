@@ -171,11 +171,14 @@ bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
 	return (seEncuentraEnLista('b', fila, columna));
 }
 
+	
+
+
 /* Busca en una de las tres listas, según indicado x parámetro.*/
 bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada){
 	if (lista=='b'){
 		Lista<Bandera>* pLista=pBanderas;
-		Bandera elementoActual; //AIUDA // constructor con parámetros
+		Bandera elementoActual;
 	}
 	else if (lista=='c'){
 		Lista<Casilla>* pLista=pCasillasDestapadas;
@@ -190,7 +193,7 @@ bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscad
 	
 	while(pLista->avanzarCursor() && not encontrado){
 		elementoActual=pLista->obtenerCursor();
-		if (elementoActual->obtenerFila()==filaBuscada && elementoActual->obtenerColumna()==columnaBuscada)
+		if (elementoActual.obtenerFila()==filaBuscada && elementoActual.obtenerColumna()==columnaBuscada)
 			encontrado=true;
 		
 	}
@@ -202,10 +205,10 @@ bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscad
 
 /*validarMina, estaDestapadaLaCasilla, Hay que buscar en las listas*/
 bool Mapa::validarMina(unsigned int fila, unsigned int columna){
-	return(seEncuentraEnLista('m', fila, fila)); // ver, recibe uint.
+	return(seEncuentraEnLista('m', fila, columna)); // ver, recibe uint.
 }
 
 bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
-	return(seEncuentraEnLista('m', fila, fila));
+	return(seEncuentraEnLista('c', fila, columna));
 
 }
