@@ -7,7 +7,7 @@ using namespace std;
 
 		
 //constructor
-Destapador::Destapador (mapa* mapaActual)
+Destapador::Destapador (Mapa* mapaActual)
 {
 
   this->mapa = mapaActual;
