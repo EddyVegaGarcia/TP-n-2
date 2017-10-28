@@ -11,8 +11,8 @@ Destapador::Destapador (Mapa* mapaActual)
 {
 
   this->mapa = mapaActual;
-  this->fila = 0
-  this->columna = 0
+  this->fila = 0;
+  this->columna = 0;
   
   
   
