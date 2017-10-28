@@ -48,7 +48,8 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 //metodos privadas
 void Destapar::destaparPandemia()
 {
-	destaparPandemiaRecursiva(this->fila, this->columna);	
+	destaparPandemiaRecursiva(this->fila, this->columna);
+	this->mapa->agregarCasillaDestapada(this->fila, this->columna);
 }
 
 void Destapar::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
@@ -57,17 +58,17 @@ void Destapar::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 	if(this->mapa->obtenerValorCasilla!=VACIO || this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada))
 		return;
 	
-	destaparPandemiaRecursiva(int filaPasada - 1, int columnaPasada);
-	this->mapa->agregarCasillaDestapada(int filaPasada - 1, int columnaPasada);
+	destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
+	this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada);
 	
-	destaparPandemiaRecursiva(int filaPasada + 1, int columnaPasada);
-	this->mapa->agregarCasillaDestapada(int filaPasada + 1, int columnaPasada);
+	destaparPandemiaRecursiva(filaPasada + 1, columnaPasada);
+	this->mapa->agregarCasillaDestapada(filaPasada + 1, columnaPasada);
 	
-	destaparPandemiaRecursiva(int filaPasada, int columnaPasada - 1);
-	this->mapa->agregarCasillaDestapada(int filaPasada, int columnaPasada - 1);
+	destaparPandemiaRecursiva(filaPasada, columnaPasada - 1);
+	this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada - 1);
 	
-	destaparPandemiaRecursiva(int filaPasada, int columnaPasada + 1);
-	this->mapa->agregarCasillaDestapada(int filaPasada, int columnaPasada + 1);	
+	destaparPandemiaRecursiva(filaPasada, columnaPasada + 1);
+	this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada + 1);	
 
 }
 
