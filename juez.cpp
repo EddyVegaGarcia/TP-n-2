@@ -64,8 +64,18 @@ bool Juez::mostrarPuntaje(){
 
 }
 
-void Juez::eliminarJugador(){
+Juez::~juez(){
 
-	this-> jugadores -> remover(); // me fui a fijar y remover recibe la posicion.
-				// no sé,     ni idea     , "problema de matías", xD. Suerte, xD.
+	while( !(this->jugadores->estaVacia()) ){
+		jugador* jugadorActual;
+		char alias;
+		int puntaje;
+	   	this->jugadores->iniciarCursor();
+		jugadorActual = this->jugadores->obtenerCursor();
+		alias = jugardorActual->obtenerAlias();
+		puntaje = jugadorActual->obtenerPuntaje();
+		
+		cout<<" el jugador : " << alias << "tiene " << puntaje << "puntos." << endl;
+		this->jugadores->remover(1);
+	}
 }
