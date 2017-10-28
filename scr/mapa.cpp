@@ -144,9 +144,7 @@ void Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida,char val
 	this -> pMinas -> agregar(casillaPorAgregar);
 }
 
-//pre: lista casillas no vacia
-//post: devuelve valor de la ultima casilla
-char Mapa::obtenerValorCasilla(){
+char Mapa::obtenerValorCasilla(int filaRecibida,int columnaRecibida){
 	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
 	return valor;
 }
