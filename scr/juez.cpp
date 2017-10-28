@@ -1,110 +1,111 @@
 #include "juez.h"
 
-	Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
-		cantidadDeJugadores = cantidadJugadores;
-		tableroDeJuego = mapaRecibido;
-		Lista<Jugador*>* ingresantes;
-		this->jugadores = ingresantes;
+Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
+	cantidadDeJugadores = cantidadJugadores;
+	tableroDeJuego = mapaRecibido;
+	Lista<Jugador*>* ingresantes;
+	this->jugadores = ingresantes;
 
-		char alias = 'A';
+	char alias = 'A';
 
-		for (int i=0; i<cantidadJugadores;i++){
+	for (int i=0; i<cantidadJugadores;i++){
 
-			Jugador* entrante = new Jugador(alias+i,mapaRecibido);
-			insertarJugador(entrante);
+		Jugador* entrante = new Jugador(alias+i,mapaRecibido);
+		insertarJugador(entrante);
+	}
+
+	this->jugadores->iniciarCursor();
+
+}
+
+void Juez::avanzarJugador(){
+
+	Jugador* siguiente;
+	bool puedeJugar=false;
+
+	do{
+		this->jugadores->avanzarCursor();
+		Jugador* siguiente = this->jugadores->obtenerCursor();
+
+		if(siguiente->obtenerEstado() == 0)
+			puedeJugar = true;
+
+	}while(!puedeJugar);
+
+}
+
+void Juez::mostrarJugador(){
+
+	Jugador* elegido;
+	elegido = this->jugadores->obtenerCursor();
+
+	elegido->mostrar();
+}
+
+void Juez::insertarJugador(Jugador* nuevo){
+
+	this->jugadores->insertar(nuevo);
+}
+
+void Juez::inicializarJuego(){
+	int jugadoresQuePerdieron = 0 ;
+
+	this->jugadores->inicializarCursor();
+
+	jugador* jugadorActual;
+
+	while(jugadoresQuePerdieron<cantidadDeJugadores){
+
+		jugadorActual = this->jugadores->obtenerCursor();
+
+		if(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
+
+			sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego);
+
 		}
-
-		this->jugadores->iniciarCursor();
-
+		jugadores->avanzarCursor();
 	}
 
-	void Juez::avanzarJugador(){
 
-		Jugador* siguiente;
-		bool puedeJugar=false;
+}
+void Juez::sigueJugando(jugador* jugadorActual, int &jugadoresQuePerdieron, mapa* tableroDeJuego){
 
-		do{
-			this->jugadores->avanzarCursor();
-			Jugador* siguiente = this->jugadores->obtenerCursor();
+	jugadorActual->iniciarJugada();
 
-			if(siguiente->obtenerEstado() == 0)
-				puedeJugar = true;
+		if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
 
-		}while(!puedeJugar);
+			 jugadoresQuePerdieron++;
 
-	}
+			jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
 
-	void Juez::mostrarJugador(){
+			elJugadorHaPerdido(jugadorActual);
+		}
+	 tableroDeJuego->mostrarMapa;
+}
 
-		Jugador* elegido;
-		elegido = this->jugadores->obtenerCursor();
+void Juez::elJugadorHaPerdido(jugador* jugadorActual){
+	int puntaje = 0;
+	char alias;
+	alias = jugadorActual->obtenerAlias();
+	puntaje = jugadorActual->obtenerPuntaje();
+	cout<<" el jugador " << alias << "ha perdido XD XD "<<endl;
+	cout<< "su puntaje es " << puntaje << endl;
 
-		elegido->mostrar();
-	}
+}
 
-	void Juez::insertarJugador(Jugador* nuevo){
+Juez::~juez(){
 
-		this->jugadores->insertar(nuevo);
-	}
-
-	void Juez::inicializarJuego(){
-		int jugadoresQuePerdieron = 0 ;
-		
-		this->jugadores->inicializarCursor();
-		
+	while( !(this->jugadores->estaVacia()) ){
 		jugador* jugadorActual;
-		
-		while(jugadoresQuePerdieron<cantidadDeJugadores){
-			
-			jugadorActual = this->jugadores->obtenerCursor();
-			
-			if(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
-				
-				sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego);
-			
-			}
-			jugadores->avanzarCursor();
-		}
-	
-	
-	}
- 	void sigueJugando(jugador* jugadorActual, int &jugadoresQuePerdieron, mapa* tableroDeJuego){
-	
-		jugadorActual->iniciarJugada();
-				
-			if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
-					
-				 jugadoresQuePerdieron++;
-				  
-				jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
-				
-				elJugadorHaPerdido(jugadorActual);
-			}
-		 tableroDeJuego->mostrarMapa;
-	}
-	void(jugador* jugadorActual){
-	        int puntaje = 0;
 		char alias;
-		alias = jugadorActual->obtenerAlias();
+		int puntaje;
+		this->jugadores->inicializarCursor;
+		jugadorActual = this->jugadores->obtenerCursor();
+		alias = jugardorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
-	        cout<<" el jugador " << alias << "ha perdido XD XD "<<endl;
-		cout<< "su puntaje es " << puntaje << endl;
-	
+
+		cout<<" el jugador : " << alias << "tiene " << puntaje << "puntos." << endl;
+		this->jugadores->remover(1);
 	}
 
-       Juez::~juez(){
-	       
-       		while( !(this->jugadores->estaVacia()) ){
-			jugador* jugadorActual;
-			char alias;
-			int puntaje;
-	   		this->jugadores->inicializarCursor;
-			jugadorActual = this->jugadores->obtenerCursor();
-			alias = jugardorActual->obtenerAlias();
-			puntaje = jugadorActual->obtenerPuntaje();
-		
-			cout<<" el jugador : " << alias << "tiene " << puntaje << "puntos." << endl;
-			this->jugadores->remover(1);
-		}
-       
-       }
+}
