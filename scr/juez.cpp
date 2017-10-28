@@ -6,7 +6,7 @@
 	Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 
 		tableroDeJuego = mapaRecibido;
-		Lista<jugador*> ingresantes;
+		Lista<Jugador*>* ingresantes;
 		this->jugadores = ingresantes;
 
 		char alias = 'A';
