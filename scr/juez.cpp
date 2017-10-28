@@ -77,11 +77,22 @@
 				
 			if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
 					
-				  jugadoresQuePerdieron++;
+				 jugadoresQuePerdieron++;
 				  
-				   jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
+				jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
+				
+				elJugadorHaPerdido(jugadorActual);
 			}
 		 tableroDeJuego->mostrarMapa;
+	}
+	void(jugador* jugadorActual){
+	        int puntaje = 0;
+		char alias;
+		alias = jugadorActual->obtenerAlias();
+		puntaje = jugadorActual->obtenerPuntaje();
+	        cout<<" el jugador " << alias << "ha perdido XD XD "<<endl;
+		cout<< "su puntaje es " << puntaje << endl;
+	
 	}
 
        Juez::~juez(){
