@@ -1,11 +1,9 @@
-
-
-
 #ifndef MINERO_H_
 #define MINERO_H_
 
 #include <stdlib.h>
-#include <time.h>
+#include <ctime>
+# include "mina.h"
 #include "constantes.h"
 
 class Minero{
@@ -30,13 +28,14 @@ private:
 	//pre:  recibe la posicion de la bomba, esta debe ser valida, es decir un valor entre cero
 	//y a cantidad total de casillas
 	//post: agrega una mina a la lista de minas *pMinas en la ubicacion correspondiente(fila, columna)
-	void asignarBomba(int posBomba);
+	void asignarBomba(int posicionEnUnaDimension);
 	
 	//pre:recibe como parametro el numero de la casilla que quiere transformar, 
 	// y una referencia a la fila y la columna que va a modificar.
 	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
 	//modifica los valores pasados por referencia con estos.
-	void pasarDeUnaDimADos(int numeroCasilla, int& FilaAObtener, int& colAObtener);
+	void pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener);
+
 public:
 
 	//constructor por defecto 
@@ -53,6 +52,5 @@ public:
 	
 	
 };
-
 
 #endif /* MINERO_H_ */
