@@ -16,11 +16,11 @@ class Marcador{
 		//Metodos
 		
 		/*
-		 *Pre:
+		 *Pre: recibe un puntero al mapa del cual va a marcar.
 		 *
 		 * Post: Se asigna la ubicacion que se desea marcar y se inicializa puntaje en 0.
 		 */
-		Marcador(mapa* matrizMapa, tablero* matrizTablero);
+		Marcador(Mapa* mapaActual);
 		
 		/*
 		 *Pre: 
