@@ -49,3 +49,19 @@
 
 		this->jugadores->insertar(nuevo);
 	}
+       Juez::juez(){
+	       
+       		while( !(this->jugadores->estaVacia()) ){
+			jugador* jugadorActual;
+			char alias;
+			int puntaje;
+	   		this->jugadores->iniciarCursor();
+			jugadorActual = this->jugadores->obtenerCursor();
+			alias = jugardorActual->obtenerAlias();
+			puntaje = jugadorActual->obtenerPuntaje();
+		
+			cout<<" el jugador : " << alias << "tiene " << puntaje << "puntos." << endl;
+			this->jugadores->remover(1);
+		}
+       
+       }
