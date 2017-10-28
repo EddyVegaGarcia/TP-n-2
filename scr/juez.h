@@ -7,7 +7,7 @@
 class Juez{
 
 private:
-
+	int cantidadDeJugadores;
 	Lista<jugador*>* jugadores;
 	Mapa* tableroDeJuego;
 
