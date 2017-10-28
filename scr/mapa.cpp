@@ -5,7 +5,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dimFila = filaRecibida;
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = DificultadRecibida;
-	this->numeroDeMapa = 0;
+	
 	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
@@ -46,7 +46,6 @@ Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 void Mapa::mostrarMapa(){
 
 	vector = new char[this->dimColumna];
-	this->numeroDeMapa++;
 	
 	for(int i = 0; i < dimFila; i++ ){
 		llenarVectorFila(i + 1, vector);
@@ -172,36 +171,41 @@ bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
 	return (seEncuentraEnLista('b', fila, columna));
 }
 
-/* Busca en una de las tres listas, según indicado x parámetro, y si encuentra asigna la fila y columna.*/
+/* Busca en una de las tres listas, según indicado x parámetro.*/
 bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada){
 	if (lista=='b'){
 		Lista<Bandera>* pLista=pBanderas;
-		Bandera* elementoActual;
+		Bandera elementoActual; //AIUDA // constructor con parámetros
 	}
 	else if (lista=='c'){
 		Lista<Casilla>* pLista=pCasillasDestapadas;
-		Casilla* elementoActual;
+		Casilla elementoActual;
 	}
 	else {// lista es 'm'
 		Lista<Mina>* pLista=pMinas;
-		Mina* elementoActual;
+		Mina elementoActual;
 	}
 
 	bool encontrado=false;
 	
-	while(pLista->avanzarCursor() && not encontrado){ // VER, Lista<Cosa*>*??
-		elementoActual=pLista->obtenerCursor(); //Es un puntero a una lista de PUNTEROS a band/cas/minas
+	while(pLista->avanzarCursor() && not encontrado){
+		elementoActual=pLista->obtenerCursor();
 		if (elementoActual->obtenerFila()==filaBuscada && elementoActual->obtenerColumna()==columnaBuscada)
 			encontrado=true;
+		
 	}
+	
+	//removerActual(); // acá es necesario un remover actual.
 	
 	return encontrado;
 }
 
 /*validarMina, estaDestapadaLaCasilla, Hay que buscar en las listas*/
 bool Mapa::validarMina(unsigned int fila, unsigned int columna){
-	
+	return(seEncuentraEnLista('m', fila, fila)); // ver, recibe uint.
 }
 
 bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
+	return(seEncuentraEnLista('m', fila, fila));
+
 }
