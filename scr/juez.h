@@ -14,13 +14,16 @@ private:
 
 public:
 
-	Juez::Juez(unsigned int cantidadJugadores,Mapa* recibido);
+	Juez(unsigned int cantidadJugadores,Mapa* recibido);
 
-	void Juez::avanzarJugador();
+	void avanzarJugador();
 
-	void Juez::mostrarJugador();
+	void mostrarJugador();
 
-	void Juez::insertarJugador(Jugador* nuevo);
+	void insertarJugador(Jugador* nuevo);
+	
+	void eliminarJugador();
+
 
 };
 
