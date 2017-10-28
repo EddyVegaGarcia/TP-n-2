@@ -6,8 +6,6 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = DificultadRecibida;
 	
-	
-	//no faltan declararlos antes?? y poner lista<>* ??
 	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
@@ -17,7 +15,6 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 }
 
 void Mapa::crearListaMinasYAsignarPuntero(){
-	//Aquí los asteriscos
 	Lista<Mina> minas;
 	this->pMinas=&minas;
 }
@@ -163,16 +160,8 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 /////// Métodos en construccin ///////////////////////////
 //////////////////////////////////////////////////////////
 
-/* en marcador dicen if validarMarca (o sea si está en la lista de banderas) entonces removerMarca.
-* Se estaría recorriendo dos veces. Si yo ya encontré la posición cuando me preguntaron si estaba o no, debería poder
-* llamar al remover marca ya con la posicin para no hacerlo buscar de nuevo.*/
-void Mapa::removerMarca(uint filaRecibida, uint columnaRecibida){
-	pBanderas->remover(posicion);
-}
-	
-/* Propongo que este método vea si está y si está la remueva.
-* De esa forma ya tiene la posción y no se recorre dos veces. Habría que cambiarle una línea al marcador.*/
-bool Mapa::validarMarca(unsigned int fila, unsigned int columna){
+
+bool Mapa::validarMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
 	if (seEncuentra) {remover(fila, columna)};
 	return seEncuentra;
@@ -183,29 +172,29 @@ bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
 }
 
 /* Busca en una de las tres listas, según indicado x parámetro, y si encuentra asigna la fila y columna.*/
-bool Mapa::seEncuentraEnLista(char lista, uint &fila, uint &columna){
+bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada){
 	if (lista=='b'){
 		Lista<Bandera>* pLista=pBanderas;
-		Bandera elementoActual;
+		Bandera* elementoActual;
 	}
 	else if (lista=='c'){
 		Lista<Casilla>* pLista=pCasillasDestapadas;
-		Casilla elementoActual;
+		Casilla* elementoActual;
 	}
 	else {// lista es 'm'
 		Lista<Mina>* pLista=pMinas;
-		Mina elementoActual;
+		Mina* elementoActual;
+	}
+
+	bool encontrado=false;
+	
+	while(pLista->avanzarCursor() && not encontrado){ // VER, Lista<Cosa*>*??
+		elementoActual=pLista->obtenerCursor(); //Es un puntero a una lista de PUNTEROS a band/cas/minas
+		if (elementoActual->obtenerFila()==filaBuscada && elementoActual->obtenerColumna()==columnaBuscada)
+			encontrado=true;
 	}
 	
-	bool seEncuentra=false;
-	
-	/* elementoActual tiene fila y columna. Buscar comparando elemento->obtenerFila() con la fila q se pasó x parámetro*/
-	/*por ejemplo
-	* plista->iniciarCursor();
-	* while (pLista->avanzarCursor() &&
-	* Pero no s si lo quieren hacer secuenciaaaal o cómo. Tengo sueño, hasta mañana ^_^ */
-	
-	return seEncuentra;
+	return encontrado;
 }
 
 /*validarMina, estaDestapadaLaCasilla, Hay que buscar en las listas*/
