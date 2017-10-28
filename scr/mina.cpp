@@ -12,6 +12,11 @@ Mina::Mina(uint fila, uint columna){
   asignarColumna(columna);
 }
 
+Mina::Mina(){
+  asignarFila(0);
+  asignarColumna(0);
+}
+
 uint Mina::obtenerFila(){
   return fila;
 }
