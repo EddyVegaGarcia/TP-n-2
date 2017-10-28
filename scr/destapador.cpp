@@ -32,8 +32,9 @@ int Destapador::destapar(int filaJugada, int columnaJugada)
 void Destapador::puntajeAlDestapar(int &puntaje)
 {
 	if(!this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
-		mapa->agregarCasillaDestapada(this->fila, this->columna);
 		char valorCasilla = mapa->obtenerValorCasilla();
+		mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
+
 		if(valorCasilla == VACIO)
 		{
 			destaparPandemia();
