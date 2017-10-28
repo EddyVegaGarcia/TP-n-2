@@ -65,3 +65,8 @@ void Jugador::iniciarJugada(){
 		asignarEstado(puntos);		
 	}
 }
+int Jugador::obtenerEstado(){
+	 
+	return this-> estado;
+
+}
