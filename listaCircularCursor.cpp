@@ -3,19 +3,19 @@
 
 #include "listaCircularCursor.h"
 
-template<class T> listaCircularCursor::ListaCircularCursor(){
+template<class T> listaCircularCursor<T>::ListaCircularCursor(){
 
 	this->cursor = NULL;
 	this->primero = NULL;
 	this->tamanio = 0;
 }
 
-template<class T> listaCircularCursor::insertar(T elementoNuevo){
+template<class T> void listaCircularCursor<T>::insertar(T elementoNuevo){
 
 	this->insertar(elemento, this->tamanio+1);
 }
 
-template<class T> listaCircularCursor::insertar(T elementoNuevo, unsigned int posicion){
+template<class T> void listaCircularCursor<T>::insertar(T elementoNuevo, unsigned int posicion){
 
     if ((posicion > 0) && (posicion <= this->tamanio + 1)) {
 
@@ -45,7 +45,7 @@ template<class T> listaCircularCursor::insertar(T elementoNuevo, unsigned int po
 
 }
 
-template<class T> void listaCircularCursor::remover(unsigned int posicion){
+template<class T> void listaCircularCursor<T>::remover(unsigned int posicion){
 
 	  if ((posicion > 0) && (posicion <= this->tamanio)) {
 
@@ -73,12 +73,12 @@ template<class T> void listaCircularCursor::remover(unsigned int posicion){
 	}
 }
 
-template<class T> void listaCircularCursor::inicializarCursor(){
+template<class T> void listaCircularCursor<T>::inicializarCursor(){
 
 	this->cursor = NULL;
 }
 
-template<class T> void listaCircularCursor::avanzarCursor(){
+template<class T> void listaCircularCursor<T>::avanzarCursor(){
 
 	  if (this->cursor == NULL) {
 
@@ -90,7 +90,7 @@ template<class T> void listaCircularCursor::avanzarCursor(){
 	}
 }
 
-template<class T> void listaCircularCursor::obtenerCursor(){
+template<class T> T listaCircularCursor<T>::obtenerCursor(){
 
 	   T elemento;
 
@@ -102,7 +102,7 @@ template<class T> void listaCircularCursor::obtenerCursor(){
 return elemento;
 }
 
-template<class T> void listaCircularCursor::estaVacia(){
+template<class T> void listaCircularCursor<T>::estaVacia(){
 
 	return (this->tamanio == 0);
 }
