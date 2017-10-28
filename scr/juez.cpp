@@ -68,35 +68,35 @@ void Juez::inicializarJuego(){
 
 
 }
-void Juez::sigueJugando(jugador* jugadorActual, int &jugadoresQuePerdieron, mapa* tableroDeJuego){
+void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego){
 
 	jugadorActual->iniciarJugada();
 
 		if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
 
-			 jugadoresQuePerdieron++;
+			jugadoresQuePerdieron++;
 
 			jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
 
 			elJugadorHaPerdido(jugadorActual);
 		}
-	 tableroDeJuego->mostrarMapa;
+	 tableroDeJuego->mostrarMapa();
 }
 
-void Juez::elJugadorHaPerdido(jugador* jugadorActual){
+void Juez::elJugadorHaPerdido(Jugador* jugadorActual){
 	int puntaje = 0;
 	char alias;
 	alias = jugadorActual->obtenerAlias();
 	puntaje = jugadorActual->obtenerPuntaje();
-	cout<<" el jugador " << alias << "ha perdido XD XD "<<endl;
-	cout<< "su puntaje es " << puntaje << endl;
+	cout<<" El jugador " << alias << " ha perdido XD XD"<<endl;
+	cout<< "Su puntaje es " << puntaje << endl;
 
 }
 
 Juez::~juez(){
 
 	while( !(this->jugadores->estaVacia()) ){
-		jugador* jugadorActual;
+		Jugador* jugadorActual;
 		char alias;
 		int puntaje;
 		this->jugadores->inicializarCursor;
@@ -104,7 +104,7 @@ Juez::~juez(){
 		alias = jugardorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
 
-		cout<<" el jugador : " << alias << "tiene " << puntaje << "puntos." << endl;
+		cout<<"El jugador: " << alias << " tiene " << puntaje << " puntos." << endl;
 		this->jugadores->remover(1);
 	}
 
