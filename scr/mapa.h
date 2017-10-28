@@ -43,9 +43,7 @@ class Mapa(){
 		//dificultad elegida
 		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
 		// una de minas, de casillas destapadas y de marcas.
-		mapa(int filaRecibida, 
-			  int columnaRecibida, 
-			  char dificultadRecibida);
+		mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
 		
 		//post: se devuelve el puntero a la lista de minas.
 		Lista<Mina>* Mapa::obtenerPunteroMinas();
@@ -60,9 +58,8 @@ class Mapa(){
 		//post: muestra por pantalla el mapa de juego.
 		void mostrarMapa();
 				
-		agregarCasillaDestapada(int filaRecibida,
-					int colRecibida);
-		
+		agregarCasillaDestapada(int filaRecibida, int colRecibida); 
+	
 		char obtenerValorCasilla();
 		
 		Lista<Mina>* obtenerPunteroMinas();
@@ -71,8 +68,7 @@ class Mapa(){
 		
 		Lista<Bandera>* obtenerPunteroBanderas();
 		
-		bool validarMina(unsigned int fila, 
-				 unsigned int columna);
+		bool validarMina(unsigned int fila, unsigned int columna);
 
 	
 };
