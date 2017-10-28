@@ -47,15 +47,12 @@ class Mapa(){
 		bool seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada);
 
 		
-
-	
-		
+		/* Pre: Recibe fila y columna de una casilla.
+		* Post: devuelve el valor de esa casilla.*/
+		char calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla);		
 	
 	public:
-		/*todo esto está desactualizado, faltan métodos,etc.
-		 *Después los agrego, ooo háganlo ustedes y pónganle
-		 *pre y post, xD
-		 *constructor
+		/*constructor
 		 *pre: recibe como parametro la dim de las filas, 
 		 *la dim de las columnas y la dificultad
 		 *post:
@@ -79,19 +76,32 @@ class Mapa(){
 		//pre:
 		//post: muestra por pantalla el mapa de juego.
 		void mostrarMapa();
-				
+
+		/*Pre: Recibe fila y columna de una casilla.
+		* Post: Devuelve si la casilla con ubicación dada por "fila" y "columna" está o no destapada.*/
+		bool estaDestapadaLaCasilla(unsigned int fila, unsigned int columna);
+
+		/*Pre: Recibe fila y columna.
+		* Post: La casilla cuya posición está dada por "fila" y "colmna" queda destapada.*/
 		void agregarCasillaDestapada(int filaRecibida, int colRecibida); 
-	
-		char obtenerValorCasilla();
 		
-		Lista<Mina>* obtenerPunteroMinas();
+		/*Pre: Recibe fila y columna de una casilla.
+		* Post: Devuelve su valor.*/
+		char obtenerValorCasilla(int filaRecibida,int columnaRecibida);
 		
-		Lista<Casilla>* obtenerPunteroCasillasDestapas();
-		
-		Lista<Bandera>* obtenerPunteroBanderas();
-		
+		/*Pre: Recibe fila y columna de una casilla.
+		* Post: Devuelve si en la posicin dada por "fila" y "columna" hay o no una mina.*/
 		bool validarMina(unsigned int fila, unsigned int columna);
 
 	
+		/*Pre: Recibe fila y columna de una casilla.
+		* Post: Coloca una marca en la posición dada por "fila" y "columna".*/
+		void colocarMarca(int filaRecibida,int columnaRecibida);
+		
+		/*Pre: Recibe fila y columna de una casilla.
+		* Post: si en la posición dada por "fila" y "columna" hay una marca, entonces la elimina.
+		* Devuelve si en dicha posición hay o no una marca.*/
+		bool validarYRemoverMarcaSiHay(unsigned int fila, unsigned int columna);
+
 };
 		
