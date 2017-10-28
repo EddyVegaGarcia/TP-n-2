@@ -16,21 +16,30 @@ class Destapador{
 		//Metodos
 		
 		/*
-		 *Pre:recibe un puntero al mapa del cual va a destapar 
+		 *Pre:recibe un puntero al mapa del cual va a destapar. 
 		 *
 		 * Post: se guarda la casilla destapada y su valor en el mapa para mostrarse
 		 */
-		Destapador (mapa* Mapa);
+		Destapador (Mapa* mapaActual);
 		
+		/*
+		 *Pre:recibe fila y columna que se a jugado. 
+		 *
+		 * Post: Descubre 		 
+		 */
+		void destapar(int filaJugada, int columnaJugada);
+			
+	
 		/*
 		 *Pre: 
 		 *
 		 * Post: Descubre la casilla y efectua segun las tres tipos (vacia, enumerada, mina)
 		 */
-		void destapar(int filaJugada, int columnaJugada);
-			
+		void puntajeAlDestapar(int &puntaje);
+	
 	private:
 		
+	
 		/*
 		 *Pre:
 		 *
@@ -39,8 +48,14 @@ class Destapador{
 		 */	
 		void destaparPandemia();
 			
-			
-			
+		
+		/*
+		 *Pre:
+		 *
+		 * Post:La casilla confirma un vacío, revele tanto esa casilla como vacías e
+		 * enumeradas al rededor y se le asigna el puntaje correspondiente. 
+		 */	
+		void destaparPandemiaRecursiva(int filaPasada, int columnaPasada);	
 		
 		/*
 		 *Pre:
