@@ -10,7 +10,7 @@ class Marcador{
 		int puntaje;
 		int fila;
 		int columna;
-	        mapa* mapa;
+	        Mapa* mapa;
 	
 	public:
 		//Metodos
