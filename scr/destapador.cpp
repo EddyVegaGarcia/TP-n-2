@@ -34,7 +34,6 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 	if(!this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
 		char valorCasilla = mapa->obtenerValorCasilla();
 		mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
-
 		if(valorCasilla == VACIO)
 		{
 			destaparPandemia();
@@ -52,43 +51,25 @@ void Destapar::destaparPandemia()
 	destaparPandemiaRecursiva(this->fila, this->columna);	
 }
 
-void Destapar::destaparCasillaRecursiva(int filaPasada, int columnaPasada)
+void Destapar::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 {
-	if(thi->mapa->obtenerValorCasilla!=VACIO && this->mapa->)
-		return 
 	
-	while(
-		
+	if(this->mapa->obtenerValorCasilla!=VACIO || this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada))
+		return;
+	
+	destaparPandemiaRecursiva(int filaPasada - 1, int columnaPasada);
+	this->mapa->agregarCasillaDestapada(int filaPasada - 1, int columnaPasada);
+	
+	destaparPandemiaRecursiva(int filaPasada + 1, int columnaPasada);
+	this->mapa->agregarCasillaDestapada(int filaPasada + 1, int columnaPasada);
+	
+	destaparPandemiaRecursiva(int filaPasada, int columnaPasada - 1);
+	this->mapa->agregarCasillaDestapada(int filaPasada, int columnaPasada - 1);
+	
+	destaparPandemiaRecursiva(int filaPasada, int columnaPasada + 1);
+	this->mapa->agregarCasillaDestapada(int filaPasada, int columnaPasada + 1);	
+
 }
-void epidemia(char tablaMinada[][ancho],char tablaBloqueada[][ancho],int fila, int columna,int &contadorCeldas){
-	//si hay un cero, desbloquea los alrededores hasta encontrarse con un numero distinto de cero (recursiva)
-  
-  //tablaMinada es la matriz completa y tablaBloqueada es la matriz que interactua con el usuario, la funcion
-  //recibe ambas y luego una posicion representada por Fila Columna, chequea los alrededores de fila columna
-  //contadorCeldas no se usa en este trabajo CREO.
-
-	if(tablaBloqueada[fila-1][columna-1]=='*' || tablaBloqueada[fila-1][columna-1]=='B'){
-		tablaBloqueada[fila-1][columna-1]=tablaMinada[fila-1][columna-1];
-		--contadorCeldas;
-
-		if(tablaMinada[fila-1][columna-1]=='0'){
-
-			if(fila-1 !=0 &&tablaMinada[fila-2][columna-1]!='x' && tablaBloqueada[fila-2][columna-1]=='*')
-				expandir(tablaMinada,tablaBloqueada,fila-1,columna,contadorCeldas);
-
-			if(columna-1 !=0 &&tablaMinada[fila-1][columna-2]!='x' && tablaBloqueada[fila-1][columna-2]=='*')
-				expandir(tablaMinada,tablaBloqueada,fila,columna-1,contadorCeldas);
-
-			if(columna !=ancho && tablaMinada[fila-1][columna]!='x' && tablaBloqueada[fila-1][columna]=='*')
-				expandir(tablaMinada,tablaBloqueada,fila,columna+1,contadorCeldas);
-
-			if(fila !=largo && tablaMinada[fila][columna-1]!='x' && tablaBloqueada[fila][columna-1]=='*')
-				expandir(tablaMinada,tablaBloqueada,fila+1,columna,contadorCeldas);
-
-		}
-	}
-}
- 
 
 int Destapar::destaparCasillaNoVacia(char valorCasilla)
 {
