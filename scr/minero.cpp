@@ -1,7 +1,6 @@
-
 typedef unsigned int uint;
 
-#include "minero.h"
+# include "minero.h"
 
 /**
  * dificultad considerada como Facil - Medio - Dificil por ahora
@@ -11,12 +10,9 @@ typedef unsigned int uint;
  * en el main se deberían agregar constantes para facilitar la modificacion de las dificultades
  */
 
-
-
 void Minero::Minero(){
 
 	//sin parámetros toma como default estas opciones
-
 	dimFila=10;
 	dimColumna=10;
 	dificultad='F';
@@ -52,7 +48,6 @@ int Minero::asignarNumeroMaximoMinas(int totalCeldas){
 }
 
 void Minero::asignarMinasAleatorias(int celdas,int minas){
-
 
 	srand (time(NULL)); //la semilla deberia ir en el main CREO
 
@@ -94,6 +89,3 @@ void pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtene
         filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
 	columnaAObtener = this->dimColumna (2- filaAObtener);
 }
-
-
-
