@@ -49,7 +49,9 @@
 
 		this->jugadores->insertar(nuevo);
 	}
-       Juez::juez(){
+
+	Juez::inicializarJuego();
+       Juez::~juez(){
 	       
        		while( !(this->jugadores->estaVacia()) ){
 			jugador* jugadorActual;
