@@ -1,6 +1,3 @@
-
-
-
 #ifndef JUEZ_H_
 #define JUEZ_H_
 
@@ -8,12 +5,12 @@ class Juez{
 
 private:
 	int cantidadDeJugadores;
-	Lista<jugador*>* jugadores;
+	Lista<Jugador*>* jugadores;
 	Mapa* tableroDeJuego;
 
 public:
 
-	Juez(unsigned int cantidadJugadores,Mapa* recibido);
+	Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido);
 
 	void avanzarJugador();
 
@@ -21,9 +18,11 @@ public:
 
 	void insertarJugador(Jugador* nuevo);
 	
-	void eliminarJugador();
+	void inicializarJuego();
 	
-	inicializarJuego();
+	void sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego);
+
+	void elJugadorHaPerdido(Jugador* jugadorActual);
 	
 	~juez();
 	
