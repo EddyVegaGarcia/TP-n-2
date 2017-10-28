@@ -79,8 +79,8 @@ void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]){
 		casillaActual = pCasillasDestapadas->obtenerCursor();
 
 		if (casillaActual.obtenerFila() == fila){
-			vector[casillaActual.obtenerColumna - 1] = casillaActual.obtenerValor();
-			casillasAsignadas ++;
+			vector[casillaActual.obtenerColumna() - 1] = casillaActual.obtenerValor();
+			casillasAsignadas++;
 		}
 	}	
 }
@@ -98,7 +98,7 @@ void llenarVectorDeBanderas(unsigned int fila,char* vector[]){
 		
 		if(banderaActual.obtenerColumna() == fila){
 		
-			vector[banderaActual.obtenerColumna - 1] = '9';
+			vector[banderaActual.obtenerColumna() - 1] = '9';
 			banderasAsignadas++;
 		}
 	}
@@ -107,7 +107,7 @@ void mostrarVector(char* vector[]){
 	
 	for (unsigned int i = 0; i< this->columna; i++){
 
-			if(vector[i] == 9)
+			if(vector[i] == '9')
 				std::cout<<Bandera<<;
 			else if (vector[i] == 0) 
 				std::cout<<'*';
@@ -156,23 +156,16 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 	this -> pBanderas -> agregar(banderaAColocar);
 }
 
-//////////////////////////////////////////////////////////
-/////// Métodos en construccin ///////////////////////////
-//////////////////////////////////////////////////////////
 
-
-bool Mapa::validarMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
+bool Mapa::validarYRemoverMarcaSiHay(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
-	if (seEncuentra) {remover(fila, columna)};
+	if (seEncuentra) {remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
 	return seEncuentra;
 }	
 
 bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
 	return (seEncuentraEnLista('b', fila, columna));
 }
-
-	
-
 
 /* Busca en una de las tres listas, según indicado x parámetro.*/
 bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada){
