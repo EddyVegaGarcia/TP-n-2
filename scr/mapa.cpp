@@ -127,14 +127,14 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	Mina minaActual;
 	if (pMinas->avanzarCursor)
 		minaActual = pMinas->ObtenerCursor();
-	
+
 	
 	//MIs OJOS!!!!!! XD hay que revisar acá
 	if (minaActual.esMina(filaCasilla, columnaCasilla)){
 		valor = MINA;
 	} else {
 		while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9'){
-			Mina minaActual = pMinas->ObtenerCursor();
+			Mina minaActual = pMinas->obtenerCursor();
 			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
 				valor++;
 		}
@@ -142,29 +142,16 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	return valor;
 }
 
-/* esto tiene que ser char, calculo el valor acá, no tiene sentido pasarselo a otro método que solo lo devuelva
-* antes habían dicho de separalo en dos pero xq un método la iba a agregar, se iba a calcular el valor
-* y dsp otro método iba a obtener ese valor. Ahora calculamos el valor acá, ya se agrega con el valor calculado,
-* tiene sentido que este método sea char si ya tiene el valor que va a devolver.*/
-/* Pero sí, admito que visto desde destapador sería mejor en dos métodos.
-* Y tiene sentido que el mapa sea quien calcule todo xq tiene los datos.
-* Cómo hacemo'? 
-* (nadie lee estos comentarios, no?, qué mal, xD).*/
-char Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida){
-	char valor='0';
-	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
-	Casilla casillaPorAgregar(filaRecibida, columnaRecibida, valor);
+void Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida,char valorRecibido){ // modificando
+	Casilla casillaPorAgregar(filaRecibida, columnaRecibida, valorRecibido);
 	this -> pMinas -> agregar(casillaPorAgregar);
-	return valor;
 }
 
 //pre: lista casillas no vacia
 //post: devuelve valor de la ultima casilla
-/* Ahora que agregarCasillaDestapada devuelve char, este método sobra.*/
 char Mapa::obtenerValorCasilla(){
-	*Casilla punteroCasilla = this -> pMinas -> obtenerPuntero();
-	return *punteroCasilla;
-/*(Arriba es "Casilla*"). (Sería punteroCasilla->obtenerValor(), para q dev char. Igual ya lo puede hacer el otro método.*/
+	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
+	return valor;
 }
 	
 void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
