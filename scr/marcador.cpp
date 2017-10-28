@@ -37,7 +37,7 @@ int Marcador::marcar(int filaJugada, int columnaJugada)
 
 int Marcador::realizarMarca(){
   
-  if(mapa->validarMarca(this->fila , this->columna))
+  if(mapa->validarYRemoverMarcaSiHay(this->fila , this->columna))
   {
     
     this->puntaje = desmarcarCasilla();
@@ -56,7 +56,7 @@ int Marcador::realizarMarca(){
 int Marcador::desmarcarCasilla()
 {
  
-  mapa->removerMarca(this->fila , this->columna);
+  //mapa->removerMarca(this->fila , this->columna); Saco esta línea. Esta línea no va.
     
   if(!mapa->validarMina(this->fila , this->columna)
   {
