@@ -3,7 +3,7 @@
 
 
 
-class Destapador{
+class Marcador{
 	
 	private:
 		//Atributos
