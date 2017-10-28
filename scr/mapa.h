@@ -26,7 +26,28 @@ class Mapa(){
 	
 		//pre: 
 		//post: se crea una lista de banderas y se asigna al atributo
-		crearListaBanderasYAsignarPuntero();
+		void crearListaBanderasYAsignarPuntero();
+	
+		// métodos llamados por Mapa::mostrarMapa();
+		void llenarVectorFila(unsigned int fila, char* vector[]);
+		void llenarVectorDeNoMostrado(char* vector[]);
+		void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]);
+		void llenarVectorDeBanderas(unsigned int fila,char* vector[]);
+		void mostrarVector(char* vector[]);
+
+		/* Pre: reciba fila y columna de una casilla,
+		* Post: devuelve si la casilla que tiene por ubicacin "fila" y "columna" está o no en la lista
+		* de banderas.*/
+		bool seEncuentraEnListaDeBanderas(uint &fila, uint &columna);	
+	
+		/* Pre: Recibe un char, ('m' para lista de minas, 'c' para lista de casillas, 'b' para lista de banderas),
+		* y una ubicación de la casilla a buscar indicada por fila y columna.
+		* Post: Busca en una de las tres listas, según indicado por "lista" y devuelve un bool indicando si
+		* la casilla cuya ubicacin se pasó por parámetro está o no en la lista "lista".*/
+		bool seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada);
+
+		
+
 	
 		
 	
@@ -44,22 +65,22 @@ class Mapa(){
 		//dificultad elegida
 		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
 		// una de minas, de casillas destapadas y de marcas.
-		mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+		Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
 		
 		//post: se devuelve el puntero a la lista de minas.
-		Lista<Mina>* Mapa::obtenerPunteroMinas();
+		Lista<Mina>* obtenerPunteroMinas();
 	
 		//post: se devuelve el puntero a la lista de casillas destapadas.
-		Lista<Casilla>* Mapa::obtenerPunteroCasillas();
+		Lista<Casilla>* obtenerPunteroCasillas();
 	
 		//post: se devuelve el puntero a la lista de banderas.
-		Lista<Bandera>* Mapa::obtenerPunteroBanderas();
+		Lista<Bandera>* obtenerPunteroBanderas();
 	
 		//pre:
 		//post: muestra por pantalla el mapa de juego.
 		void mostrarMapa();
 				
-		agregarCasillaDestapada(int filaRecibida, int colRecibida); 
+		void agregarCasillaDestapada(int filaRecibida, int colRecibida); 
 	
 		char obtenerValorCasilla();
 		
