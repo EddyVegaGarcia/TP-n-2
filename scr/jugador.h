@@ -22,8 +22,7 @@ private:
 	/* Post: crea un objeto jugada y apunta pJugada a jugada. */
 	void inicializarPunteroAJugada(Mapa* punteroAMapa);
 	
-	/* Post: inicializa el estado del jugador (sigue jugando, se retiro, perdio partida). */
-	void asignarEstado(int estado){
+	
 	
 public:
 	/* Pre: ningun jugador existente tiene por alias "letra".
@@ -44,6 +43,13 @@ public:
 	/* Pre:
 	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
 	void iniciarJugada();
+		
+	
+	/*devuelve el estado actual del jugador */
+	int Jugador::obtenerEstado();
+	
+	/* Post: inicializa el estado del jugador (sigue jugando, se retiro, perdio partida). */
+	void asignarEstado(int estado);
 
 };
 
