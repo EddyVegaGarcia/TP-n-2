@@ -7,12 +7,12 @@ using namespace std;
 
 		
 //constructor
-Destapador::Destapador (Mapa* mapaActual)
+Destapador::Destapador (mapa* mapaActual)
 {
 
   this->mapa = mapaActual;
-  this->fila = 0;
-  this->columna = 0;
+  this->fila = 0
+  this->columna = 0
   
   
   
@@ -24,28 +24,41 @@ int Destapador::destapar(int filaJugada, int columnaJugada)
 	int puntaje = 0;
 	this->fila =  filaJugada;
  	this->columna = columnaJugada;
-	
-	if(!mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
+	puntajeAlDestapar(*puntaje);
+	return  puntaje;
+}
+
+
+void Destapador::puntajeAlDestapar(int &puntaje)
+{
+	if(!this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
 		mapa->agregarCasillaDestapada(this->fila, this->columna);
 		char valorCasilla = mapa->obtenerValorCasilla();
-		if(valorCasilla = VACIO)
+		if(valorCasilla == VACIO)
 		{
 			destaparPandemia();
 		}
 		else
 		{
-			puntaje  = destaparCasillaNoVacia(valorCasilla, *puntaje);
+			puntaje  = destaparCasillaNoVacia(valorCasilla);
 		}
 	}
-	return  puntaje;
+	
+}
+//metodos privadas
+void Destapar::destaparPandemia()
+{
+	destaparPandemiaRecursiva(this->fila, this->columna);	
 }
 
-
-//metodos privadas
-int Destapar::destaparPandemia()
+void Destapar::destaparCasillaRecursiva(int filaPasada, int columnaPasada)
 {
+	if(thi->mapa->obtenerValorCasilla!=VACIO && this->mapa->)
+		return 
 	
-
+	while(
+		
+}
 void epidemia(char tablaMinada[][ancho],char tablaBloqueada[][ancho],int fila, int columna,int &contadorCeldas){
 	//si hay un cero, desbloquea los alrededores hasta encontrarse con un numero distinto de cero (recursiva)
   
@@ -75,7 +88,6 @@ void epidemia(char tablaMinada[][ancho],char tablaBloqueada[][ancho],int fila, i
 	}
 }
  
-}
 
 int Destapar::destaparCasillaNoVacia(char valorCasilla)
 {
