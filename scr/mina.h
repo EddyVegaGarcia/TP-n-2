@@ -15,7 +15,10 @@ private:
 public:
 /*Pre: recibe fila y columna dentro del rango indicado por el jugador
 * Post: crea un objeto mina, con la fila y columna recibidas. */
-  Mina(uint fila, uint columna);  
+  Mina(uint fila, uint columna);
+  
+  /* Post: Crea un mina con fila y columna "0".*/
+  Mina();
   
   /* Post: devuelve la fila de la mina.*/
   uint obtenerFila();
