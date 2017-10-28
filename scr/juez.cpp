@@ -1,6 +1,3 @@
-
-
-
 #include "juez.h"
 
 	Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
