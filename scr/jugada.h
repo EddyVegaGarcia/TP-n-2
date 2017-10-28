@@ -1,11 +1,11 @@
 #ifndef JUGADA_H_
 #define JUGADA_H_
 
-include <iostream>
-include "destapador.h"
-include "marcador.h"
+# include <iostream>
+# include "destapador.h"
+# include "marcador.h"
 
-class jugada(){
+class Jugada{
 	
 	private:
 		
@@ -14,16 +14,14 @@ class jugada(){
 		int fila;
 		int columna;
 		int puntaje;
-		mapa* mapa;
+		Mapa* mapa;
 		
 	public:
-		
-
 		//metodos
 		
 		//pre: recibe como parametro un puntero al mapa del juego
 		//post: crea una jugada que se realizara en el mapa 
-		jugada(mapa* mapa);
+		Jugada(Mapa* mapa);
 		
 		//pre: se pasa como parametro la opcion que el usuario ingreso, es decir una D si
 		//quiere destapar una casilla, M si la quiere marcar o R si quiere retirarse.
@@ -45,8 +43,6 @@ class jugada(){
 		//decir, se destapara la casilla, se marcara esta, o se retirara el jugador, se 
 		//devolvera el puntaje ganado con la jugada hecha.
 		int realizarJugada();
-		
-		
-		
-}
+			
+};
 #endif
