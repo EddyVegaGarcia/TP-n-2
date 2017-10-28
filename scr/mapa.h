@@ -12,6 +12,7 @@ class Mapa(){
 		Lista<Mina>* pMinas;
 		Lista<Casilla>* pCasillasDestapadas;
 		Lista<Bandera>* pBanderas;
+		unsigned int numeroDeMapa;
 		
 	
 		//pre: 
