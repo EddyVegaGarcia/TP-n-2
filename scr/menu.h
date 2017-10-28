@@ -48,11 +48,6 @@ private:
 	/* Post: devuelve la cantidad de jugadores de la partida */
 	uint obtenerCantJugadores();
 	
-
-	/* Pre: Se llamò al mètodo pedirOpcionesDeJuegoAUser().
-	 * Post: Crea un objeto mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto juez.*/
-	void crearAmbiente();
-	
 	/* Pre:
 	* Post: pide opciones por pantalla al usuario.*/
 	void pedirOpcionesDeJuegoAUser();
@@ -65,7 +60,10 @@ public:
 	 * un nuevo objeto juez.*/
 	Menu();
 
-
+	/* Pre: Se llamò al mètodo pedirOpcionesDeJuegoAUser().
+	 * Post: Crea un objeto mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto juez.*/
+	void crearAmbiente();
+	
 };
 
 #endif /* MENU_H_ */
