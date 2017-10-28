@@ -23,6 +23,11 @@ public:
 	void insertarJugador(Jugador* nuevo);
 	
 	void eliminarJugador();
+	
+	inicializarJuego();
+	
+	~juez();
+	
 
 
 };
