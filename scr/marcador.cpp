@@ -6,7 +6,7 @@
 using namespace std;
 
 //constructor
-Marcador::Marcador(mapa* mapaActual)
+Marcador::Marcador(Mapa* mapaActual)
 {
 
   this->fila = 0;
@@ -60,36 +60,33 @@ int Marcador::desmarcarCasilla()
     
   if(!mapa->validarMina(this->fila , this->columna)
   {
-    puntaje-=2;
+    puntaje+=2;
   }
   else
   {
   
-    puntaje+=2;
+    puntaje-=2;
   
   }
-     
-     
+
+  
   return puntaje;
 }
-     
+
 int Marcador::marcarCasilla()
 {
   
-  mapa->colocarMarca(this->fila , this->columna);
+  mapa->colocarMarca(this->fila, this->columna);
   
-  if(!mapa->validarMina(this->fila , this->columna)
+  if(!mapa->validarMina(this->fila, this->columna)
   {
     puntaje--;
   }
   else
   {
-  
     puntaje++;
-  
-  } 
+  }
   
   return puntaje;
   
-} 
-
+}
