@@ -5,7 +5,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this-> dimFila = filaRecibida;
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = DificultadRecibida;
-	
+	this->numeroDeMapa = 0;
 	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
@@ -46,6 +46,7 @@ Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 void Mapa::mostrarMapa(){
 
 	vector = new char[this->dimColumna];
+	this->numeroDeMapa++;
 	
 	for(int i = 0; i < dimFila; i++ ){
 		llenarVectorFila(i + 1, vector);
