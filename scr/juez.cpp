@@ -3,9 +3,9 @@
 
 #include "juez.h"
 
-	Juez::Juez(unsigned int cantidadJugadores,Mapa* recibido){
+	Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 
-		tableroDeJuego = recibido;
+		tableroDeJuego = mapaRecibido;
 		Lista<jugador*> ingresantes();
 		this->jugadores = ingresantes;
 
@@ -13,7 +13,7 @@
 
 		for (int i=0; i<cantidadJugadores;i++){
 
-			Jugador* entrante = new Jugador(alias+i,recibido);
+			Jugador* entrante = new Jugador(alias+i,mapaRecibido);
 			insertarJugador(entrante);
 		}
 
