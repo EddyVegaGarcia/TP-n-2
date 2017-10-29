@@ -32,6 +32,12 @@ uint Mapa::obtenerTamanioDeLaListaDeMinas(){
 	return this->pMinas->contarElementos();
 }
 
+uint Mapa::obtenerCantidadDeCasillasOcultas(){
+	long int casillasTotales=this->dimFila()*this->dimColumna();
+	int casillasYaDestapadas=pCasillasDestapadas->contarElementos();
+	return casillasTotales-casillasYaDestapadas;
+}
+
 
 /* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
 * tan grande.*/
