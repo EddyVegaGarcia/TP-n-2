@@ -34,17 +34,17 @@ void Menu::asignarCantJugadores(uint cant){
 // obtener
 
 uint Menu::obtenerFila(){
-	return dimFila;
+	return this->dimFila;
 }
 uint Menu::obtenerColumna(){
-	return dimColumna;
+	return this->dimColumna;
 }
 char Menu::obtenerDificultad(){
-	return dificultad;
+	return this->dificultad;
 }
 
 uint Menu::obtenerCantJugadores(){
-	return cantJugadores;
+	return this->cantJugadores;
 }
 
 
