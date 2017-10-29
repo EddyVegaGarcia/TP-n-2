@@ -1,7 +1,4 @@
 # include "jugador.h"
-# include "constantes.h"
-# include "jugada.h"
-# include "mapa.h"
 # include <iostream>
 using namespace std;
 
