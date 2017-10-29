@@ -77,6 +77,7 @@ void Juez::inicializarJuego(){
 		jugadores->avanzarCursor();
 	}
 	
+	/* Queda un solo jugador */
 	avanzarJugador(); /* dejo el cursor apuntando al que sigue jugando */
 	while(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
 		if (casillasOcultas==minasPorDescubrir){
