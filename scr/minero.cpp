@@ -2,12 +2,11 @@ typedef unsigned int uint;
 
 # include "minero.h"
 
-/**
+/*
  * dificultad considerada como Facil - Medio - Dificil por ahora
  * facil=   %20 del tablero son minas
  * medio=   %30 del tablero son minas
  * dificil= %40 del tablero son minas
- * en el main se deberían agregar constantes para facilitar la modificacion de las dificultades
  */
 
 void Minero::Minero(){
@@ -40,16 +39,16 @@ int Minero::asignarNumeroMaximoMinas(int totalCeldas){
 
 	int maximoMinas;
 
-	if (dificultad=='F')		 maximoMinas = (totalCeldas*facil)/100;
-	else if (dificultad=='M') maximoMinas = (totalCeldas*medio)/100;
-	else 					 maximoMinas = (totalCeldas*dificil)/100;
+	if (dificultad=='F')	 maximoMinas = (totalCeldas*FACIL)/100;
+	else if (dificultad=='M') maximoMinas = (totalCeldas*MEDIO)/100;
+	else 			maximoMinas = (totalCeldas*DIFICIL)/100;
 
 	return maximoMinas;
 }
 
 void Minero::asignarMinasAleatorias(int celdas,int minas){
 
-	srand (time(NULL)); //la semilla deberia ir en el main CREO
+	srand (time(NULL));
 
 	int posVector;
 	int tope = celdas;
