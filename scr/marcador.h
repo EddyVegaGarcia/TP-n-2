@@ -14,7 +14,7 @@ class Marcador{
 	
 	public:		
 		/* Pre: Recibe un puntero al mapa en el cual va a marcar.
-		 * Post: Crea un marcador, con puntaje 0.*/
+		 * Post: Crea un Marcador, con puntaje 0.*/
 		Marcador(Mapa* mapaActual);
 		
 		/* Pre: Recibe "filaJugada" y "columnaJugada" que indican la ubicación de una casilla.
