@@ -41,10 +41,10 @@ private:
 	/* post: pide a user la cantidad de jugadores y la asigna. */
 	void pedirYAsignarCantJugadores();
 
-	/* Post: devuelve la cantidad de filas del tablero de juego-*/
+	/* Post: devuelve la cantidad de filas del tablero de juego.*/
 	uint obtenerFila();
 
-	/* Post: devuelve la cantidad de columnas del tablero de juego-*/
+	/* Post: devuelve la cantidad de columnas del tablero de juego.*/
 	uint obtenerColumna();
 
 	/* Post: devuelve la dificultad de la partida.*/
