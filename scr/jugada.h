@@ -4,12 +4,12 @@
 # include <iostream>
 # include "destapador.h"
 # include "marcador.h"
+# include "mapa.h"
 
 class Jugada{
 	
 	private:
-		
-		//atributos
+	
 		char opcion;
 		int fila;
 		int columna;
@@ -17,31 +17,30 @@ class Jugada{
 		Mapa* mapa;
 		
 	public:
-		//metodos
-		
-		//pre: recibe como parametro un puntero al mapa del juego
-		//post: crea una jugada que se realizara en el mapa 
+	
+		//pre: recibe como parámetro un puntero al mapa de juego.
+		//post: crea una jugada que se realizará en el mapa.
 		Jugada(Mapa* mapa);
 		
-		//pre: se pasa como parametro la opcion que el usuario ingreso, es decir una D si
+		//pre: se pasa como parámetro la opción que el usuario ingresó, es decir una D si
 		//quiere destapar una casilla, M si la quiere marcar o R si quiere retirarse.
-		//post: queda la opcion de la jugada registrada con el dato recibido.
+		//post: queda la opcion de la jugada registrada.
 		void asignarOpcion(char opcionDeUsuario);
 		
-		//pre: se pasa por parametro la fila que el usuario ingreso, esta debe ser valida,
-		// es decir dentro de las dimensiones especificadas a un comienzo del juego.
-		//post: la fila queda registrada con el dato recibido.
+		//pre: se pasa por parámetro la fila que el usuario ingresó, ésta debe ser válida,
+		// es decir dentro de las dimensiones especificadas al comienzo del juego.
+		//post: la fila queda registrada.
 		void asignarFila(int fila);
 		
-		//pre: se pasa por parametro la columna que el usuario ingreso, esta debe ser valida,
-		// es decir dentro de las dimensiones especificadas a un comienzo del juego.
-		//post: la columna queda registrada con el dato recibido.
+		//pre: se pasa por parámetro la columna que el usuario ingresó, ésta debe ser válida,
+		// es decir dentro de las dimensiones especificadas al comienzo del juego.
+		//post: la columna queda registrada.
 		void asignarColumna(int columna);
 	
-		//pre: 
-		//post: segun la opcion que se registro anteriormente se realizara la jugada, es
-		//decir, se destapara la casilla, se marcara esta, o se retirara el jugador, se 
-		//devolvera el puntaje ganado con la jugada hecha.
+		//pre: fila, columna y opción ya están asignadas.
+		//post: según la opcion que se registró anteriormente se realizara la jugada, es
+		//decir, se destapará la casilla, se marcará ésta, o se retirará el jugador, se 
+		//devolverá el puntaje ganado con la jugada hecha.
 		int realizarJugada();
 			
 };
