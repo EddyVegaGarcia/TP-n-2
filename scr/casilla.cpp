@@ -23,13 +23,13 @@ Casilla::Casilla(){
 }
   
 uint Casilla::obtenerFila(){
-  return fila;
+  return this->fila;
 }
   
 uint Casilla::obtenerColumna(){
-  return columna;
+  return this->columna;
 }
 
 char Casilla::obtenerValor(){
-  return valor;
+  return this->valor;
 }
