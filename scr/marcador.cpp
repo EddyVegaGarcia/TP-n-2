@@ -37,7 +37,7 @@ int Marcador::marcar(int filaJugada, int columnaJugada)
 
 int Marcador::realizarMarca(){
   
-  if(mapa->validarYRemoverMarcaSiHay(this->fila , this->columna))
+  if(mapa->RemoverYDevolverSiHabiaMarca(this->fila , this->columna))
   {
     
     this->puntaje = desmarcarCasilla();
