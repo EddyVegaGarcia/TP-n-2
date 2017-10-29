@@ -1,24 +1,30 @@
 #include "juez.h"
 
 Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
-	cantidadDeJugadores = cantidadJugadores;
-	tableroDeJuego = mapaRecibido;
-	Lista<Jugador*>* ingresantes;
-	this->jugadores = ingresantes;
-
-	char alias = 'A';
+	this->cantidadDeJugadores = cantidadJugadores;
+	this->tableroDeJuego = mapaRecibido;
 	
-	Jugador* entrante;
-	for (int i=0; i<cantidadJugadores;i++){
-		Jugador jugador(alias+i,mapaRecibido);
-		entrante=&jugador;		
-		insertarJugador(entrante);
-	}
-	delete entrante;
-
-	this->jugadores->iniciarCursor();
+	Lista<Jugador*> listaDeJugadores;
+	this-> jugadores = &listaDeJugadores;
+	
+	crearJugadores();
 
 }
+
+
+void Juez::crearJugadores(){
+	char alias = 'A';
+
+		Jugador* entrante;
+		for (int i=0; i<cantidadJugadores;i++){
+			Jugador jugador(alias+i,mapaRecibido);
+			entrante=&jugador;		
+			insertarJugador(entrante);
+		}
+
+		this->jugadores->iniciarCursor();
+}
+
 
 /* Este método sería un "avanzar jugador hasta un jugador que siga jugando".
 * Ver cómo/si se conjuga esto con el método inicializarJuego que hizo dafi más abajo.*/
