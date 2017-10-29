@@ -12,44 +12,47 @@ private:
 	Jugada* pJugada;
 
 	/* Pre: "letra" no es alias de ningun otro jugador.
-	 * Post: asigna letra al atributo alias.*/
+	 * Post: Deja al jugador con el alias "letra".*/
 	void asignarAlias(char letra);
 
-	/* Pre: recibe punt de tipo int.
-	 * Post: asigna punt a puntaje. */
+	/* Pre: Recibe "puntos" de tipo int.
+	 * Post: Deja al jugador con el puntaje "puntos".*/
 	void asignarPuntaje(int puntos);
 
-	/* Post: crea un objeto jugada y apunta pJugada a jugada. */
+	/* Pre: Recibe un puntero al mapa de juego.
+	 * Post: Crea un objeto Jugada y apunta pJugada a jugada.*/
 	void inicializarPunteroAJugada(Mapa* punteroAMapa);
 	
 	
 	
 public:
-	/* Pre: ningun jugador existente tiene por alias "letra".
-	 * Post: crea un jugador. Crea una jugada y asigna su dirección al puntero pJugada.
-	 * inicializa alias en letra y puntaje en cero. */
+	/* Pre: Recibe una letra, futuro alias del jugador a crear, y un puntero al mapa de juego.
+	 * 	Ningun jugador existente tiene por alias "letra".
+	 * Post: Crea un jugador con alias "letra", estado "SIGUE_JUGANDO" y puntaje 0.
+	 *	Crea una jugada y asigna su dirección al puntero pJugada.*/
 	Jugador(char letra, Mapa* punteroAMapa);
 
-	/* Pre: recibe punt de tipo int.
-	 * Post: suma punt a puntaje. */
+	/* Pre: Recibe "puntos" de tipo int.
+	 * Post: Suma "puntos" al puntaje del jugador.*/
 	void modificarPuntaje(int puntos);
 
-	/* Post: devuelve el alias del jugador. */
+	
+	/* Post: Devuelve el alias del jugador.*/
 	char obtenerAlias();
 
-	/* Post: devuelve el puntaje del jugador. */
+	/* Post: Devuelve el puntaje del jugador.*/
 	int obtenerPuntaje();
 	
-	/* Pre:
-	 * Post: pide fila, columna y opcion al user y los asigna a la jugada. */
-	void iniciarJugada();
-		
+	/* Post: Devuelve el estado actual del jugador.*/
+	int obtenerEstado();
 	
-	/*devuelve el estado actual del jugador */
-	int Jugador::obtenerEstado();
-	
-	/* Post: inicializa el estado del jugador (sigue jugando, se retiro, perdio partida). */
+	/* Post: Deja al jugador con estado "estado". Estado puede tomar uno de los siguientes valores:
+	 * SIGUE_JUGANDO, SE_RETIRO, PERDIO_PARTIDA, HA_GANADO, NO_ESTA_JUGANDO.*/
 	void asignarEstado(int estado);
+
+	/* Pre: 
+	 * Post: Pide fila, columna y opcion al user y los asigna a la jugada.*/
+	void iniciarJugada();
 
 };
 
