@@ -12,6 +12,102 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	
 	Minero minero(dimFila,dimColumna,dificultad,pMinas);
 	minero.sembrarMinas();
+	this->baseMapa = crearBMP(dimFila, dimColumna);
+	this->mapa.llenarMapaBloqueado(this->baseMapa);
+	this->mapa.llenarEsquinas(this->baseMapa);
+	this->mapa.llenarBordes(this->baseMapa);
+}
+void mapa::llenarEsquinas(this->baseMapa){
+
+	llenarEsquinaSuperiorDerecha(this->baseMapa);
+	llenarEsquinaSuperiorIzquierda(this->baseMapa);
+	llenarEsquinaInferiorDerecha(this->baseMapa);
+	llenarEsquinaInferiorIzquierda(this->baseMapa);
+
+}
+void llenarEsquinaSuperiorDerecha(BMP baseMapa){}
+void llenarEsquinaSuperiorIzquierda(BMP baseMapa){}
+void llenarEsquinaInferiorDerecha(BMP baseMapa){}
+void llenarEsquinaInferiorIzquierda(BMP baseMapa){}
+
+void mapa::llenarBordes(this->baseMapa){
+
+	llenarBordeSuperior(this->baseMapa);
+	llenarBordeInferior(this->baseMapa);
+	llenarBordeIzquierdo(this->baseMapa);
+	llenarBordeDerecho(this->baseMapa);
+
+}
+void llenarBordeSuperior(BMP baseMapa){
+
+	for(int i= 0; (i<this->dimColumna)*2; i++){
+
+			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,(BORDES+1+(i*BORDES),1);
+		}
+
+}
+void llenarBordeInferior(BMP baseMapa){
+
+	for(int i= 0; (i<this->dimFila)*2; i++){
+
+			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
+					BORDES+1+(i*BORDES),BORDES+1(CASILLAS*this->dimFila),);
+		}
+}
+void llenarBordeIzquierdo(BMP baseMapa){
+
+	for(int i= 0; i<this->dimFila; i++){
+
+		RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,1,(BORDES+1+(BORDES*i)));
+	}
+
+}
+void llenarBordeDerecho(BMP baseMapa){
+
+	for(int i= 0; i<this->dimFila; i++){
+
+			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
+					BORDES+1+((this->dimFila)*CASILLAS),BORDES+1+(CASILLAS+i));
+		}
+}
+
+void mapa::llenarMapaBloqueado(BMP &baseMapa){
+
+	for(int i=0; i<this->dimFila; i++){
+
+		for(int j=0; j<this->dimColumna; i++){
+
+			RangedPixelToPixelCopy(ARcasillasBloqueadas,1,16,16,1,basemapa,
+					(BORDES+1)+(i*CASILLAS),(BORDES+1)+(i+CASILLAS))
+		}
+	}
+
+
+}
+BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
+	 unsigned int ancho = 0;
+	 unsigned int alto = 0;
+	ancho = calcularAncho(dimColumna);
+	alto = calcularAlto(dimFila);
+
+	BMP mapaVacio();
+	mapaVacio.setSize(ancho, alto);
+
+}
+ unsigned int calcularAncho(unsigned int dimColumnas){
+
+	 unsigned int ancho = 0;
+	 ancho = (CASILLAS * dimColumnas) + (2 * BORDES);
+	 return ancho;
+
+ }
+
+unsigned int calcularAlto(unsigned int dimFilas){
+
+	unsigned int alto =0;
+	alto = (CASILLAS * dimFilas) + (2 * BORDES);
+	return alto;
+
 }
 
 void Mapa::crearListaMinasYAsignarPuntero(){
