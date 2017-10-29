@@ -26,8 +26,7 @@ void Juez::crearJugadores(){
 }
 
 
-/* Este método sería un "avanzar jugador hasta un jugador que siga jugando".
-* Ver cómo/si se conjuga esto con el método inicializarJuego que hizo dafi más abajo.*/
+/* Este método sería un "avanzar jugador hasta un jugador que siga jugando".*/
 void Juez::avanzarJugador(){
 
 	Jugador* siguiente;
@@ -59,42 +58,57 @@ void Juez::insertarJugador(Jugador* nuevo){
 }
 
 void Juez::inicializarJuego(){
+	uint casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
+	uint minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
 	int jugadoresQuePerdieron = 0 ;
 
 	this->jugadores->inicializarCursor();
-
 	Jugador* jugadorActual;
 
-	while(jugadoresQuePerdieron<cantidadDeJugadores){
+	while(jugadoresQuePerdieron<cantidadDeJugadores-1){
 
 		jugadorActual = this->jugadores->obtenerCursor();
 
 		if(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
 
-			sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego);
+			sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir, casillasTotales);
 
 		}
 		jugadores->avanzarCursor();
 	}
+	
+	/* acá habría que dejar el cursor apuntando al que sigue jugando. Se puede llamar a "avanzarJugador()"*/
+	avanzarJugador();
+	while(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
+		if (casillasOcultas==minasPorDescubrir){
+			jugadorActual->asignarEstado(HA_GANADO);
+			mostrarFelicitaciones(jugadorActual);
+		}
+
+		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir, casillasTotales);
+
+	}
 
 
 }
-void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego){
+void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego,
+			uint &minasPorDescubrir, long int &casillasTotales){
 
 	jugadorActual->iniciarJugada();
 
 		if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
 
 			jugadoresQuePerdieron++;
-
+			minasPorDescubrir--;
+						
 			jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
 
-			elJugadorHaPerdido(jugadorActual);
+			mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
 		}
 	 tableroDeJuego->mostrarMapa();
 }
 
-void Juez::elJugadorHaPerdido(Jugador* jugadorActual){
+void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
 	int puntaje = 0;
 	char alias;
 	alias = jugadorActual->obtenerAlias();
@@ -103,6 +117,12 @@ void Juez::elJugadorHaPerdido(Jugador* jugadorActual){
 	cout<< "Su puntaje es " << puntaje << endl;
 
 }
+
+void Juez::mostrarFelicitaciones(Jugador* jugadorActual){
+	cout << jugadorActual->obtenerAlias() << "!!! Ganaste !!!" << endl;
+	cout << "Tu puntaje es: " jugadorActual->obtenerPuntaje() << "."<< endl;
+}
+
 
 Juez::~Juez(){
 
