@@ -93,13 +93,13 @@ void Juez::elJugadorHaPerdido(Jugador* jugadorActual){
 
 }
 
-Juez::~juez(){
+Juez::~Juez(){
 
 	while( !(this->jugadores->estaVacia()) ){
 		Jugador* jugadorActual;
 		char alias;
 		int puntaje;
-		this->jugadores->inicializarCursor;
+		this->jugadores->inicializarCursor();
 		jugadorActual = this->jugadores->obtenerCursor();
 		alias = jugardorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
