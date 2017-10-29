@@ -18,6 +18,16 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this->mapa.llenarBordes(this->baseMapa);
 }
 
+uint Mapa::obtenerFila(){
+	return this->dimFila;
+}
+uint Mapa::obtenerColumna(){
+	return this->dimColumna;
+}
+char Mapa::obtenerDificultad(){
+	return this->dificultad;
+}
+
 /* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
 * tan grande.*/
 
