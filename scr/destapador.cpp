@@ -3,7 +3,7 @@
 using namespace std;
 	
 //constructor
-Destapador::Destapador (Mapa* mapaActual)
+Destapador::Destapador(Mapa* mapaActual)
 {
   this->mapa = mapaActual;
   this->fila = 0;
