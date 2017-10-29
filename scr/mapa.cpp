@@ -266,7 +266,7 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 }
 
 
-bool Mapa::RemoverYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
+bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
 	if (seEncuentra) {remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
 	return seEncuentra;
