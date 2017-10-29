@@ -270,7 +270,7 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
 				valor++;
 		}
-	
+	}
 	return valor;
 }
 
