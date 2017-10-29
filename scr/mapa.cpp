@@ -17,6 +17,10 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	this->mapa.llenarEsquinas(this->baseMapa);
 	this->mapa.llenarBordes(this->baseMapa);
 }
+
+/* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
+* tan grande.*/
+
 void mapa::llenarEsquinas(this->baseMapa){
 
 	llenarEsquinaSuperiorDerecha(this->baseMapa);
@@ -218,14 +222,14 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	pMinas->iniciarCursor();
 	
 	Mina minaActual;
-	if (pMinas->avanzarCursor)
+	if (pMinas->avanzarCursor())
 		minaActual = pMinas->ObtenerCursor();
 
 	
 	//MIs OJOS!!!!!! XD hay que revisar acá
 	if (minaActual.esMina(filaCasilla, columnaCasilla)){
 		valor = MINA;
-	} else {
+	} else {/*jajaja sí, no se entiende un carajo ;D*//*<'9' xq 8 es la máxima cantidad de bombas que puede tener alrededor*/
 		while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9'){
 			Mina minaActual = pMinas->obtenerCursor();
 			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
@@ -251,7 +255,7 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 }
 
 
-bool Mapa::validarYRemoverMarcaSiHay(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
+bool Mapa::RemoverYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
 	if (seEncuentra) {remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
 	return seEncuentra;
@@ -286,7 +290,6 @@ bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscad
 	}
 	
 	//removerActual(); // acá es necesario un remover actual.
-	
 	return encontrado;
 }
 
