@@ -1,7 +1,6 @@
 
 
 #include "marcador.h"
-#include "constante.h"
 
 using namespace std;
 
