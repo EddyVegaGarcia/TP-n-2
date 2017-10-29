@@ -10,7 +10,7 @@ public:
 
  /* Pre: Recibe fila y columna dentro del rango indicado por el usuario.
   * Post: Crea un objeto Casilla, con la fila y columna recibidas.*/
-  Casilla(uint fila, uint columna);
+  Casilla(uint fila, uint columna, char valor);
   
   /* Post: Crea un objeto Casilla, con fila y columna 0.*/
   Casilla();
