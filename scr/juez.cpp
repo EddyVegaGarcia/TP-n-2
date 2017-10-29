@@ -71,7 +71,7 @@ void Juez::inicializarJuego(){
 
 		if(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
 
-			sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir, casillasTotales);
+			sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir);
 
 		}
 		jugadores->avanzarCursor();
@@ -84,14 +84,13 @@ void Juez::inicializarJuego(){
 			mostrarFelicitaciones(jugadorActual);
 		}
 
-		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir, casillasTotales);
+		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir);
 
 	}
 
 
 }
-void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego,
-			uint &minasPorDescubrir, long int &casillasTotales){
+void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego, uint &minasPorDescubrir){
 
 	jugadorActual->iniciarJugada();
 
