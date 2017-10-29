@@ -34,18 +34,17 @@ using namespace std;
 		
 		if(this->opcion=='m' || this->opcion=='M'){
 			
-			Marcador marcador(this->mapa*);
+			Marcador marcador(this->mapa);
 			
-			puntos = marcador.marcar(this->fila , this ->columna);
+			puntos = marcador.marcar(this->fila, this ->columna);
 			
 		}else if(this->opcion == 'd' || this->opcion == 'D'){
 			
-			Destapador destapador(this->mapa , this->tablero);
+			Destapador destapador(this->mapa);
 			
 			puntos = destapador.destapar(this->fila , this->columna);
 		      
 		}else{
-			
 			puntos = SE_RETIRO;
 		}
 		return puntos;
