@@ -27,7 +27,7 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 		mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
 		if(valorCasilla == VACIO)
 		{
-			destaparPandemia();
+			destaparPandemia(); /* se puede llamar directamente a destaparPandemiaRecursiva */
 		}
 		else
 		{
@@ -37,11 +37,11 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 	
 }
 
-//metodos privadas
+//metodos privados
 void Destapador::destaparPandemia()
 {
 	destaparPandemiaRecursiva(this->fila, this->columna);
-	this->mapa->agregarCasillaDestapada(this->fila, this->columna);
+	this->mapa->agregarCasillaDestapada(this->fila, this->columna); /* Ojo con esto, ya se agregó.*/
 }
 
 void Destapador::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
@@ -52,8 +52,9 @@ void Destapador::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 	
 	destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
 	this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada); /* Esto se hace siempre con loQueSea que
-	* se le pase. Sería un "this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada)" al final,
-	* para mí que sobra el "destaparPandemia()" no es necesario un método 'intermedio'.*/
+	* se le pase. Sería un "this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada)" al final (pero con un if
+	* para ver que no exista ya).
+	* Para mí que sobra el "destaparPandemia()" no es necesario un método 'intermedio'.*/
 	
 	destaparPandemiaRecursiva(filaPasada + 1, columnaPasada);
 	this->mapa->agregarCasillaDestapada(filaPasada + 1, columnaPasada);
