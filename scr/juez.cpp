@@ -7,17 +7,21 @@ Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 	this->jugadores = ingresantes;
 
 	char alias = 'A';
-
+	
+	Jugador* entrante;
 	for (int i=0; i<cantidadJugadores;i++){
-
-		Jugador* entrante = new Jugador(alias+i,mapaRecibido);
+		Jugador jugador(alias+i,mapaRecibido);
+		entrante=&jugador;		
 		insertarJugador(entrante);
 	}
+	delete entrante;
 
 	this->jugadores->iniciarCursor();
 
 }
 
+/* Este método sería un "avanzar jugador hasta un jugador que siga jugando".
+* Ver cómo/si se conjuga esto con el método inicializarJuego que hizo dafi más abajo.*/
 void Juez::avanzarJugador(){
 
 	Jugador* siguiente;
@@ -27,7 +31,7 @@ void Juez::avanzarJugador(){
 		this->jugadores->avanzarCursor();
 		Jugador* siguiente = this->jugadores->obtenerCursor();
 
-		if(siguiente->obtenerEstado() == 0)
+		if(siguiente->obtenerEstado() == SIGUE_JUGANDO)
 			puedeJugar = true;
 
 	}while(!puedeJugar);
