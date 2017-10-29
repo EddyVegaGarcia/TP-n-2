@@ -219,12 +219,15 @@ void mostrarVector(char* vector[]){
 	for (unsigned int i = 0; i< this->columna; i++){
 
 			if(vector[i] == '9')
-				std::cout<<Bandera<<;
-			else if (vector[i] == 0) 
+				std::cout<<Bandera<<; // no sé qué es "Bandera"
+			else if (vector[i] == '0') 
 				std::cout<<'*';
 			else 
 				std::cout<< vector[i];
 			std::endl;
+		/* nadie usó constantes y había un comentario que decía "9 es para bandera".
+		* imagino que 9 es para indicar bandera ADENTRO de ese vector, así que ojo al declarar
+		* constantes, que no se 'pisen' con otras constantes ya definidas.*/
 	}
 }
 /*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
