@@ -74,6 +74,10 @@ class Mapa(){
 		/* Post: devuelve la dificultad de la partida.*/
 		char obtenerDificultad();
 	
+		/* Post: devuelve el tamaño de la lista de minas.*/
+		uint obtenerTamanioDeLaListaDeMinas();
+
+	
 		
 		//post: se devuelve el puntero a la lista de minas.
 		Lista<Mina>* obtenerPunteroMinas();
