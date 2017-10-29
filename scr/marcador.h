@@ -1,56 +1,47 @@
 #ifndef MARCADOR_H_
 #define MARCADOR_H_
 
-
+# include "constantes.h"
+# include "mapa.h"
 
 class Marcador{
 	
 	private:
-		//Atributos
 		int puntaje;
 		int fila;
 		int columna;
 	        Mapa* mapa;
 	
-	public:
-		//Metodos
-		
-		/*
-		 *Pre: recibe un puntero al mapa del cual va a marcar.
-		 *
-		 * Post: Se asigna la ubicacion que se desea marcar y se inicializa puntaje en 0.
-		 */
+	public:		
+		/* Pre: Recibe un puntero al mapa en el cual va a marcar.
+		 * Post: Crea un marcador, con puntaje 0.*/
 		Marcador(Mapa* mapaActual);
 		
-		/*
-		 *Pre: 
-		 *
-		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
-		 */
+		/* Pre: Recibe "filaJugada" y "columnaJugada" que indican la ubicación de una casilla.
+		 * Post: Se establece la casilla sobre la cual el Marcador va a operar.
+		 *	La casilla se marca si no estaba marcada y se desmarca si ya estaba marcada.
+		 * 	Devuelve el puntaje correspondiente, que depende de la presencia o no de una mina
+		 *	en la casilla y de la operación que se lleve adelante (marcar o desmarcar).*/
 		void marcar(int filaJugada, int columnaJugada);
 			
-	privade:
+	private:
 	
-		/*
-		 *Pre: 
-		 *
-		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
-		 */
+		/* Post: La casilla se marca si no estaba marcada y se desmarca si ya estaba marcada.
+		 * 	Devuelve el puntaje correspondiente, que depende de la presencia o no de una mina en la casilla
+		 *	y de la operación que se lleve adelante (marcar o desmarcar).*/
 		int realizarMarca();
-	
-		/*
-		 *Pre: 
-		 *
-		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
-		 */
-		int desmarcarCasilla()
 		
-		/*
-		 *Pre: 
-		 *
-		 * Post: Marca si la casilla no esta marcada y desmarca si la casilla esta marcada.
-		 */
-		int marcarCasilla()
+		/* Post: Marca la casilla. Devuelve el puntaje correspondiente en función de la presencia o no 
+		 *	de una mina en la casilla a marcar (es positivo si en la casilla hay una mina,
+		 *	y negativo en caso contrario).*/
+		int marcarCasilla();
+		
+		/* Post: Desmarca la casilla. Devuelve el puntaje correspondiente en función de la presencia o no 
+		 *	de una mina en la casilla a desmarcar (es negativo si en la casilla hay una mina,
+		 *	y positivo en caso contrario).*/
+		int desmarcarCasilla();
+		
+		
 };
 
 #endif /*MARCADOR_H_*/
