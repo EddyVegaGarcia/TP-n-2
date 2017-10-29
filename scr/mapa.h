@@ -65,6 +65,7 @@ class Mapa(){
 		Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
 
 	
+	
 		/* Post: devuelve la cantidad de filas del tablero de juego.*/
 		uint obtenerFila();
 
@@ -76,8 +77,11 @@ class Mapa(){
 	
 		/* Post: devuelve el tamaño de la lista de minas.*/
 		uint obtenerTamanioDeLaListaDeMinas();
-
 	
+		/* Post: devuelve la cantidad de casillas que no han sido destapadas.*/
+		uint Mapa::obtenerCantidadDeCasillasOcultas();
+
+		
 		
 		//post: se devuelve el puntero a la lista de minas.
 		Lista<Mina>* obtenerPunteroMinas();
@@ -87,6 +91,7 @@ class Mapa(){
 	
 		//post: se devuelve el puntero a la lista de banderas.
 		Lista<Bandera>* obtenerPunteroBanderas();
+	
 	
 	
 		//pre:
