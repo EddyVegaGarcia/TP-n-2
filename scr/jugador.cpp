@@ -14,6 +14,9 @@ char Jugador::obtenerAlias(){
 int Jugador::obtenerPuntaje(){
 	return puntaje;
 }
+int Jugador::obtenerEstado(){
+	return this-> estado;
+}
 
 
 // constructor, inicializar
@@ -64,9 +67,4 @@ void Jugador::iniciarJugada(){
 	} else {
 		asignarEstado(puntos);		
 	}
-}
-int Jugador::obtenerEstado(){
-	 
-	return this-> estado;
-
 }
