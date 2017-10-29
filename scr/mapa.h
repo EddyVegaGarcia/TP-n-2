@@ -61,7 +61,7 @@ class Mapa(){
 		//pre: recibe como parametro la cantidad de filas y de columnas que tendra, y tambien la
 		//dificultad elegida
 		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
-		// una de minas, de casillas destapadas y de marcas.
+		// una de minas, otra de casillas destapadas y otra de marcas.
 		Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
 		
 		//post: se devuelve el puntero a la lista de minas.
@@ -101,7 +101,7 @@ class Mapa(){
 		/*Pre: Recibe fila y columna de una casilla.
 		* Post: si en la posición dada por "fila" y "columna" hay una marca, entonces la elimina.
 		* Devuelve si en dicha posición hay o no una marca.*/
-		bool validarYRemoverMarcaSiHay(unsigned int fila, unsigned int columna);
+		bool removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna);
 
 };
 		
