@@ -21,6 +21,12 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 /* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
 * tan grande.*/
 
+//////////////////////////////////////
+////////////// bmp ///////////////////
+//////////////////////////////////////
+
+/* Hay que ponerles "Mapa::" a todos, pero igual para mí son del DiosDelBMP. */
+
 void mapa::llenarEsquinas(this->baseMapa){
 
 	llenarEsquinaSuperiorDerecha(this->baseMapa);
@@ -114,6 +120,11 @@ unsigned int calcularAlto(unsigned int dimFilas){
 
 }
 
+					       
+//////////////////////////////////////////////////////////////////
+//////// inicio de sector de métodos que no son del bmp //////////
+//////////////////////////////////////////////////////////////////
+					       
 void Mapa::crearListaMinasYAsignarPuntero(){
 	Lista<Mina> minas;
 	this->pMinas=&minas;
