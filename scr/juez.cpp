@@ -4,13 +4,16 @@ Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 	this->cantidadDeJugadores = cantidadJugadores;
 	this->tableroDeJuego = mapaRecibido;
 	
-	Lista<Jugador*> listaDeJugadores;
-	this-> jugadores = &listaDeJugadores;
+	crearYAsignarListaDeJugadores();
 	
 	crearJugadores();
 
 }
 
+void Juez::crearYAsignarListaDeJugadores(){
+	Lista<Jugador*> listaDeJugadores;
+	this-> jugadores = &listaDeJugadores;
+}
 
 void Juez::crearJugadores(){
 	char alias = 'A';
