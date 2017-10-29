@@ -50,6 +50,7 @@ void Jugador::iniciarJugada(){
 	uint filaUser, colUser;
 	char opcionUser;
         int puntos = 0;
+	cout << "turno del jugador: "<< this->alias << endl;
 	cout << "Ingrese 'i j o', donde i y j son el num de fila y columna, y o es la opcion:" << endl;
 	cin >> filaUser >> colUser >> opcionUser;
 
