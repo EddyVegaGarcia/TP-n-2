@@ -23,24 +23,19 @@ class Destapador{
 
 	
 	private:
+
 		/* Pre: Recibe una variable "puntaje" de tipo int.
-		* Post: Destapa la casilla,*/
-		void puntajeAlDestapar(int &puntaje);
-		/* Por qué se llama así??? Es el que destapa, *shrugs*.*/
+		* Post: Destapa la casilla.*/
+		void puntajeAlDestapar(int &puntaje); /* Por qué se llama así??? Es el que destapa, *shrugs*.*/
 	
-		/* Pre:
-		 * Post:La casilla confirma un vacío, revele tanto esa casilla como vacías e
-		 * enumeradas al rededor y se le asigna el puntaje correspondiente.*/
-		/* */
-		void destaparPandemia();
-			
-		
-		/*
-		 *Pre:
-		 *
-		 * Post:La casilla confirma un vacío, revela tanto esa casilla como vacías e
-		 * enumeradas al rededor y se le asigna el puntaje correspondiente. 
-		 */	
+		/* Pre: Recibe dos variables de tipo int, que indican la ubicación de la casilla central.
+		 *	La casilla central ya está destapada, y no es ni está rodeada por minas.
+		 * Post: Destapa todas las casillas que rodean a la casilla central, alejándose de la misma
+		 *	hasta encontrar una casilla con un valor numérico que indique que dicha casilla se
+		 *	encuentra alrededor de una con mina. La casilla de estas características será la
+		 *	última que será destapada en esa dirección.*/
+		void destaparPandemia(); // recibe fila y columna, pasarle this->fila, this->columna	
+		/* Para mí (soy aldana, hola:)) una de estas dos sobra. */
 		void destaparPandemiaRecursiva(int filaPasada, int columnaPasada);
 	
 	
