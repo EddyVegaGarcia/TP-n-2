@@ -63,6 +63,17 @@ class Mapa(){
 		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
 		// una de minas, otra de casillas destapadas y otra de marcas.
 		Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+
+	
+		/* Post: devuelve la cantidad de filas del tablero de juego.*/
+		uint obtenerFila();
+
+		/* Post: devuelve la cantidad de columnas del tablero de juego.*/
+		uint obtenerColumna();
+
+		/* Post: devuelve la dificultad de la partida.*/
+		char obtenerDificultad();
+	
 		
 		//post: se devuelve el puntero a la lista de minas.
 		Lista<Mina>* obtenerPunteroMinas();
@@ -72,6 +83,7 @@ class Mapa(){
 	
 		//post: se devuelve el puntero a la lista de banderas.
 		Lista<Bandera>* obtenerPunteroBanderas();
+	
 	
 		//pre:
 		//post: muestra por pantalla el mapa de juego.
