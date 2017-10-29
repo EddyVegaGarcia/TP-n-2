@@ -1,37 +1,28 @@
-
-
 #include "destapador.h"
-#include "constantes.h"
 
 using namespace std;
-
-		
+	
 //constructor
-Destapador::Destapador (mapa* mapaActual)
+Destapador::Destapador (Mapa* mapaActual)
 {
-
   this->mapa = mapaActual;
-  this->fila = 0
-  this->columna = 0
-  
-  
-  
+  this->fila = 0;
+  this->columna = 0;  
 }
 
 //metodos publicos
 int Destapador::destapar(int filaJugada, int columnaJugada) 
 {
 	int puntaje = 0;
-	this->fila =  filaJugada;
+	this->fila = filaJugada;
  	this->columna = columnaJugada;
-	puntajeAlDestapar(*puntaje);
-	return  puntaje;
+	puntajeAlDestapar(puntaje); //decía puntajeAlDestapar(*puntaje);
+	return puntaje;
 }
-
 
 void Destapador::puntajeAlDestapar(int &puntaje)
 {
-	if(!this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
+	if( !this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
 		char valorCasilla = mapa->obtenerValorCasilla();
 		mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
 		if(valorCasilla == VACIO)
@@ -40,26 +31,29 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 		}
 		else
 		{
-			puntaje  = destaparCasillaNoVacia(valorCasilla);
+			puntaje = destaparCasillaNoVacia(valorCasilla);
 		}
 	}
 	
 }
+
 //metodos privadas
-void Destapar::destaparPandemia()
+void Destapador::destaparPandemia()
 {
 	destaparPandemiaRecursiva(this->fila, this->columna);
 	this->mapa->agregarCasillaDestapada(this->fila, this->columna);
 }
 
-void Destapar::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
+void Destapador::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 {
 	
 	if(this->mapa->obtenerValorCasilla!=VACIO || this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada))
-		return;
+		return; /*Ver.*/
 	
 	destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
-	this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada);
+	this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada); /* Esto se hace siempre con loQueSea que
+	* se le pase. Sería un "this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada)" al final,
+	* para mí que sobra el "destaparPandemia()" no es necesario un método 'intermedio'.*/
 	
 	destaparPandemiaRecursiva(filaPasada + 1, columnaPasada);
 	this->mapa->agregarCasillaDestapada(filaPasada + 1, columnaPasada);
@@ -72,7 +66,7 @@ void Destapar::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 
 }
 
-int Destapar::destaparCasillaNoVacia(char valorCasilla)
+int Destapador::destaparCasillaNoVacia(char valorCasilla)
 {
 	
 	int puntaje = 0;
