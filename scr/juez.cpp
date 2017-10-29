@@ -29,7 +29,7 @@ void Juez::crearJugadores(){
 }
 
 
-/* Este método sería un "avanzar jugador hasta un jugador que siga jugando".*/
+/* Avanzar jugador hasta un jugador que siga jugando.*/
 void Juez::avanzarJugador(){
 
 	Jugador* siguiente;
