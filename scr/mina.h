@@ -5,34 +5,35 @@ private:
   uint fila;
   uint columna;
   
-  /* Post: signa la fila de la mina.*/
+ /* Pre: Recibe una fila dentro del rango válido.
+  * Post: Asigna la fila pasada como parámetro a la Mina.*/
   void asignarFila(uint fila);
   
-  /* Post: signa la columna de la mina.*/
+ /* Pre: Recibe una columna dentro del rango válido.
+  * Post: Asigna la columna pasada como parámetro a la Mina.*/
   void asignarColumna(uint columna);
 
-
 public:
-/*Pre: recibe fila y columna dentro del rango indicado por el jugador
-* Post: crea un objeto mina, con la fila y columna recibidas. */
+ /* Pre: Recibe fila y columna dentro del rango indicado por el usuario.
+  * Post: Crea un objeto Casilla con la fila y columna recibidas.*/
   Mina(uint fila, uint columna);
   
-  /* Post: Crea un mina con fila y columna "0".*/
+  /* Post: Crea un mina con fila y columna 0.*/
   Mina();
   
-  /* Post: devuelve la fila de la mina.*/
+  /* Post: Devuelve la fila de la Mina.*/
   uint obtenerFila();
   
-  /* Post: devuelve la columna de la mina.*/
+  /* Post: Devuelve la columna de la Mina.*/
   uint obtenerColumna();
   
  
-  /* Pre: recibe fila y columna de un casillero. La posición pasada no corresponde a la posición de una mina.
-  * Post: devuelve si la casilla pasada está junto a una mina. */
+  /* Pre: Recibe fila y columna de un casillero. La posición pasada no corresponde a la posición de una mina.
+  * Post: Devuelve si la casilla pasada está junto a una mina.*/
   bool estaJuntoAMina(uint fila, uint columna);
   
-  /* Pre: recibe fila y columna de un casillero.
-  * Post: devuelve si en la casilla con fila y columna pasados por parámetro hay o no una mina. */
+  /* Pre: Recibe fila y columna de un casillero.
+  * Post: Devuelve si en la casilla con fila y columna pasados por parámetro hay o no una mina. */
   bool esMina(uint fila, uint columna);
 
 };
