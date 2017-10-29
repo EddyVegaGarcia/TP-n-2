@@ -28,6 +28,11 @@ char Mapa::obtenerDificultad(){
 	return this->dificultad;
 }
 
+uint Mapa::obtenerTamanioDeLaListaDeMinas(){
+	return this->pMinas->contarElementos();
+}
+
+
 /* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
 * tan grande.*/
 
