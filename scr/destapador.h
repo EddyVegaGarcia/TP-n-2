@@ -1,6 +1,9 @@
 #ifndef DESTAPADOR_H_
 #define DESTAPADOR_H_
 
+# include "mapa.h"
+# include "constantes.h"
+
 class Destapador{
 	
 	private:
