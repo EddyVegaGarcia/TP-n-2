@@ -3,7 +3,7 @@
 # include "casilla.h"
 # include "bandera.h"
 
-class Mapa(){
+class Mapa{
 	
 	private:
 		unsigned int dimFila;
