@@ -12,44 +12,7 @@ class Mapa{
 		Lista<Mina>* pMinas;
 		Lista<Casilla>* pCasillasDestapadas;
 		Lista<Bandera>* pBanderas;
-		unsigned int numeroDeMapa;
-		
-	
-		//pre: 
-		//post: se crea una lista de minas y se asigna al atributo
-		void crearListaMinasYAsignarPuntero();
-	
-		//pre: 
-		//post: se crea una lista de casillas destapadas y se asigna al atributo
-		void crearListaCasillasYAsignarPuntero();
-	
-	
-		//pre: 
-		//post: se crea una lista de banderas y se asigna al atributo
-		void crearListaBanderasYAsignarPuntero();
-	
-		// métodos llamados por Mapa::mostrarMapa();
-		void llenarVectorFila(unsigned int fila, char* vector[]);
-		void llenarVectorDeNoMostrado(char* vector[]);
-		void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]);
-		void llenarVectorDeBanderas(unsigned int fila,char* vector[]);
-		void mostrarVector(char* vector[]);
-
-		/* Pre: reciba fila y columna de una casilla,
-		* Post: devuelve si la casilla que tiene por ubicacin "fila" y "columna" está o no en la lista
-		* de banderas.*/
-		bool seEncuentraEnListaDeBanderas(uint &fila, uint &columna);	
-	
-		/* Pre: Recibe un char, ('m' para lista de minas, 'c' para lista de casillas, 'b' para lista de banderas),
-		* y una ubicación de la casilla a buscar indicada por fila y columna.
-		* Post: Busca en una de las tres listas, según indicado por "lista" y devuelve un bool indicando si
-		* la casilla cuya ubicacin se pasó por parámetro está o no en la lista "lista".*/
-		bool seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada);
-
-		
-		/* Pre: Recibe fila y columna de una casilla.
-		* Post: devuelve el valor de esa casilla.*/
-		char calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla);		
+		unsigned int numeroDeMapa;		
 	
 	public:
 		/*constructor
@@ -123,6 +86,43 @@ class Mapa{
 		* Post: si en la posición dada por "fila" y "columna" hay una marca, entonces la elimina.
 		* Devuelve si en dicha posición hay o no una marca.*/
 		bool removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna);
+	
+	private:
+		//pre: 
+		//post: se crea una lista de minas y se asigna al atributo
+		void crearListaMinasYAsignarPuntero();
+	
+		//pre: 
+		//post: se crea una lista de casillas destapadas y se asigna al atributo
+		void crearListaCasillasYAsignarPuntero();
+	
+	
+		//pre: 
+		//post: se crea una lista de banderas y se asigna al atributo
+		void crearListaBanderasYAsignarPuntero();
+	
+		// métodos llamados por Mapa::mostrarMapa();
+		void llenarVectorFila(unsigned int fila, char* vector[]);
+		void llenarVectorDeNoMostrado(char* vector[]);
+		void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]);
+		void llenarVectorDeBanderas(unsigned int fila,char* vector[]);
+		void mostrarVector(char* vector[]);
+
+		/* Pre: reciba fila y columna de una casilla,
+		* Post: devuelve si la casilla que tiene por ubicacin "fila" y "columna" está o no en la lista
+		* de banderas.*/
+		bool seEncuentraEnListaDeBanderas(uint &fila, uint &columna);	
+	
+		/* Pre: Recibe un char, ('m' para lista de minas, 'c' para lista de casillas, 'b' para lista de banderas),
+		* y una ubicación de la casilla a buscar indicada por fila y columna.
+		* Post: Busca en una de las tres listas, según indicado por "lista" y devuelve un bool indicando si
+		* la casilla cuya ubicacin se pasó por parámetro está o no en la lista "lista".*/
+		bool seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada);
+
+		
+		/* Pre: Recibe fila y columna de una casilla.
+		* Post: devuelve el valor de esa casilla.*/
+		char calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla);
 
 };
 		
