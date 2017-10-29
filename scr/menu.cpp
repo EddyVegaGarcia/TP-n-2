@@ -26,8 +26,8 @@ void Menu::asignarDificultad(char dificultad){
 	this->dificultad=dificultad;
 }
 
-void Menu::asignarCantJugadores(uint cant){
-	this->cantJugadores=cant;
+void Menu::asignarCantJugadores(uint cantJugadores){
+	this->cantJugadores=cantJugadores;
 }
 
 
