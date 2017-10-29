@@ -77,8 +77,7 @@ void Juez::inicializarJuego(){
 		jugadores->avanzarCursor();
 	}
 	
-	/* acá habría que dejar el cursor apuntando al que sigue jugando. Se puede llamar a "avanzarJugador()"*/
-	avanzarJugador();
+	avanzarJugador(); /* dejo el cursor apuntando al que sigue jugando */
 	while(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
 		if (casillasOcultas==minasPorDescubrir){
 			jugadorActual->asignarEstado(HA_GANADO);
