@@ -18,11 +18,11 @@ Mina::Mina(){
 }
 
 uint Mina::obtenerFila(){
-  return fila;
+  return this->fila;
 }
 
 uint Mina::obtenerColumna(){
-  return columna;
+  return this->columna;
 }
 
 bool Mina::estaJuntoAMina(uint filaAComparar, uint columnaAComparar){
