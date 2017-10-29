@@ -1,5 +1,7 @@
-#include "jugador.h"
+# include "jugador.h"
 # include "constantes.h"
+# include "jugada.h"
+# include "mapa.h"
 # include <iostream>
 using namespace std;
 
@@ -62,7 +64,7 @@ void Jugador::iniciarJugada(){
 	puntos = pJugada->realizarJugada();
 	
 	if (puntos!=PERDIO_PARTIDA && PUNTOS!=SE_RETIRO){
-		puntos += obtenerPuntaje() 
+		puntos += obtenerPuntaje();
 		modificarPuntaje(puntos);
 	} else {
 		asignarEstado(puntos);		
