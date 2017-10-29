@@ -86,4 +86,5 @@ void Menu::crearAmbiente(){
 	Mapa* punteroAMapa=&mapa;
 	Juez juez(cantJugadores, punteroAMapa);
 	juez.inicializarJuego();
+	~juez();
 }
