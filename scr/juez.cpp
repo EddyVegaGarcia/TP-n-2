@@ -43,7 +43,8 @@ void Juez::mostrarJugador(){
 	Jugador* elegido;
 	elegido = this->jugadores->obtenerCursor();
 
-	elegido->mostrar();
+	elegido->mostrar(); // no implementado, no sé qué quieren que muestre (y tampoco para qué).
+				// ya hay un obtener de alias y de puntaje, no sé   quÉ mÁs   quiEREN DE MI, jaja nah en serio.
 }
 
 void Juez::insertarJugador(Jugador* nuevo){
@@ -56,7 +57,7 @@ void Juez::inicializarJuego(){
 
 	this->jugadores->inicializarCursor();
 
-	jugador* jugadorActual;
+	Jugador* jugadorActual;
 
 	while(jugadoresQuePerdieron<cantidadDeJugadores){
 
