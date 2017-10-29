@@ -13,21 +13,26 @@ private:
 	char dificultad;
 	uint cantJugadores;
 
-	/* post: asigna "fil" al atributo fila */
-	void asignarFila(uint fil);
+	/* Pre: Recibe una fila dentro del rango válido.
+  	 * Post: Asigna la fila pasada como parámetro al Menu.*/
+	void asignarFila(uint fila);
 
-	/* post: asigna "col" al atributo columna */
-	void asignarColumna(uint col);
+	/* Pre: Recibe una columna dentro del rango válido.
+	 * Post: Asigna la columna pasada como parámetro al Menu.*/
+	void asignarColumna(uint columna);
 
-	/* post: asigna "dif" al atributo dificultad */
-	void asignarDificultad(char dif);
 
-	/* post: asigna "cant" al atributo cantJugadores */
-	void asignarCantJugadores(uint cant);
+	/* Pre: Recibe una dificultad válida, es decir, "F" (fácil), "M" (media) o "D" (difícil).
+	 * Post: Asigna la dificultad pasada como parámetro al Menu.*/
+	void asignarDificultad(char dificultad);
+
+	/* Pre: Recibe una cantidad de jugadores.
+	 * Post: Asigna la cantidad de jugadores pasada como parámetro al Menu.*/
+	void asignarCantJugadores(uint cantJugadores);
 
 	/// interacción con user.
 
-	/* post: pide a user las dimensiones y las asigna. */
+	/* post: pide a user las dimensiones del tablero de juego y las asigna. */
 	void pedirYAsignarDimensiones();
 
 	/* post: pide a user la dificultad y la asigna. */
@@ -36,32 +41,30 @@ private:
 	/* post: pide a user la cantidad de jugadores y la asigna. */
 	void pedirYAsignarCantJugadores();
 
-	/* Post: devuelve la cantidad de filas */
+	/* Post: devuelve la cantidad de filas del tablero de juego-*/
 	uint obtenerFila();
 
-	/* Post: devuelve la cantidad de columnas */
+	/* Post: devuelve la cantidad de columnas del tablero de juego-*/
 	uint obtenerColumna();
 
-	/* Post: devuelve la dificultad de la partida */
+	/* Post: devuelve la dificultad de la partida.*/
 	char obtenerDificultad();
 
-	/* Post: devuelve la cantidad de jugadores de la partida */
+	/* Post: devuelve la cantidad de jugadores de la partida.*/
 	uint obtenerCantJugadores();
 	
-	/* Pre:
-	* Post: pide opciones por pantalla al usuario.*/
+	/* Post: pide opciones por pantalla al usuario.*/
 	void pedirOpcionesDeJuegoAUser();
 
 
 public:
 	
-	/* Constructor
-	 * post: crea un objeto menu, crea un objeto mapa pidiendo las opciones por pantalla al usuario y pasa su puntero a
-	 * un nuevo objeto juez.*/
+	/* Post: Crea un objeto Menu, crea un objeto mapa pidiendo las opciones por pantalla al usuario y pasa su puntero a
+	 * un nuevo objeto Juez.*/
 	Menu();
 
 	/* Pre: Se llamò al mètodo pedirOpcionesDeJuegoAUser().
-	 * Post: Crea un objeto mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto juez.*/
+	 * Post: Crea un objeto Mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto Juez.*/
 	void crearAmbiente();
 	
 };
