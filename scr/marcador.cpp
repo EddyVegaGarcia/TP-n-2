@@ -1,8 +1,6 @@
 
-
 #include "marcador.h"
 
-using namespace std;
 
 //constructor
 Marcador::Marcador(Mapa* mapaActual)
@@ -20,72 +18,69 @@ Marcador::Marcador(Mapa* mapaActual)
 
 int Marcador::marcar(int filaJugada, int columnaJugada) 
 {
-  int puntaje = 0;
+
   this->fila = filaJugada;
   this->columna = columnaJugada;
 
   if(!mapa->estaDestapadaLaCasilla(this->fila , this->columna)){
     
-    puntaje = realizarMarca();
+    realizarMarca();
   
   }
   
-  return puntaje;
+  return this->puntaje;
  
 }
 
-int Marcador::realizarMarca(){
+void Marcador::realizarMarca(){
   
   if(mapa->removerYDevolverSiHabiaMarca(this->fila , this->columna))
   {
     
-    this->puntaje = desmarcarCasilla();
+    desmarcarCasilla();
     
   }
   else
   {
-     this->puntaje = marcarCasilla();
+    marcarCasilla();
   }
   
   
-  return puntaje;
+
 }
 
 
-int Marcador::desmarcarCasilla()
+void Marcador::desmarcarCasilla()
 {
- 
-  //mapa->removerMarca(this->fila , this->columna); Saco esta línea. Esta línea no va.
     
-  if(!mapa->validarMina(this->fila , this->columna)
+  if(!mapa->validarMina(this->fila , this->columna))
   {
-    puntaje+=2;
+    this->puntaje+=2;
   }
   else
   {
   
-    puntaje-=2;
+    this->puntaje-=2;
   
   }
 
   
-  return puntaje;
+
 }
 
-int Marcador::marcarCasilla()
+void Marcador::marcarCasilla()
 {
   
   mapa->colocarMarca(this->fila, this->columna);
   
-  if(!mapa->validarMina(this->fila, this->columna)
+  if(!mapa->validarMina(this->fila, this->columna))
   {
-    puntaje--;
+    this->puntaje--;
   }
   else
   {
-    puntaje++;
+    this->puntaje++;
   }
-  
-  return puntaje;
+
   
 }
