@@ -5,6 +5,7 @@ private:
   uint fila;
   uint columna;
   char valor;
+  bool seDestapoEnTablero;
   
 public:
 
@@ -35,5 +36,10 @@ public:
  /* Pre: Recibe una variable "valor" de tipo char..
   * Post: Asigna el valor pasado como parámetro a la Casilla.*/
   void asignarValor(char valor);
+  
+  /*pre:
+  * post: devuelve si la casilla ya se destapo en el tablero.
+  */
+  bool seDestapoEnTablero();
 
 };
