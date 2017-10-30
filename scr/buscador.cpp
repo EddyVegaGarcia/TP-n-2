@@ -11,6 +11,8 @@ template<class T> bool Buscador<T>::buscar(uint filaBuscada, uint columnaBuscada
 
 		bool encontrado=false;
 		posicionEncontrada=0;
+	
+		pLista->iniciarCursor();
 
 		while(pLista->avanzarCursor() && not encontrado){
 			elementoActual=pLista->obtenerCursor();
