@@ -93,7 +93,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 
 		destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
 
-		if( this->mapa->estaDestapadaLaCasilla(filaPasada - 1, columnaPasada))
+		if( !this->mapa->estaDestapadaLaCasilla(filaPasada - 1, columnaPasada))
 			this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada,
 											this->mapa->obtenerValorCasilla(filaPasada - 1, columnaPasada));
 	}
@@ -105,7 +105,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 
 		destaparPandemiaRecursiva(filaPasada + 1, columnaPasada);
 
-		if( this->mapa->estaDestapadaLaCasilla(filaPasada + 1, columnaPasada))
+		if( !this->mapa->estaDestapadaLaCasilla(filaPasada + 1, columnaPasada))
 			this->mapa->agregarCasillaDestapada(filaPasada + 1, columnaPasada,
 											this->mapa->obtenerValorCasilla(filaPasada + 1, columnaPasada));
 	}
@@ -117,7 +117,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 
 		destaparPandemiaRecursiva(filaPasada, columnaPasada - 1);
 
-		if( this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada - 1))
+		if( !this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada - 1))
 			this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada - 1,
 											this->mapa->obtenerValorCasilla(filaPasada, columnaPasada - 1));
 	}
@@ -129,7 +129,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 
 		destaparPandemiaRecursiva(filaPasada, columnaPasada + 1);
 
-		if( this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada + 1))
+		if( !this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada + 1))
 			this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada + 1,
 											this->mapa->obtenerValorCasilla(filaPasada, columnaPasada + 1));
 	}
