@@ -27,13 +27,16 @@ class Destapador{
 		 *	la presencia o no de una mina en dicha casilla.*/
 		unsigned int destapar(uint filaJugada, uint columnaJugada);
 
+
+		~Destapador();
+
 	
 	private:
 		void crearListaCasillasYAsignarPuntero();
 
 		/* Pre: Recibe una variable "puntaje" de tipo int.
 		* Post: Destapa la casilla.*/
-		void puntajeAlDestapar(uint &puntaje); /* Por qué se llama así??? Es el que destapa, *shrugs*.*/
+		void puntajeAlDestapar(uint &puntaje);
 	
 		/* Pre: Recibe dos variables de tipo int, que indican la ubicación de la casilla central.
 		 *	La casilla central ya está destapada, y no es ni está rodeada por minas.
@@ -41,11 +44,22 @@ class Destapador{
 		 *	hasta encontrar una casilla con un valor numérico que indique que dicha casilla se
 		 *	encuentra alrededor de una con mina. La casilla de estas características será la
 		 *	última que será destapada en esa dirección.*/
-		void destaparPandemia(); // recibe fila y columna, pasarle this->fila, this->columna	
-		/* Para mí (soy aldana, hola:)) una de estas dos sobra. */
-		void destaparPandemiaRecursiva(Lista<Casilla>* vacios, uint filaPasada, uint columnaPasada);
+		void destaparPandemia();
+
+
+
+		void destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada);
 	
-	
+
+
+
+		void agregarVacio(uint filaPasada, uint columnaPasada);
+
+
+
+
+		bool pasoPorAqui(uint filaPasada, uint columnaPasada);
+
 		/* Pre: La casilla ya está destapada. Recibe una variable de tipo char.
 		* Post: Devuelve el ("puntaje") estado correspondiente, dependiendo del valor de la casilla
 		*	(indica que el Jugador perdió si es una mina, y que continúa jugando en cualquier otro caso).*/
