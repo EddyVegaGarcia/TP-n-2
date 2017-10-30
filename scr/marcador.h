@@ -10,7 +10,7 @@ class Marcador{
 		int puntaje;
 		int fila;
 		int columna;
-	        Mapa* mapa;
+	    Mapa* mapa;
 	
 	public:		
 		/* Pre: Recibe un puntero al mapa en el cual va a marcar.
@@ -22,24 +22,24 @@ class Marcador{
 		 *	La casilla se marca si no estaba marcada y se desmarca si ya estaba marcada.
 		 * 	Devuelve el puntaje correspondiente, que depende de la presencia o no de una mina
 		 *	en la casilla y de la operación que se lleve adelante (marcar o desmarcar).*/
-		void marcar(int filaJugada, int columnaJugada);
+		int marcar(int filaJugada, int columnaJugada);
 			
 	private:
 	
 		/* Post: La casilla se marca si no estaba marcada y se desmarca si ya estaba marcada.
-		 * 	Devuelve el puntaje correspondiente, que depende de la presencia o no de una mina en la casilla
-		 *	y de la operación que se lleve adelante (marcar o desmarcar).*/
-		int realizarMarca();
+		 *
+		 */
+		void realizarMarca();
 		
-		/* Post: Marca la casilla. Devuelve el puntaje correspondiente en función de la presencia o no 
+		/* Post: Marca la casilla. Modifica el puntaje correspondiente en función de la presencia o no
 		 *	de una mina en la casilla a marcar (es positivo si en la casilla hay una mina,
 		 *	y negativo en caso contrario).*/
-		int marcarCasilla();
+		void marcarCasilla();
 		
-		/* Post: Desmarca la casilla. Devuelve el puntaje correspondiente en función de la presencia o no 
+		/* Post: Desmarca la casilla. Modifica el puntaje correspondiente en función de la presencia o no
 		 *	de una mina en la casilla a desmarcar (es negativo si en la casilla hay una mina,
 		 *	y positivo en caso contrario).*/
-		int desmarcarCasilla();
+		void desmarcarCasilla();
 		
 		
 };
