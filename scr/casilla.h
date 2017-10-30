@@ -41,5 +41,10 @@ public:
   * post: devuelve si la casilla ya se destapo en el tablero.
   */
   bool seDestapoEnTablero();
+   
+  /*pre: la casilla no se destapo en tablero aun.
+  *post: quedara indicado que la casilla se destapo en tablero
+  */
+  void destaparEnTablero();
 
 };
