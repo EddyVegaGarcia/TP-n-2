@@ -4,7 +4,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 	this-> dimFila = filaRecibida;
 	this-> dimColumna = columnaRecibida;
-	this-> dificultad = DificultadRecibida;
+	this-> dificultad = dificultadRecibida;
 	
 	crearListaMinasYAsignarPuntero();	
 	crearListaCasillasYAsignarPuntero();
@@ -164,7 +164,7 @@ void Mapa::crearListaBanderasYAsignarPuntero(){
 
 
 Lista<Mina>* Mapa::obtenerPunteroMinas(){
-	return this-> pMinas
+	return this-> pMinas;
 }
 
 Lista<Casilla>* Mapa::obtenerPunteroCasillas(){
@@ -231,7 +231,7 @@ void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]){
 	Casilla casillaActual;
 		
 	int casillasAsignadas = 0;
-	while(this->pCasillasDestapadas->avanzarCursor() && casillasAsignadas =<this->dimFila){
+	while(this->pCasillasDestapadas->avanzarCursor() && casillasAsignadas <=this->dimFila){
 
 		casillaActual = pCasillasDestapadas->obtenerCursor();
 
@@ -249,7 +249,7 @@ void llenarVectorDeBanderas(unsigned int fila,char* vector[]){
 	
 	int banderasAsignadas = 0;
 	
-	while(this->pBanderas->avanzarCursor() && banderasAsignadas =< this->dimFila){
+	while(this->pBanderas->avanzarCursor() && banderasAsignadas <= this->dimFila){
 	
 		banderaActual = pBanderas->obtenerCursor();
 		
