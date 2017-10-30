@@ -43,7 +43,7 @@ class Mapa{
 		uint obtenerTamanioDeLaListaDeMinas();
 	
 		/* Post: devuelve la cantidad de casillas que no han sido destapadas.*/
-		uint Mapa::obtenerCantidadDeCasillasOcultas();
+		uint obtenerCantidadDeCasillasOcultas();
 
 		
 		
