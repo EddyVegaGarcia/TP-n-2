@@ -23,14 +23,13 @@ void Juez::crearJugadores(){
 	char alias = 'A';
 
 		Jugador* entrante;
-		for (int i=0; i<cantidadJugadores;i++){
-			Jugador jugador(alias+i,mapaRecibido);
+		for (int i=0; i<this->cantidadDeJugadores;i++){
+			Jugador jugador(alias+i,this->tableroDeJuego);
 			entrante=&jugador;		
 			insertarJugador(entrante);
 		}
 
 		this->jugadores->iniciarCursor();
-}
 
 
 /* Avanzar jugador hasta un jugador que siga jugando.*/
