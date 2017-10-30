@@ -7,12 +7,12 @@ this->diseñador.llenarEsquinas(baseMapa);
 this->diseñador.llenarBordes(baseMapa);
 return baseMapa;
 }
-void Diseñador::llenarEsquinas(baseMapa){
+void Diseñador::llenarEsquinas(BMP baseMapa){
 
-	llenarEsquinaSuperiorDerecha(baseMapa);
-	llenarEsquinaSuperiorIzquierda(baseMapa);
-	llenarEsquinaInferiorDerecha(baseMapa);
-	llenarEsquinaInferiorIzquierda(baseMapa);
+	llenarEsquinaSuperiorDerecha(BMP baseMapa);
+	llenarEsquinaSuperiorIzquierda(BMP baseMapa);
+	llenarEsquinaInferiorDerecha(BMP baseMapa);
+	llenarEsquinaInferiorIzquierda(BMP baseMapa);
 
 }
 void llenarEsquinaSuperiorDerecha(BMP baseMapa){}
@@ -20,12 +20,12 @@ void llenarEsquinaSuperiorIzquierda(BMP baseMapa){}
 void llenarEsquinaInferiorDerecha(BMP baseMapa){}
 void llenarEsquinaInferiorIzquierda(BMP baseMapa){}
 
-void Diseñador::llenarBordes(baseMapa){
+void Diseñador::llenarBordes(BMP baseMapa){
 
-	llenarBordeSuperior(baseMapa);
-	llenarBordeInferior(baseMapa);
-	llenarBordeIzquierdo(baseMapa);
-	llenarBordeDerecho(baseMapa);
+	llenarBordeSuperior(BMP baseMapa);
+	llenarBordeInferior(BMP baseMapa);
+	llenarBordeIzquierdo(BMP baseMapa);
+	llenarBordeDerecho(BMP baseMapa);
 
 }
 void llenarBordeSuperior(BMP baseMapa){
