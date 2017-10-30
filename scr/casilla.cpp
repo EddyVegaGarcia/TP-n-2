@@ -14,6 +14,7 @@ Casilla::Casilla(uint fila, uint columna, char valor){
   asignarFila(fila);
   asignarColumna(columna);
   asignarValor(valor);
+  this->seDestapo = false;
 }
 
 Casilla::Casilla(){
@@ -32,4 +33,12 @@ uint Casilla::obtenerColumna(){
 
 char Casilla::obtenerValor(){
   return this->valor;
+}
+bool seDestapoEnTablero(){
+ 
+return this->seDestapo;
+}
+void destaparEnTablero(){
+
+this->seDestapo = true;
 }
