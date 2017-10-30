@@ -174,12 +174,65 @@ Lista<Casilla>* Mapa::obtenerPunteroCasillas(){
 Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 	return this-> pBanderas;
 }
+					       
+void Mapa::ponerImagenEnMapa(archivoimagen.BMP, mapa, uint fila, uint columna){
+ /* Mati aca te deje para que hagas nada mas esto, te pasa por parametro el archivo de la imagen el mapa
+ * base la fila y columna ya lo unico que tienes que hacer es lo tuyo que copie de ese archivo al otro y 
+ * las cuentas de las posiciones y ya.
+ */
 
+}				       
+void Mapa::cambiarEnBMP(BMP mapa,char valor, uint fila, uint columna){
+	if(valor == BANDERA){
+	        ponerImagenEnMapa(archivoBandera, mapa, uint fila, uint columna);
+	}
+	else if (valor == VACIO){
+		ponerImagenEnMapa(archivoVacio, mapa, uint fila, uint columna);
+	}
+	else if (valor == MINA){
+		ponerImagenEnMapa(archivoMina, mapa, uint fila, uint columna);
+	}
+	else if (valor == '1'){
+		ponerImagenEnMapa(archivo1, mapa, uint fila, uint columna);
+	}
+	else if (valor == '2'){
+		ponerImagenEnMapa(archivo2, mapa, uint fila, uint columna);
+	}
+	else if (valor == '3'){
+		ponerImagenEnMapa(archivo3, mapa, uint fila, uint columna);
+	}
+	else if (valor == '4'){
+		ponerImagenEnMapa(archivo4, mapa, uint fila, uint columna);
+	}
+	else if (valor == '5'){
+		ponerImagenEnMapa(archivo5, mapa, uint fila, uint columna);
+	}
+	else if (valor == '6'){
+		ponerImagenEnMapa(archivo6, mapa, uint fila, uint columna);
+	}
+	else if (valor == '7'){
+		ponerImagenEnMapa(archivo7, mapa, uint fila, uint columna);
+	}
+	else if (valor == '8'){
+		ponerImagenEnMapa(archivo8, mapa, uint fila, uint columna);
+	}
+
+}
+					      
 void llenarMapaBanderas(Lista<Bandera>* banderas, BMP mapa){}
-					     
+	banderas->iniciarCursor;
+	while(banderas->avanzarCursor()){
+		Bandera banderaActual();
+		banderaActual = banderas->obtenerCursor();
+		if(!banderaActual->seDestapoEnTablero()){
+			cambiarEnBMP(this->baseMapa, BANDERA, banderaActual->obtenerFila,
+				                          banderaActual->obtenerColumna);
+			
+		}  
+	   }		     
 void llenarMapaCasillasDestapadas(Lista<Casilla>* casillas, BMP mapa){
        casillas->iniciarCursor;
-	    while(casillas->avanzarCursor()){
+       while(casillas->avanzarCursor()){
 		Casilla casillaActual();
 		casillaActual = casillas->obtenerCursor();
 		if(!casillaActual->seDestapoEnTablero()){
@@ -197,11 +250,7 @@ void Mapa::mostrarMapa(){
 	
 	
 }
-void Mapa::cambiarEnBMP(BMP mapa,char valor, uint fila, uint columna){
-	if(valor == '')
-	
 
-}
 /*	vector = new char[this->dimColumna];
 	
 	for(int i = 0; i < dimFila; i++ ){
