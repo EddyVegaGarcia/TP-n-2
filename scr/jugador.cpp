@@ -61,7 +61,7 @@ void Jugador::iniciarJugada(){
 	pJugada->asignarOpcion(opcionUser);
 	puntos = pJugada->realizarJugada();
 	
-	if (puntos!=PERDIO_PARTIDA && PUNTOS!=SE_RETIRO){
+	if (puntos!=PERDIO_PARTIDA && puntos!=SE_RETIRO){
 		puntos += obtenerPuntaje();
 		modificarPuntaje(puntos);
 	} else {
