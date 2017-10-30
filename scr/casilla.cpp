@@ -34,11 +34,11 @@ uint Casilla::obtenerColumna(){
 char Casilla::obtenerValor(){
   return this->valor;
 }
-bool seDestapoEnTablero(){
+bool Casilla::seDestapoEnTablero(){
  
 return this->seDestapo;
 }
-void destaparEnTablero(){
+void Casilla::destaparEnTablero(){
 
 this->seDestapo = true;
 }
