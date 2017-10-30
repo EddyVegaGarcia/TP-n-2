@@ -126,7 +126,7 @@ void Juez::inicializarJuego(){
 		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir);
 
 	}
-	jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, catidadDeJugadores);
+	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, catidadDeJugadores);
 	mostrarFelicitaciones(jugadorGanador);
 	crearArchivoConPuntajes(this->jugadores, cantidadDeJugadores);
 
