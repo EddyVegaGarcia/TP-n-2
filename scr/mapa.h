@@ -2,6 +2,7 @@
 # include "mina.h"
 # include "casilla.h"
 # include "bandera.h"
+# include "buscador.h"
 
 class Mapa{
 	
