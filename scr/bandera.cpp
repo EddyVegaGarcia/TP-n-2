@@ -24,3 +24,11 @@ uint Bandera::obtenerFila(){
 uint Bandera::obtenerColumna(){
   return columna;
 }
+bool seDestapoEnTablero(){
+ 
+return this->seDestapo;
+}
+void destaparEnTablero(){
+
+this->seDestapo = true;
+}
