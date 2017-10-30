@@ -161,8 +161,8 @@ void llenarMapaCasillasDestapadas(Lista<Casilla>* casillas, BMP mapa){
 		if(!casillaActual->seDestapoEnTablero()){
 			char valor;
 			valor = casillaActual->obtenerValor();
-			cambiarEnBMP(this->baseMapa, valor, casillaActual->obtenerFila,
-				                          casillaActual->obtenerColumna);
+			cambiarEnBMP(this->baseMapa, valor, casillaActual->obtenerFila(),
+				                          casillaActual->obtenerColumna());
 			
 		}  
 	   }
@@ -200,11 +200,11 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 
 void Mapa::agregarCasillaDestapada(int filaRecibida,int columnaRecibida,char valorRecibido){ // modificando
 	Casilla casillaPorAgregar(filaRecibida, columnaRecibida, valorRecibido);
-	this -> pMinas -> agregar(casillaPorAgregar);
+	this -> pCasillasDestapadas -> agregar(casillaPorAgregar);
 }
 
 char Mapa::obtenerValorCasilla(int filaRecibida,int columnaRecibida){
-	valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
+	char valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
 	return valor;
 }
 	
@@ -216,8 +216,8 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 
 bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
-	if (seEncuentra) {remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
-	return seEncuentra;
+	if (seEncuentra) {pBanderas->remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
+	return seEncuentra; // la linea del remover no va a compilar. Recibe la posicin del elemento EN LA LISTA.
 }	
 
 bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
