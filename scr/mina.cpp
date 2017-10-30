@@ -27,9 +27,9 @@ uint Mina::obtenerColumna(){
 
 bool Mina::estaJuntoAMina(uint filaAComparar, uint columnaAComparar){
   bool estaAlrededor=false;
-  for(uint i=fila-1; i<fila+2;; i++){
+  for(uint i=fila-1; i<fila+2; i++){
     for(uint j=columna-1;j<columna+2;j++){
-      if (i==filaAcomparar && j==columnaAComparar)
+      if (i==filaAComparar && j==columnaAComparar)
         estaAlrededor=true;
     }
   }
