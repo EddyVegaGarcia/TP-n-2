@@ -8,6 +8,7 @@ using namespace std;
 		this->fila = 0;
 		this->columna = 0;
 		this->puntaje = 0;
+		this->opcion = NADA;
 	}
 
 	void Jugada::asignarOpcion(char opcionDeUsuario){
