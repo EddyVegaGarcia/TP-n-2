@@ -7,8 +7,8 @@
 class Destapador{
 	
 	private:
-		int filaJugada;
-		int columnaJugada;
+		int fila;
+		int columna;
 		Mapa* mapa;
 	
 	
