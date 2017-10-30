@@ -67,8 +67,9 @@ class Mapa{
 		* Post: Devuelve si la casilla con ubicación dada por "fila" y "columna" está o no destapada.*/
 		bool estaDestapadaLaCasilla(unsigned int fila, unsigned int columna);
 
-		/*Pre: Recibe fila y columna.
-		* Post: La casilla cuya posición está dada por "fila" y "colmna" queda destapada.*/
+		/*Pre: Recibe fila, columna y valor de la casilla a agregar.
+		* Post: La casilla cuya posición está dada por "fila" y "columna"
+		*	queda destapada y con valor valorRecibido.*/
 		void agregarCasillaDestapada(int filaRecibida, int colRecibida, char valorRecibido); 
 		
 		/*Pre: Recibe fila y columna de una casilla.
@@ -86,7 +87,7 @@ class Mapa{
 		
 		/*Pre: Recibe fila y columna de una casilla.
 		* Post: si en la posición dada por "fila" y "columna" hay una marca, entonces la elimina.
-		* Devuelve si en dicha posición hay o no una marca.*/
+		* 	Devuelve si en dicha posición había o no una marca.*/
 		bool removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna);
 	
 	private:
@@ -110,17 +111,7 @@ class Mapa{
 		void llenarVectorDeBanderas(unsigned int fila,char* vector[]);
 		void mostrarVector(char* vector[]);
 
-		/* Pre: reciba fila y columna de una casilla,
-		* Post: devuelve si la casilla que tiene por ubicacin "fila" y "columna" está o no en la lista
-		* de banderas.*/
-		bool seEncuentraEnListaDeBanderas(uint &fila, uint &columna);	
 	
-		/* Pre: Recibe un char, ('m' para lista de minas, 'c' para lista de casillas, 'b' para lista de banderas),
-		* y una ubicación de la casilla a buscar indicada por fila y columna.
-		* Post: Busca en una de las tres listas, según indicado por "lista" y devuelve un bool indicando si
-		* la casilla cuya ubicacin se pasó por parámetro está o no en la lista "lista".*/
-		bool seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada);
-
 		
 		/* Pre: Recibe fila y columna de una casilla.
 		* Post: devuelve el valor de esa casilla.*/
