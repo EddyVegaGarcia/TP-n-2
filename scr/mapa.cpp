@@ -1,4 +1,5 @@
 # include "mapa.h"
+# include "constantes.h"
 
 Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
