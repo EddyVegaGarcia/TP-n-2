@@ -213,7 +213,7 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 	this -> pBanderas -> agregar(banderaAColocar);
 }
 
-bool Mapa::removerYDevolverSiHabiaMarcaV3(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
+bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	uint posicion=0;
 
 	Buscador buscador(this->pBanderas);
@@ -225,7 +225,7 @@ bool Mapa::removerYDevolverSiHabiaMarcaV3(unsigned int fila, unsigned int column
 	return seEncuentra;
 }
 
-bool Mapa::validarMinaV3(unsigned int fila, unsigned int columna){
+bool Mapa::validarMina(unsigned int fila, unsigned int columna){
 
 	Buscador buscador(this->pMinas);
 	bool seEncuentra=buscador.buscar(fila, columna);
