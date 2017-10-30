@@ -63,7 +63,7 @@ void Juez::insertarJugador(Jugador* nuevo){
 
 	this->jugadores->insertar(nuevo);
 }
-jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
+Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
 	jugadores->inicializarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = 0;
