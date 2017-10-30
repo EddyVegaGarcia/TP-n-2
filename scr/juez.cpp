@@ -60,13 +60,13 @@ void Juez::mostrarJugador(){
 
 void Juez::insertarJugador(Jugador* nuevo){
 
-	this->jugadores->insertar(nuevo);
+	this->jugadores->agregar(nuevo);
 }
 Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
-	jugadores->inicializarCursor();
+	jugadores->iniciarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = 0;
-	while(jugadores<=cantidadDeJugadores){
+	while(jugadores->contarElementos()<=cantidadDeJugadores){
 		
 		Jugador* jugadorActual;
 		jugadorActual = jugadores->obtenerCursor();
@@ -82,7 +82,7 @@ Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int canti
 }
 void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
    ofstream puntajes(archivoDePuntajes); 
-       while(jugadores<=cantidadDeJugadores){
+       while(jugadores->contarElementos()<=cantidadDeJugadores){
 		char alias;
 	        int puntaje;
 		Jugador* jugadorActual;
@@ -127,7 +127,7 @@ void Juez::inicializarJuego(){
 		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir);
 
 	}
-	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, catidadDeJugadores);
+	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, cantidadDeJugadores);
 	mostrarFelicitaciones(jugadorGanador);
 	crearArchivoConPuntajes(this->jugadores, cantidadDeJugadores);
 
@@ -161,7 +161,7 @@ void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
 
 void Juez::mostrarFelicitaciones(Jugador* jugadorActual){
 	cout << jugadorActual->obtenerAlias() << "!!! Ganaste !!!" << endl;
-	cout << "Tu puntaje es: " jugadorActual->obtenerPuntaje() << "."<< endl;
+	cout << "Tu puntaje es: "<< jugadorActual->obtenerPuntaje() << "."<< endl;
 }
 
 
@@ -171,9 +171,9 @@ Juez::~Juez(){
 		Jugador* jugadorActual;
 		char alias;
 		int puntaje;
-		this->jugadores->inicializarCursor();
+		this->jugadores->iniciarCursor();
 		jugadorActual = this->jugadores->obtenerCursor();
-		alias = jugardorActual->obtenerAlias();
+		alias = jugadorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
 
 		cout<<"El jugador: " << alias << " tiene " << puntaje << " puntos." << endl;
