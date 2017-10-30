@@ -1,6 +1,4 @@
 #include "destapador.h"
-
-
 	
 //constructor
 Destapador::Destapador(Mapa* mapaActual)
@@ -50,15 +48,13 @@ void Destapador::crearListaCasillasYAsignarPuntero()
 //metodos privados
 void Destapador::destaparPandemia()
 {
-	bool avanzar = true;
 	agregarVacio(this->fila, this->columna);
 	pVacios->iniciarCursor();
-	while(pVacios->avanzarCursor() && avanzar){
-		Casilla nueva=pVacios->obtenerCursor();
-		nueva.destaparEnTablero();
-		destaparPandemiaRecursiva( this->fila, this->columna);
-		avanzar =  false;
-	}
+	pVacios->avanzarCursor();
+
+	Casilla nueva=pVacios->obtenerCursor();
+	nueva.destaparEnTablero();
+	destaparPandemiaRecursiva( this->fila, this->columna);
 
 }
 
