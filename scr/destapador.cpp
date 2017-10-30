@@ -1,30 +1,34 @@
 #include "destapador.h"
 
-using namespace std;
+
 	
 //constructor
 Destapador::Destapador(Mapa* mapaActual)
 {
-  this->mapa = mapaActual;
   this->fila = 0;
-  this->columna = 0;  
+  this->columna = 0;
+  this->mapa = mapaActual;
+  crearListaCasillasYAsignarPuntero();
+
 }
 
 //metodos publicos
-int Destapador::destapar(int filaJugada, int columnaJugada) 
+uint Destapador::destapar(uint filaJugada,uint columnaJugada)
 {
-	int puntaje = 0;
+	uint puntaje = 0;
 	this->fila = filaJugada;
  	this->columna = columnaJugada;
 	puntajeAlDestapar(puntaje); //decía puntajeAlDestapar(*puntaje);
 	return puntaje;
 }
 
-void Destapador::puntajeAlDestapar(int &puntaje)
+void Destapador::puntajeAlDestapar(uint &puntaje)
 {
-	if( !this->mapa->estaDestapadaLaCasilla(this->fila , this->columna )){
-		char valorCasilla = mapa->obtenerValorCasilla(this->fila,this->columna);
-		mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
+	if( !this->mapa->estaDestapadaLaCasilla(this->fila, this->columna))
+	{
+		char valorCasilla = mapa->obtenerValorCasilla(this->fila, this->columna);
+		this->mapa->agregarCasillaDestapada(this->fila, this->columna);
+
 		if(valorCasilla == VACIO)
 		{
 			destaparPandemia(); /* se puede llamar directamente a destaparPandemiaRecursiva */
@@ -37,17 +41,35 @@ void Destapador::puntajeAlDestapar(int &puntaje)
 	
 }
 
+void Destapador::crearListaCasillasYAsignarPuntero()
+{
+	Lista<Casilla> vacios;
+	this->pVacios = &vacios;
+}
+
 //metodos privados
 void Destapador::destaparPandemia()
 {
-	destaparPandemiaRecursiva(this->fila, this->columna);
-	this->mapa->agregarCasillaDestapada(this->fila, this->columna); /* Ojo con esto, ya se agregó.*/
+	bool avanzar = true;
+	Casilla vacia_1(this->fila, this->columna, VACIO);
+	pVacios->agregar(vacia_1);
+	pVacios->iniciarCursor();
+	while(pVacios->avanzarCursor() && avanzar){
+		Casilla nueva=pVacios->obtenerCursor();
+		nueva->destaparEnTablero();
+		destaparPandemiaRecursiva(nuevo->seDestapoEnTablero() , this->fila, this->columna);
+		avanzar =  false;
+	}
+
+
+
+
 }
 
-void Destapador::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
+void Destapador::destaparPandemiaRecursiva(Lista<Casilla>* vacios, uint filaPasada, uint columnaPasada)
 {
 	
-	if(this->mapa->obtenerValorCasilla!=VACIO || this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada))
+	if((this->mapa->obtenerValorCasilla(filaPasada, columnaPasada) !=VACIO))
 		return; /*Ver.*/
 	
 	destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
@@ -67,10 +89,10 @@ void Destapador::destaparPandemiaRecursiva(int filaPasada, int columnaPasada)
 
 }
 
-int Destapador::destaparCasillaNoVacia(char valorCasilla)
+uint Destapador::destaparCasillaNoVacia(char valorCasilla)
 {
 	
-	int puntaje = 0;
+	uint puntaje = 0;
   	
 	if(valorCasilla == MINA)
 	{
