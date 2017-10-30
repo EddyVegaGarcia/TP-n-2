@@ -13,9 +13,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 	Minero minero(dimFila,dimColumna,dificultad,pMinas);
 	minero.sembrarMinas();
 	this->baseMapa = crearBMP(dimFila, dimColumna);
-	this->mapa.llenarMapaBloqueado(this->baseMapa);
-	this->mapa.llenarEsquinas(this->baseMapa);
-	this->mapa.llenarBordes(this->baseMapa);
+	
 }
 
 uint Mapa::obtenerFila(){
@@ -123,6 +121,9 @@ BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
 
 	BMP mapaVacio();
 	mapaVacio.setSize(ancho, alto);
+	this->mapa.llenarMapaBloqueado(this->baseMapa);
+	this->mapa.llenarEsquinas(this->baseMapa);
+	this->mapa.llenarBordes(this->baseMapa);
 
 }
  unsigned int calcularAncho(unsigned int dimColumnas){
@@ -174,10 +175,34 @@ Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 	return this-> pBanderas;
 }
 
-
+void llenarMapaBanderas(Lista<Bandera>* banderas, BMP mapa){}
+					     
+void llenarMapaCasillasDestapadas(Lista<Casilla>* casillas, BMP mapa){
+       casillas->iniciarCursor;
+	    while(casillas->avanzarCursor()){
+		Casilla casillaActual();
+		casillaActual = casillas->obtenerCursor();
+		if(!casillaActual->seDestapoEnTablero()){
+			char valor;
+			valor = casillaActual->obtenerValor();
+			cambiarEnBMP(this->baseMapa, valor, casillaActual->obtenerFila,
+				                          casillaActual->obtenerColumna);
+			
+		}  
+	   }
+}
 void Mapa::mostrarMapa(){
+	llenarMapaBanderas(this->pCasillasDestapadas, this->mapaBase);
+	llenarMapaCasillasDestapadas(this->pBanderas,this->mapaBase);
+	
+	
+}
+void Mapa::cambiarEnBMP(BMP mapa,char valor, uint fila, uint columna){
+	if(valor == '')
+	
 
-	vector = new char[this->dimColumna];
+}
+/*	vector = new char[this->dimColumna];
 	
 	for(int i = 0; i < dimFila; i++ ){
 		llenarVectorFila(i + 1, vector);
@@ -249,8 +274,9 @@ void mostrarVector(char* vector[]){
 		/* nadie usó constantes y había un comentario que decía "9 es para bandera".
 		* imagino que 9 es para indicar bandera ADENTRO de ese vector, así que ojo al declarar
 		* constantes, que no se 'pisen' con otras constantes ya definidas.*/
-	}
-}
+	
+
+*/
 /*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	char valor = '0';
