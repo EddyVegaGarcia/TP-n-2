@@ -5,7 +5,7 @@ private:
   uint fila;
   uint columna;
   char valor;
-  bool seDestapoEnTablero;
+  bool seDestapo;
   
 public:
 
