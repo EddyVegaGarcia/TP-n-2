@@ -68,7 +68,7 @@ class Mapa{
 
 		/*Pre: Recibe fila y columna.
 		* Post: La casilla cuya posición está dada por "fila" y "colmna" queda destapada.*/
-		void agregarCasillaDestapada(int filaRecibida, int colRecibida); 
+		void agregarCasillaDestapada(int filaRecibida, int colRecibida, char valorRecibido); 
 		
 		/*Pre: Recibe fila y columna de una casilla.
 		* Post: Devuelve su valor.*/
