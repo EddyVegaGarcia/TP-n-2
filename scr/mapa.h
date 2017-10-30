@@ -12,7 +12,8 @@ class Mapa{
 		Lista<Mina>* pMinas;
 		Lista<Casilla>* pCasillasDestapadas;
 		Lista<Bandera>* pBanderas;
-		unsigned int numeroDeMapa;		
+		unsigned int numeroDeMapa;
+		BMP baseMapa;
 	
 	public:
 		/*constructor
