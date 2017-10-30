@@ -27,5 +27,7 @@ const char archivo6[] = "sixblue.bmp" ;
 const char archivo7[] = "sevenblue.bmp" ;
 const char archivo8[] = "eightblue.bmp" ;
 
+const char archivoDePuntajes[] = "puntajes.txt";
+
 // pongan sus constanteessssss :)
 
