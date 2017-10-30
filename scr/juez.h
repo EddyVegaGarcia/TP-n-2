@@ -60,6 +60,12 @@ private:
 	* Post: Muestra un mensaje de felicitaciones a "jugadorActual" con su puntaje.*/
 	void mostrarFelicitaciones(Jugador* jugadorActual);
 
+	
+	
+	void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores);
+	
+	
+	jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores);
 
 };
 
