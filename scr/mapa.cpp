@@ -213,51 +213,28 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 	this -> pBanderas -> agregar(banderaAColocar);
 }
 
+bool Mapa::removerYDevolverSiHabiaMarcaV3(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
+	uint posicion=0;
 
-bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
-	bool seEncuentra=seEncuentraEnListaDeBanderas(fila, columna);
-	if (seEncuentra) {pBanderas->remover(fila, columna)}; // Acá se debería remover el actual, para no recorrer dos veces la lista.
-	return seEncuentra; // la linea del remover no va a compilar. Recibe la posicin del elemento EN LA LISTA.
-}	
+	Buscador buscador(this->pBanderas);
+	bool seEncuentra=buscador.buscar(fila, columna, posicion);
 
-bool Mapa::seEncuentraEnListaDeBanderas(uint &fila, uint &columna){
-	return (seEncuentraEnLista('b', fila, columna));
+	if (seEncuentra)
+		pBanderas->remover(posicion);
+
+	return seEncuentra;
 }
 
-/* Busca en una de las tres listas, según indicado x parámetro.*/
-bool Mapa::seEncuentraEnLista(char lista, uint &filaBuscada, uint &columnaBuscada){
-	if (lista=='b'){
-		Lista<Bandera>* pLista=pBanderas;
-		Bandera elementoActual;
-	}
-	else if (lista=='c'){
-		Lista<Casilla>* pLista=pCasillasDestapadas;
-		Casilla elementoActual;
-	}
-	else {// lista es 'm'
-		Lista<Mina>* pLista=pMinas;
-		Mina elementoActual;
-	}
+bool Mapa::validarMinaV3(unsigned int fila, unsigned int columna){
 
-	bool encontrado=false;
-	
-	while(pLista->avanzarCursor() && not encontrado){
-		elementoActual=pLista->obtenerCursor();
-		if (elementoActual.obtenerFila()==filaBuscada && elementoActual.obtenerColumna()==columnaBuscada)
-			encontrado=true;
-		
-	}
-	
-	//removerActual(); // acá es necesario un remover actual.
-	return encontrado;
-}
+	Buscador buscador(this->pMinas);
+	bool seEncuentra=buscador.buscar(fila, columna);
+	return seEncuentra;
 
-/*validarMina, estaDestapadaLaCasilla, Hay que buscar en las listas*/
-bool Mapa::validarMina(unsigned int fila, unsigned int columna){
-	return(seEncuentraEnLista('m', fila, columna)); // ver, recibe uint.
 }
 
 bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
-	return(seEncuentraEnLista('c', fila, columna));
-
+	Buscador buscador(this->pCasillasDestapadas);
+	bool seEncuentra=buscador.buscar(fila, columna);
+	return seEncuentra;
 }
