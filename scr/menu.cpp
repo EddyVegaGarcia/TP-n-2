@@ -82,7 +82,7 @@ void Menu::pedirYAsignarCantJugadores(){
 }
 
 void Menu::crearAmbiente(){
-	Mapa mapa(fila, columna, dificultad);
+	Mapa mapa(this->dimFila, this->dimColumna, dificultad);
 	Mapa* punteroAMapa=&mapa;
 	Juez juez(cantJugadores, punteroAMapa);
 	juez.inicializarJuego();
