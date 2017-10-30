@@ -1,4 +1,8 @@
-typedef unsigned int uint;
+#ifndef CASILLA_H_
+#define CASILLA_H_
+
+
+#include "constantes.h"
 
 class Casilla{
 private:
@@ -48,3 +52,5 @@ public:
   void destaparEnTablero();
 
 };
+
+#endif /*CASILLA_H_*/
