@@ -58,7 +58,7 @@ void llenarBordeDerecho(BMP baseMapa){
 		}
 }
 
-void mapa::llenarMapaBloqueado(BMP &baseMapa){
+void Diseñador::llenarMapaBloqueado(BMP &baseMapa){
 
 	for(int i=0; i<this->dimFila; i++){
 
