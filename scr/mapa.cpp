@@ -38,82 +38,7 @@ uint Mapa::obtenerCantidadDeCasillasOcultas(){
 }
 
 
-/* Fuaaaa. Podemos hacer una clase DiosDelBMP y le pasamos un puntero al mapa, para no hacer todo esto acá así no queda
-* tan grande.*/
 
-//////////////////////////////////////
-////////////// bmp ///////////////////
-//////////////////////////////////////
-
-/* Hay que ponerles "Mapa::" a todos, pero igual para mí son del DiosDelBMP. */
-
-void mapa::llenarEsquinas(this->baseMapa){
-
-	llenarEsquinaSuperiorDerecha(this->baseMapa);
-	llenarEsquinaSuperiorIzquierda(this->baseMapa);
-	llenarEsquinaInferiorDerecha(this->baseMapa);
-	llenarEsquinaInferiorIzquierda(this->baseMapa);
-
-}
-void llenarEsquinaSuperiorDerecha(BMP baseMapa){}
-void llenarEsquinaSuperiorIzquierda(BMP baseMapa){}
-void llenarEsquinaInferiorDerecha(BMP baseMapa){}
-void llenarEsquinaInferiorIzquierda(BMP baseMapa){}
-
-void mapa::llenarBordes(this->baseMapa){
-
-	llenarBordeSuperior(this->baseMapa);
-	llenarBordeInferior(this->baseMapa);
-	llenarBordeIzquierdo(this->baseMapa);
-	llenarBordeDerecho(this->baseMapa);
-
-}
-void llenarBordeSuperior(BMP baseMapa){
-
-	for(int i= 0; (i<this->dimColumna)*2; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,(BORDES+1+(i*BORDES),1);
-		}
-
-}
-void llenarBordeInferior(BMP baseMapa){
-
-	for(int i= 0; (i<this->dimFila)*2; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
-					BORDES+1+(i*BORDES),BORDES+1(CASILLAS*this->dimFila),);
-		}
-}
-void llenarBordeIzquierdo(BMP baseMapa){
-
-	for(int i= 0; i<this->dimFila; i++){
-
-		RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,1,(BORDES+1+(BORDES*i)));
-	}
-
-}
-void llenarBordeDerecho(BMP baseMapa){
-
-	for(int i= 0; i<this->dimFila; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
-					BORDES+1+((this->dimFila)*CASILLAS),BORDES+1+(CASILLAS+i));
-		}
-}
-
-void mapa::llenarMapaBloqueado(BMP &baseMapa){
-
-	for(int i=0; i<this->dimFila; i++){
-
-		for(int j=0; j<this->dimColumna; i++){
-
-			RangedPixelToPixelCopy(ARcasillasBloqueadas,1,16,16,1,basemapa,
-					(BORDES+1)+(i*CASILLAS),(BORDES+1)+(i+CASILLAS))
-		}
-	}
-
-
-}
 BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
 	 unsigned int ancho = 0;
 	 unsigned int alto = 0;
@@ -122,9 +47,8 @@ BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
 
 	BMP mapaVacio();
 	mapaVacio.setSize(ancho, alto);
-	this->mapa.llenarMapaBloqueado(this->baseMapa);
-	this->mapa.llenarEsquinas(this->baseMapa);
-	this->mapa.llenarBordes(this->baseMapa);
+	Diseñador diseñador(this->baseMapa);
+	this->baseMapa = diseñador.diseñarMapaVacio();
 
 }
  unsigned int calcularAncho(unsigned int dimColumnas){
@@ -144,9 +68,7 @@ unsigned int calcularAlto(unsigned int dimFilas){
 }
 
 					       
-//////////////////////////////////////////////////////////////////
-//////// inicio de sector de métodos que no son del bmp //////////
-//////////////////////////////////////////////////////////////////
+
 					       
 void Mapa::crearListaMinasYAsignarPuntero(){
 	Lista<Mina> minas;
@@ -252,81 +174,7 @@ void Mapa::mostrarMapa(){
 	
 }
 
-/*	vector = new char[this->dimColumna];
-	
-	for(int i = 0; i < dimFila; i++ ){
-		llenarVectorFila(i + 1, vector);
-		mostrarVector(vector);
-	}
-		
-}
-	
-void llenarVectorFila(unsigned int fila, char* vector[]){
-	llenarVectorDeNoMostrado(vector);
-	llenarVectorDeCasillasDestapadas(fila, vector);
-	llenarVectorDeBanderas(fila, vector);
-	
-}
-	
-void llenarVectorDeNoMostrado(char* vector[]){
-	for(int i = 0; i< this-> dimColumna; i++)
-		vector[i] = '*';
-}
 
-	
-void llenarVectorDeCasillasDestapadas(unsigned int fila,char* vector[]){
-
-	this-> pCasillasDestapadas -> iniciarCursor();
-
-	Casilla casillaActual;
-		
-	int casillasAsignadas = 0;
-	while(this->pCasillasDestapadas->avanzarCursor() && casillasAsignadas <=this->dimFila){
-
-		casillaActual = pCasillasDestapadas->obtenerCursor();
-
-		if (casillaActual.obtenerFila() == fila){
-			vector[casillaActual.obtenerColumna() - 1] = casillaActual.obtenerValor();
-			casillasAsignadas++;
-		}
-	}	
-}
-void llenarVectorDeBanderas(unsigned int fila,char* vector[]){
-	
-	this->pBanderas->iniciarCursor();
-	
-	Bandera banderaActual;
-	
-	int banderasAsignadas = 0;
-	
-	while(this->pBanderas->avanzarCursor() && banderasAsignadas <= this->dimFila){
-	
-		banderaActual = pBanderas->obtenerCursor();
-		
-		if(banderaActual.obtenerColumna() == fila){
-		
-			vector[banderaActual.obtenerColumna() - 1] = '9';
-			banderasAsignadas++;
-		}
-	}
-}
-void mostrarVector(char* vector[]){
-	
-	for (unsigned int i = 0; i< this->columna; i++){
-
-			if(vector[i] == '9')
-				std::cout<<Bandera<<; // no sé qué es "Bandera"
-			else if (vector[i] == '0') 
-				std::cout<<'*';
-			else 
-				std::cout<< vector[i];
-			std::endl;
-		/* nadie usó constantes y había un comentario que decía "9 es para bandera".
-		* imagino que 9 es para indicar bandera ADENTRO de ese vector, así que ojo al declarar
-		* constantes, que no se 'pisen' con otras constantes ya definidas.*/
-	
-
-*/
 /*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	char valor = '0';
