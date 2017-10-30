@@ -1,3 +1,6 @@
+#include "diseñador.h"
+
+
 BMP Diseñador::diseña(BMP baseMapa){
 this->diseñador.llenarMapaBloqueado(baseMapa);
 this->diseñador.llenarEsquinas(baseMapa);
