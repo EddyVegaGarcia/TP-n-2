@@ -1,4 +1,6 @@
 #include "juez.h"
+#include "constantes.h"
+#include <fstream.h>
 
 Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 	this->cantidadDeJugadores = cantidadJugadores;
@@ -59,7 +61,40 @@ void Juez::insertarJugador(Jugador* nuevo){
 
 	this->jugadores->insertar(nuevo);
 }
+jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
+	jugadores->inicializarCursor();
+	Jugador* jugadorGanador;
+	int puntajeMaximo = 0;
+	while(jugadores<=cantidadDeJugadores){
+		
+		Jugador* jugadorActual;
+		jugadorActual = jugadores->obtenerCursor();
+		if(jugadorActual->obtenerPuntaje() > puntajeMaximo){
+			puntajeMaximo = jugadorActual->obtenerPuntaje();
+			jugadorGanador = jugadorActual;
+		}
+		
+		
+	}
+	return jugadorGanador;
+	
+}
+void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
+   ofstream puntajes(archivoDePuntajes); 
+       while(jugadores<=cantidadDeJugadores){
+		char alias;
+	        int puntaje;
+		Jugador* jugadorActual;
+		jugadorActual = jugadores->obtenerCursor();
+	       alias = jugadorActual->obtenerAlias();
+	       puntaje = jugadorActual->obtenerPuntaje();
+	        puntajes << "el jugador" << alias << "obtuvo puntaje de: " << puntaje << endl;
+	       
+		
+       }	
+   puntajes.close();
 
+}
 void Juez::inicializarJuego(){
 	uint casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
 	uint minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
@@ -91,6 +126,9 @@ void Juez::inicializarJuego(){
 		sigueJugando(jugadorActual, jugadoresQuePerdieron, tableroDeJuego, minasPorDescubrir);
 
 	}
+	jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, catidadDeJugadores);
+	mostrarFelicitaciones(jugadorGanador);
+	crearArchivoConPuntajes(this->jugadores, cantidadDeJugadores);
 
 
 }
