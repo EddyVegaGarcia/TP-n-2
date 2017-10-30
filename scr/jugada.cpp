@@ -1,5 +1,5 @@
-include "jugada.h"
-include "constantes.h"
+#include "jugada.h"
+#include "constantes.h"
 
 using namespace std;
         
