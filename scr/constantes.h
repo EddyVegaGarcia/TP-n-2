@@ -15,5 +15,17 @@ const uint FACIL=20;
 const uint MEDIO=30;
 const uint DIFICIL=40;
 
+const char archivoMina[] = "mineblue.bmp" ;
+const char archivoBandera[] = "flaggedblue.bmp" ;
+const char archivoVacio[] = "emptyblue.bmp" ;
+const char archivo1[] = "oneblue.bmp" ;
+const char archivo2[] = "twoblue.bmp" ;
+const char archivo3[] = "threeblue.bmp" ;
+const char archivo4[] = "fourblue.bmp" ;
+const char archivo5[] = "fiveblue.bmp" ;
+const char archivo6[] = "sixblue.bmp" ;
+const char archivo7[] = "sevenblue.bmp" ;
+const char archivo8[] = "eightblue.bmp" ;
+
 // pongan sus constanteessssss :)
 
