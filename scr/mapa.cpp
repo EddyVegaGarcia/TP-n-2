@@ -1,20 +1,21 @@
 # include "mapa.h"
-# include "constantes.h"
 
 Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 	this-> dimFila = filaRecibida;
 	this-> dimColumna = columnaRecibida;
 	this-> dificultad = dificultadRecibida;
-	
-	crearListaMinasYAsignarPuntero();	
+
+	crearListaMinasYAsignarPuntero();
 	crearListaCasillasYAsignarPuntero();
 	crearListaBanderasYAsignarPuntero();
-	
+
 	Minero minero(dimFila,dimColumna,dificultad,pMinas);
 	minero.sembrarMinas();
-	this->baseMapa = crearBMP(dimFila, dimColumna);
-	
+
+	Diseniador diseniador(dimFila,dimColumna);
+	this->baseMapa = diseniador.obtenerDisenio();
+
 }
 
 uint Mapa::obtenerFila(){
@@ -37,24 +38,10 @@ uint Mapa::obtenerCantidadDeCasillasOcultas(){
 	return casillasTotales-casillasYaDestapadas;
 }
 
-
-
-BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
-	 unsigned int ancho = 0;
-	 unsigned int alto = 0;
-	ancho = calcularAncho(dimColumna);
-	alto = calcularAlto(dimFila);
-
-	BMP mapaVacio();
-	mapaVacio.setSize(ancho, alto);
-	Diseñador diseñador(this->baseMapa);
-	this->baseMapa = diseñador.diseñarMapaVacio();
-
-}
  unsigned int calcularAncho(unsigned int dimColumnas){
 
 	 unsigned int ancho = 0;
-	 ancho = (CASILLAS * dimColumnas) + (2 * BORDES);
+	 ancho = (CELDAS * dimColumnas) + (2 * BORDES);
 	 return ancho;
 
  }
@@ -62,14 +49,14 @@ BMP Mapa::crearBMP(unsigned int dimFila, unsigned int dimColumna){
 unsigned int calcularAlto(unsigned int dimFilas){
 
 	unsigned int alto =0;
-	alto = (CASILLAS * dimFilas) + (2 * BORDES);
+	alto = (CELDAS * dimFilas) + (2 * BORDES);
 	return alto;
 
 }
 
-					       
 
-					       
+
+
 void Mapa::crearListaMinasYAsignarPuntero(){
 	Lista<Mina> minas;
 	this->pMinas=&minas;
@@ -83,7 +70,7 @@ void Mapa::crearListaCasillasYAsignarPuntero(){
 void Mapa::crearListaBanderasYAsignarPuntero(){
 	Lista<Bandera> banderas;
 	this->pBanderas=&banderas;
-}	
+}
 
 
 Lista<Mina>* Mapa::obtenerPunteroMinas(){
@@ -96,82 +83,87 @@ Lista<Casilla>* Mapa::obtenerPunteroCasillas(){
 
 Lista<Bandera>* Mapa::obtenerPunteroBanderas(){
 	return this-> pBanderas;
-}
-					       
-void Mapa::ponerImagenEnMapa(archivoimagen.BMP, mapa, uint fila, uint columna){
- /* Mati aca te deje para que hagas nada mas esto, te pasa por parametro el archivo de la imagen el mapa
- * base la fila y columna ya lo unico que tienes que hacer es lo tuyo que copie de ese archivo al otro y 
- * las cuentas de las posiciones y ya.
- */
 
-}				       
-void Mapa::cambiarEnBMP(BMP mapa,char valor, uint fila, uint columna){
+}
+
+void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
+
+	BMP tipoDeCasilla;
 	if(valor == BANDERA){
-	        ponerImagenEnMapa(archivoBandera, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoBandera);
 	}
 	else if (valor == VACIO){
-		ponerImagenEnMapa(archivoVacio, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoVacio);
 	}
 	else if (valor == MINA){
-		ponerImagenEnMapa(archivoMina, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoMina);
 	}
 	else if (valor == '1'){
-		ponerImagenEnMapa(archivo1, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo1);
 	}
 	else if (valor == '2'){
-		ponerImagenEnMapa(archivo2, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo2);
 	}
 	else if (valor == '3'){
-		ponerImagenEnMapa(archivo3, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo3);
 	}
 	else if (valor == '4'){
-		ponerImagenEnMapa(archivo4, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo4);
 	}
 	else if (valor == '5'){
-		ponerImagenEnMapa(archivo5, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo5);
 	}
 	else if (valor == '6'){
-		ponerImagenEnMapa(archivo6, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo6);
 	}
 	else if (valor == '7'){
-		ponerImagenEnMapa(archivo7, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo7);
 	}
 	else if (valor == '8'){
-		ponerImagenEnMapa(archivo8, mapa, uint fila, uint columna);
+		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo8);
+	}
+
+	RangedPixelToPixelCopy(tipoDeCasilla,1,16,1,16,this->baseMapa,
+			1+BORDES+((columna-1)*CELDAS),1+BORDES+((this->dimFila-(fila-1))*CELDAS));
+
+}
+
+void Mapa::llenarMapaBanderas(Lista<Bandera>* banderas){
+
+	banderas->iniciarCursor();
+	while(banderas->avanzarCursor()){
+
+		Bandera banderaActual();
+		banderaActual = banderas->obtenerCursor();
+
+		if(!banderaActual.seDestapoEnTablero()){
+			cambiarEnBMP(BANDERA, banderaActual.obtenerFila(),
+				                          banderaActual.obtenerColumna());
+
+		}
 	}
 
 }
-					      
-void llenarMapaBanderas(Lista<Bandera>* banderas, BMP mapa){}
-	banderas->iniciarCursor;
-	while(banderas->avanzarCursor()){
-		Bandera banderaActual();
-		banderaActual = banderas->obtenerCursor();
-		if(!banderaActual->seDestapoEnTablero()){
-			cambiarEnBMP(this->baseMapa, BANDERA, banderaActual->obtenerFila,
-				                          banderaActual->obtenerColumna);
-			
-		}  
-	   }		     
-void llenarMapaCasillasDestapadas(Lista<Casilla>* casillas, BMP mapa){
-       casillas->iniciarCursor;
+
+void Mapa::llenarMapaCasillasDestapadas(Lista<Casilla>* casillas){
+
+       casillas->iniciarCursor();
        while(casillas->avanzarCursor()){
-		Casilla casillaActual();
-		casillaActual = casillas->obtenerCursor();
-		if(!casillaActual->seDestapoEnTablero()){
-			char valor;
-			valor = casillaActual->obtenerValor();
-			cambiarEnBMP(this->baseMapa, valor, casillaActual->obtenerFila(),
-				                          casillaActual->obtenerColumna());
-			
-		}  
+			Casilla casillaActual();
+			casillaActual = casillas->obtenerCursor();
+			if(!casillaActual.seDestapoEnTablero()){
+				char valor;
+				valor = casillaActual->obtenerValor();
+				cambiarEnBMP(this->baseMapa, valor, casillaActual.obtenerFila(),
+											  casillaActual.obtenerColumna());
+			}
 	   }
 }
 void Mapa::mostrarMapa(){
-	llenarMapaBanderas(this->pCasillasDestapadas, this->mapaBase);
-	llenarMapaCasillasDestapadas(this->pBanderas,this->mapaBase);
-	
-	
+	llenarMapaBanderas(this->pCasillasDestapadas);
+	llenarMapaCasillasDestapadas(this->pBanderas);
+
+	this->baseMapa.WriteToFile(archivoDeJuego);
 }
 
 
@@ -179,12 +171,12 @@ void Mapa::mostrarMapa(){
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	char valor = '0';
 	pMinas->iniciarCursor();
-	
+
 	Mina minaActual;
 	if (pMinas->avanzarCursor())
-		minaActual = pMinas->ObtenerCursor();
+		minaActual = pMinas->obtenerCursor();
 
-	
+
 	//MIs OJOS!!!!!! XD hay que revisar acá
 	if (minaActual.esMina(filaCasilla, columnaCasilla)){
 		valor = MINA;
@@ -207,7 +199,7 @@ char Mapa::obtenerValorCasilla(int filaRecibida,int columnaRecibida){
 	char valor=this->calcularValorDeCasilla(filaRecibida,columnaRecibida);
 	return valor;
 }
-	
+
 void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 	Bandera banderaAColocar(filaRecibida, columnaRecibida);
 	this -> pBanderas -> agregar(banderaAColocar);
