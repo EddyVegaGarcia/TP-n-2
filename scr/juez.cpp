@@ -2,6 +2,8 @@
 #include "constantes.h"
 #include <fstream.h>
 
+using namespace std;
+
 Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 	this->cantidadDeJugadores = cantidadJugadores;
 	this->tableroDeJuego = mapaRecibido;
