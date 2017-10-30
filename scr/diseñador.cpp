@@ -1,76 +1,38 @@
-#include "diseñador.h"
+#ifndef DISENIADOR_H_
+#define DISENIADOR_H_
+
+#include "EasyBMP_BMP.h"
+#include "EasyBMP_DataStructures.h"
+#include "EasyBMP_VariousBMPutilities.h"
 
 
-BMP Diseñador::diseña(BMP baseMapa){
-this->diseñador.llenarMapaBloqueado(baseMapa);
-this->diseñador.llenarEsquinas(baseMapa);
-this->diseñador.llenarBordes(baseMapa);
-return baseMapa;
-}
-void Diseñador::llenarEsquinas(BMP baseMapa){
+class Diseniador{
 
-	llenarEsquinaSuperiorDerecha(BMP baseMapa);
-	llenarEsquinaSuperiorIzquierda(BMP baseMapa);
-	llenarEsquinaInferiorDerecha(BMP baseMapa);
-	llenarEsquinaInferiorIzquierda(BMP baseMapa);
+private:
+	
+	BMP aDiseniar;
+	unsigned int cantidadFilas;
+	unsigned int cantidadColumnas;
 
-}
-void llenarEsquinaSuperiorDerecha(BMP baseMapa){}
-void llenarEsquinaSuperiorIzquierda(BMP baseMapa){}
-void llenarEsquinaInferiorDerecha(BMP baseMapa){}
-void llenarEsquinaInferiorIzquierda(BMP baseMapa){}
+void llenarMapaBloqueado();
+void llenarEsquinas();
+void llenarBordes();
 
-void Diseñador::llenarBordes(BMP baseMapa){
+void llenarBordeSuperior();
+void llenarBordeInferior();
+void llenarBordeIzquierdo();
+void llenarBordeDerecho();
 
-	llenarBordeSuperior(BMP baseMapa);
-	llenarBordeInferior(BMP baseMapa);
-	llenarBordeIzquierdo(BMP baseMapa);
-	llenarBordeDerecho(BMP baseMapa);
+void llenarEsquinaSuperiorDerecha();
+void llenarEsquinaSuperiorIzquierda();
+void llenarEsquinaInferiorDerecha();
+void llenarEsquinaInferiorIzquierda();
 
-}
-void llenarBordeSuperior(BMP baseMapa){
-
-	for(int i= 0; (i<this->dimColumna)*2; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,(BORDES+1+(i*BORDES),1);
-		}
-
-}
-void llenarBordeInferior(BMP baseMapa){
-
-	for(int i= 0; (i<this->dimFila)*2; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
-					BORDES+1+(i*BORDES),BORDES+1(CASILLAS*this->dimFila),);
-		}
-}
-void llenarBordeIzquierdo(BMP baseMapa){
-
-	for(int i= 0; i<this->dimFila; i++){
-
-		RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,1,(BORDES+1+(BORDES*i)));
-	}
-
-}
-void llenarBordeDerecho(BMP baseMapa){
-
-	for(int i= 0; i<this->dimFila; i++){
-
-			RangedPixelToPixelCopy(##,1,16,16,1,##baseMapa,
-					BORDES+1+((this->dimFila)*CASILLAS),BORDES+1+(CASILLAS+i));
-		}
-}
-
-void Diseñador::llenarMapaBloqueado(BMP &baseMapa){
-
-	for(int i=0; i<this->dimFila; i++){
-
-		for(int j=0; j<this->dimColumna; i++){
-
-			RangedPixelToPixelCopy(ARcasillasBloqueadas,1,16,16,1,basemapa,
-					(BORDES+1)+(i*CASILLAS),(BORDES+1)+(i+CASILLAS))
-		}
-	}
+public:
 
 
-}
+Diseniador(BMP baseMapa,unsigned int filas,unsigned int columnas);
+
+};
+
+#endif /* DISENIADOR_H_ */
