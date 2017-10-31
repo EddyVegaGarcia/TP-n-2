@@ -46,9 +46,17 @@ class Destapador{
 		 *	última que será destapada en esa dirección.*/
 		void destaparPandemia();
 
+
+
 		void destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada);
+	
+
+
 
 		void agregarVacio(uint filaPasada, uint columnaPasada);
+
+
+
 
 		bool pasoPorAqui(uint filaPasada, uint columnaPasada);
 

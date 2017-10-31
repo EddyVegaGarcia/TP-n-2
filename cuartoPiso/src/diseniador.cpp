@@ -1,4 +1,4 @@
-include "diseniador.h"
+#include "diseniador.h"
 #include "constantes.h"
 
 Diseniador::Diseniador(unsigned int filas, unsigned int columnas){
