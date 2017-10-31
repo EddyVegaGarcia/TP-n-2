@@ -63,9 +63,9 @@ void Diseniador::llenarBordeSuperior(){
 	for(int i= 0; (i<this->cantidadColumnas)*2; i++){
 
 			RangedPixelToPixelCopy(dibujoNorte,1,16,16,1,disenio,
-					1+BORDES+(i*BORDES),1+BORDES+(this->cantidadFilas*CELDAS));
+					1+BORDES+(i*BORDES),1+BORDES+(i*BORDES),1+BORDES);
 		}
-
+	
 }
 void Diseniador::llenarBordeInferior(){
 
@@ -73,7 +73,7 @@ void Diseniador::llenarBordeInferior(){
 
 	for(int i= 0; i<(this->cantidadColumnas*2); i++){
 
-			RangedPixelToPixelCopy(dibujoSur,1,16,16,1,disenio,1+BORDES+(i*BORDES),1+BORDES);
+			RangedPixelToPixelCopy(dibujoSur,1,16,16,1,disenio,1+BORDES+(this->cantidadFilas*CELDAS));
 	}
 }
 void Diseniador::llenarBordeIzquierdo(){
