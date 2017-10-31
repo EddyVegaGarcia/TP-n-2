@@ -82,59 +82,47 @@ bool Destapador::pasoPorAqui(uint filaPasada, uint columnaPasada)
 
 void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 {
-	// validar pos
+	
 	if((this->mapa->obtenerValorCasilla(filaPasada, columnaPasada) !=VACIO))
-		return; /*Ver.*/
+		return; 
 	
-	if(!pasoPorAqui(filaPasada - 1, columnaPasada) )
+	uint avanzar = 1;
+
+	while(avanzar < 5)
 	{
 
-		agregarVacio(filaPasada - 1, columnaPasada);
-		pasoPorAqui(filaPasada - 1, columnaPasada);
+		avanzarPandemia(avanzar, filaPasada, columnaPasada);
 
-		destaparPandemiaRecursiva(filaPasada - 1, columnaPasada);
+		if(!pasoPorAqui(filaPasada, columnaPasada) )
+		{
+			agregarVacio(filaPasada, columnaPasada);
+			pasoPorAqui(filaPasada, columnaPasada);
 
-		if( !this->mapa->estaDestapadaLaCasilla(filaPasada - 1, columnaPasada))
-			this->mapa->agregarCasillaDestapada(filaPasada - 1, columnaPasada,
-											this->mapa->obtenerValorCasilla(filaPasada - 1, columnaPasada));
-	}
+			destaparPandemiaRecursiva(filaPasada, columnaPasada);
 
-	if(!pasoPorAqui(filaPasada + 1, columnaPasada) )
-	{
-		agregarVacio(filaPasada + 1, columnaPasada);
-		pasoPorAqui(filaPasada + 1, columnaPasada);
+			if( this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada))
+				this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada,
+												this->mapa->obtenerValorCasilla(filaPasada, columnaPasada));
+		}
 
-		destaparPandemiaRecursiva(filaPasada + 1, columnaPasada);
+		avanzar++;
 
-		if( !this->mapa->estaDestapadaLaCasilla(filaPasada + 1, columnaPasada))
-			this->mapa->agregarCasillaDestapada(filaPasada + 1, columnaPasada,
-											this->mapa->obtenerValorCasilla(filaPasada + 1, columnaPasada));
-	}
-
-	if(!pasoPorAqui(filaPasada, columnaPasada - 1) )
-	{
-		agregarVacio(filaPasada, columnaPasada - 1);
-		pasoPorAqui(filaPasada, columnaPasada - 1);
-
-		destaparPandemiaRecursiva(filaPasada, columnaPasada - 1);
-
-		if( !this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada - 1))
-			this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada - 1,
-											this->mapa->obtenerValorCasilla(filaPasada, columnaPasada - 1));
 	}
 	
-	if(!pasoPorAqui(filaPasada, columnaPasada + 1) )
-	{
-		agregarVacio(filaPasada, columnaPasada + 1);
-		pasoPorAqui(filaPasada, columnaPasada + 1);
 
-		destaparPandemiaRecursiva(filaPasada, columnaPasada + 1);
+}
 
-		if( !this->mapa->estaDestapadaLaCasilla(filaPasada, columnaPasada + 1))
-			this->mapa->agregarCasillaDestapada(filaPasada, columnaPasada + 1,
-											this->mapa->obtenerValorCasilla(filaPasada, columnaPasada + 1));
-	}
+void avanzarPandemia(int avanzarNueva, uint &filaPasada, uint &columnaPasada)
+{
 	
+		if(avanzarNueva == 1)
+			filaPasada--;
+		else if(avanzarNueva == 2)
+			filaPasada++;
+		else if(avanzarNueva == 3)
+			columnaPasada--;
+		else
+			columnaPasada++;
 }
 
 uint Destapador::destaparCasillaNoVacia(char valorCasilla)
