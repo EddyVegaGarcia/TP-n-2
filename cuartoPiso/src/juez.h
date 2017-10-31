@@ -4,7 +4,7 @@
 # include "mapa.h"
 # include "jugador.h"
 # include "constantes.h"
-# include "lista.h"
+# include "listaCircularCursor.h"
 # include <iostream>
 
 class Juez{
