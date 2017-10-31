@@ -17,7 +17,7 @@ public:
 
 	//pre:
 	//post: inserta un elemento en la posicion (this->tamanio)
-	void insertar(T elementoNuevo)
+	void insertar(T elementoNuevo);
 
 	//pre:
 	//post: si la lista no tiene nodos, se inserta como primer elemento,
