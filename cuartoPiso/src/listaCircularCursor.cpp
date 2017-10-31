@@ -50,21 +50,25 @@ template<class T> void listaCircularCursor<T>::remover(unsigned int posicion){
 	  if ((posicion > 0) && (posicion <= this->tamanio)) {
 
 	        Nodo<T>* removido;
+		if (posicion!=contarElementos()){
+			if (posicion == 1) {
 
-	        if (posicion == 1) {
+			    removido = this->primero;
+			    this->primero = removido->obtenerSiguiente();
 
-	            removido = this->primero;
-	            this->primero = removido->obtenerSiguiente();
+			    Nodo<T>* ultimo = obtenerNodo(this->tamanio);
+			    ultimo->cambiarSiguiente(this->primero);
 
-	            Nodo<T>* ultimo = obtenerNodo(this->tamanio);
-	            ultimo->cambiarSiguiente(this->primero);
+			} else {
 
-	        } else {
-
-	            Nodo<T>* anterior = this->obtenerNodo(posicion - 1);
-	            removido = anterior->obtenerSiguiente();
-	            anterior->cambiarSiguiente(removido->obtenerSiguiente());
-	        }
+			    Nodo<T>* anterior = this->obtenerNodo(posicion - 1);
+			    removido = anterior->obtenerSiguiente();
+			    anterior->cambiarSiguiente(removido->obtenerSiguiente());
+			}
+		} else {
+			removido=primero;
+			primero=NULL;
+		}
 
 	        delete removido;
 	        this->tamanio--;
@@ -118,13 +122,8 @@ template<class T> listaCircularCursor<T>* listaCircularCursor<T>::obtenerNodo(un
     return actual;
 }
 
+
 template<class T> void listaCircularCursor<T>::~listaCircularCursor(){
-	while (contarElementos()>1){
+	while (!estaVacia())
 		remover(contarElementos);
-	}
-	if (contarElementos()==1){
-		Nodo<T>* ultimoNodo=obtenerNodo(1);
-		delete ultimoNodo;
-		primero=NULL;
-	}
 }
