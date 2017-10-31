@@ -166,8 +166,6 @@ void Mapa::mostrarMapa(){
 	this->baseMapa.WriteToFile(archivoDeJuego);
 }
 
-
-/*Método que estaba en "Minas" (un poco cambiado), xq "Minas" es una clase que no existe más.*/
 char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	char valor = '0';
 	pMinas->iniciarCursor();
@@ -176,11 +174,9 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	if (pMinas->avanzarCursor())
 		minaActual = pMinas->obtenerCursor();
 
-
-	//MIs OJOS!!!!!! XD hay que revisar acá
 	if (minaActual.esMina(filaCasilla, columnaCasilla)){
 		valor = MINA;
-	} else {/*jajaja sí, no se entiende un carajo ;D*//*<'9' xq 8 es la máxima cantidad de bombas que puede tener alrededor*/
+	} else {
 		while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9'){
 			Mina minaActual = pMinas->obtenerCursor();
 			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
