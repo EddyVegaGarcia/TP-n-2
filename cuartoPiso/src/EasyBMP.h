@@ -84,7 +84,7 @@ void SetEasyBMPwarningsOff( void );
 void SetEasyBMPwarningsOn( void );
 bool GetEasyBMPwarningState( void );
 
-#endif * EasyBMP.h
+#endif 
 
 
 
