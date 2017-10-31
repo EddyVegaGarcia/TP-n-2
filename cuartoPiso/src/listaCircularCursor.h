@@ -41,8 +41,13 @@ public:
 	T obtenerCursor();
 
 	bool estaVacia();
-  
-  Nodo<T>* obtenerNodo(unsigned int posicion);
+	
+  	Nodo<T>* obtenerNodo(unsigned int posicion);	
+	
+	/* Post: Libera los recursos asociados a la lista circular.*/
+	~listaCircularCursor();
+  	
+
 
 };
 
