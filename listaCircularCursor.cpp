@@ -107,4 +107,13 @@ template<class T> void listaCircularCursor<T>::estaVacia(){
 	return (this->tamanio == 0);
 }
 
+template<class T> listaCircularCursor<T>* Lista<T>::obtenerNodo(unsigned int posicion) {
 
+    Nodo<T>* actual = this->primero;
+    for (unsigned int i = 1; i < posicion; i++) {
+
+        actual = actual->obtenerSiguiente();
+    }
+
+    return actual;
+}
