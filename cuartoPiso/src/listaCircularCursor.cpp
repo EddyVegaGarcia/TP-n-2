@@ -123,7 +123,7 @@ template<class T> listaCircularCursor<T>* listaCircularCursor<T>::obtenerNodo(un
 }
 
 
-template<class T> void listaCircularCursor<T>::~listaCircularCursor(){
+template<class T> void listaCircularCursor<T>::~ListaCircularCursor(){
 	while (!estaVacia())
 		remover(contarElementos);
 }
