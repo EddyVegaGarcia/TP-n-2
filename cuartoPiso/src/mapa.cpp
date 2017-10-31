@@ -124,7 +124,7 @@ void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
 	}
 
 	RangedPixelToPixelCopy(tipoDeCasilla,1,16,1,16,this->baseMapa,
-			1+BORDES+((columna-1)*CELDAS),1+BORDES+((this->dimFila-(fila-1))*CELDAS));
+			1+BORDES+((columna-1)*CELDAS),1+BORDES+(fila-1*CELDAS));
 
 }
 
