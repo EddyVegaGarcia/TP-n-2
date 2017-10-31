@@ -107,7 +107,7 @@ template<class T> void listaCircularCursor<T>::estaVacia(){
 	return (this->tamanio == 0);
 }
 
-template<class T> listaCircularCursor<T>* Lista<T>::obtenerNodo(unsigned int posicion) {
+template<class T> listaCircularCursor<T>* listaCircularCursor<T>::obtenerNodo(unsigned int posicion) {
 
     Nodo<T>* actual = this->primero;
     for (unsigned int i = 1; i < posicion; i++) {
@@ -116,4 +116,15 @@ template<class T> listaCircularCursor<T>* Lista<T>::obtenerNodo(unsigned int pos
     }
 
     return actual;
+}
+
+template<class T> void listaCircularCursor<T>::~listaCircularCursor(){
+	while (contarElementos()>1){
+		remover(contarElementos);
+	}
+	if (contarElementos()==1){
+		Nodo<T>* ultimoNodo=obtenerNodo(1);
+		delete ultimoNodo;
+		primero=NULL;
+	}
 }
