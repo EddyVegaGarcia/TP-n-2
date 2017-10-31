@@ -62,7 +62,7 @@ void Diseniador::llenarBordeSuperior(){
 
 	for(int i= 0; (i<this->cantidadColumnas)*2; i++){
 
-			RangedPixelToPixelCopy(dibujoNorte,1,16,16,1,disenio,
+			RangedPixelToPixelCopy(dibujoNorte,1,8,8,1,disenio,
 					1+BORDES+(i*BORDES),1+BORDES+(i*BORDES),1+BORDES);
 		}
 	
@@ -73,7 +73,7 @@ void Diseniador::llenarBordeInferior(){
 
 	for(int i= 0; i<(this->cantidadColumnas*2); i++){
 
-			RangedPixelToPixelCopy(dibujoSur,1,16,16,1,disenio,1+BORDES+(this->cantidadFilas*CELDAS));
+			RangedPixelToPixelCopy(dibujoSur,1,8,8,1,disenio,1+BORDES+(this->cantidadFilas*CELDAS));
 	}
 }
 void Diseniador::llenarBordeIzquierdo(){
@@ -82,7 +82,7 @@ void Diseniador::llenarBordeIzquierdo(){
 
 	for(int i= 0; i<this->cantidadFilas; i++){
 
-		RangedPixelToPixelCopy(dibujoOeste,1,16,16,1,disenio,
+		RangedPixelToPixelCopy(dibujoOeste,1,8,8,1,disenio,
 				1,1+BORDES+(i*BORDES));
 	}
 
@@ -93,7 +93,7 @@ void Diseniador::llenarBordeDerecho(){
 
 	for(int i= 0; i<this->cantidadFilas; i++){
 
-			RangedPixelToPixelCopy(dibujoEste,1,16,16,1,disenio,
+			RangedPixelToPixelCopy(dibujoEste,1,8,8,1,disenio,
 					1+BORDES+(this->cantidadColumnas*CELDAS),1+BORDES+(i*BORDES));
 		}
 }
@@ -106,7 +106,7 @@ void Diseniador::llenarMapaBloqueado(){
 
 		for(int j=0; j<this->cantidadColumnas; i++){
 
-			RangedPixelToPixelCopy(dibujoBloqueado,1,16,1,16,disenio,
+			RangedPixelToPixelCopy(dibujoBloqueado,1,16,16,1,disenio,
 					1+BORDES+(i*CELDAS),1+BORDES+(this->cantidadFilas*CELDAS));
 		}
 	}
@@ -118,7 +118,7 @@ void Diseniador::llenarEsquinaSuperiorDerecha(){
 	
 	BMP dibujoNoreste = dibujoNoreste.ReadFromFile(archivoNE);
 
-	RangedPixelToPixelCopy(dibujoNoreste,1,16,16,1,disenio,
+	RangedPixelToPixelCopy(dibujoNoreste,1,8,8,1,disenio,
 						1+BORDES+(this->cantidadColumnas*CELDAS),1+BORDES+(this->cantidadFilas*CELDAS));
 }
 void Diseniador::llenarEsquinaSuperiorIzquierda(){
@@ -126,7 +126,7 @@ void Diseniador::llenarEsquinaSuperiorIzquierda(){
 
 	BMP dibujoNoroeste = dibujoNoroeste.ReadFromFile(archivoNO);
 
-	RangedPixelToPixelCopy(dibujoNoroeste,1,16,1,16,disenio,
+	RangedPixelToPixelCopy(dibujoNoroeste,1,8,8,1,disenio,
 			1,1+BORDES+(this->cantidadFilas*CELDAS));
 	
 }
@@ -134,7 +134,7 @@ void Diseniador::llenarEsquinaInferiorDerecha(){
 	
 	BMP dibujoSuroeste = dibujoSuroeste.ReadFromFile(archivoSO);
 
-	RangedPixelToPixelCopy(dibujoSuroeste,1,16,1,16,disenio,
+	RangedPixelToPixelCopy(dibujoSuroeste,1,8,8,1,disenio,
 			1+BORDES+(this->cantidadColumnas*CELDAS),1);
 }
 void Diseniador::llenarEsquinaInferiorIzquierda(){
@@ -142,6 +142,6 @@ void Diseniador::llenarEsquinaInferiorIzquierda(){
 	BMP dibujoSureste;
 	dibujoSureste.ReadFromFile(archivoSE);
 
-	RangedPixelToPixelCopy(dibujoSureste,1,16,1,16,disenio,
+	RangedPixelToPixelCopy(dibujoSureste,1,8,8,1,disenio,
 			1,1);
 }
