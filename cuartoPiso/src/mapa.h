@@ -2,6 +2,7 @@
 #define MAPA_H_
 
 
+# include "minero.h"
 # include "lista.h"
 # include "mina.h"
 # include "casilla.h"
@@ -127,6 +128,8 @@ class Mapa{
 
 		void llenarMapaCasillasDestapadas(Lista<Casilla>* casillas);
 
+		unsigned int calcularAlto(unsigned int dimFilas);
+		unsigned int calcularAncho(unsigned int dimColumnas);
 
 };
 
