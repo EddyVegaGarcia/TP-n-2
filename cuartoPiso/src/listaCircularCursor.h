@@ -38,12 +38,18 @@ public:
 	//		en caso de no estar inicializado, lo inicializa.
 	void avanzarCursor();
 
+	/* Pre: Se ha llamado a avanzarCursor() al menos una vez.
+	 * Post: Devuelve el elemento del nodo al que apunta el cursor.*/
 	T obtenerCursor();
 
+	/* Post: Devuelve un booleano que indica si la lista está vacía o no.*/
 	bool estaVacia();
 	
+	/* Post: Devuelve la cantidad de elementos de la lista.*/
 	unsigned int contarElementos();
 	
+	/* Pre: Recibe una posición, 1<=posicion<contarElementos()
+	 * Post: Devuelve el nodo que se encuentra en la posición "posicion" de la lista.*/
   	Nodo<T>* obtenerNodo(unsigned int posicion);	
 	
 	/* Post: Libera los recursos asociados a la lista circular.*/
