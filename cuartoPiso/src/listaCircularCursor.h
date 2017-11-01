@@ -42,6 +42,8 @@ public:
 
 	bool estaVacia();
 	
+	unsigned int contarElementos();
+	
   	Nodo<T>* obtenerNodo(unsigned int posicion);	
 	
 	/* Post: Libera los recursos asociados a la lista circular.*/
