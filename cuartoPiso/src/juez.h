@@ -6,6 +6,7 @@
 # include "constantes.h"
 # include "listaCircularCursor.h"
 # include <iostream>
+#include <fstream>
 
 class Juez{
 
@@ -52,7 +53,7 @@ private:
 	* 	un puntero a Mapa, y una variable de tipo unsigned int que indica la cantidad de minas que quedan por descubrir
 	* 	en el tablero.
 	* Post: da su turno al jugadorActual y muestra el tablero de juego.*/
-	void Juez::sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego, uint &minasPorDescubrir);
+	void sigueJugando(Jugador* jugadorActual, int &jugadoresQuePerdieron, Mapa* tableroDeJuego, uint &minasPorDescubrir);
 
 	/* Pre: Recibe "jugadorActual", puntero a Jugador que perdió.
 	* Post: Muestra un mensaje a "jugadorActual" con su puntaje.*/
