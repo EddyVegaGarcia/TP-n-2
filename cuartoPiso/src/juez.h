@@ -67,7 +67,6 @@ private:
 	
 	void crearArchivoConPuntajes();
 	
-	
 	Jugador* encontrarJugadorQueGanoPorPuntaje();
 
 	/* Post: Emite un mensaje informando que el juego ha terminado.*/
