@@ -34,12 +34,12 @@ uint Mapa::obtenerTamanioDeLaListaDeMinas(){
 }
 
 uint Mapa::obtenerCantidadDeCasillasOcultas(){
-	uint casillasTotales= (this->dimFila)*(this->dimColumna);
+	long int casillasTotales= (this->dimFila)*(this->dimColumna);
 	int casillasYaDestapadas=pCasillasDestapadas->contarElementos();
 	return casillasTotales-casillasYaDestapadas;
 }
 
- unsigned int calcularAncho(unsigned int dimColumnas){
+ unsigned int Mapa::calcularAncho(unsigned int dimColumnas){
 
 	 unsigned int ancho = 0;
 	 ancho = (CELDAS * dimColumnas) + (2 * BORDES);
@@ -47,7 +47,7 @@ uint Mapa::obtenerCantidadDeCasillasOcultas(){
 
  }
 
-unsigned int calcularAlto(unsigned int dimFilas){
+unsigned int Mapa::calcularAlto(unsigned int dimFilas){
 
 	unsigned int alto =0;
 	alto = (CELDAS * dimFilas) + (2 * BORDES);
