@@ -1,6 +1,5 @@
 # include "mapa.h"
 
-
 Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 	this-> dimFila = filaRecibida;
