@@ -1,5 +1,3 @@
-typedef unsigned int uint;
-
 # include "minero.h"
 
 /*
@@ -86,5 +84,5 @@ void Minero::asignarBomba(int posicionEnUnaDimension){
 
 void Minero::pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener){
         filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
-	columnaAObtener = this->dimColumna (2- filaAObtener);
+	columnaAObtener = this->dimColumna*(2- filaAObtener);
 }
