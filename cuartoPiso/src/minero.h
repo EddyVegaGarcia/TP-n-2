@@ -5,6 +5,7 @@
 #include <ctime>
 # include "mina.h"
 #include "constantes.h"
+# include "lista.h"
 
 class Minero{
 
