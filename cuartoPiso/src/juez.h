@@ -65,10 +65,10 @@ private:
 
 	
 	
-	void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores);
+	void crearArchivoConPuntajes();
 	
 	
-	Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores);
+	Jugador* encontrarJugadorQueGanoPorPuntaje();
 
 	/* Post: Emite un mensaje informando que el juego ha terminado.*/
 	void terminoLaPartida();
