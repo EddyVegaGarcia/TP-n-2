@@ -1,5 +1,6 @@
 # include "mapa.h"
 
+
 Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 	this-> dimFila = filaRecibida;
@@ -33,7 +34,7 @@ uint Mapa::obtenerTamanioDeLaListaDeMinas(){
 }
 
 uint Mapa::obtenerCantidadDeCasillasOcultas(){
-	long int casillasTotales=this->dimFila()*this->dimColumna();
+	uint casillasTotales= (this->dimFila)*(this->dimColumna);
 	int casillasYaDestapadas=pCasillasDestapadas->contarElementos();
 	return casillasTotales-casillasYaDestapadas;
 }
@@ -133,7 +134,7 @@ void Mapa::llenarMapaBanderas(Lista<Bandera>* banderas){
 	banderas->iniciarCursor();
 	while(banderas->avanzarCursor()){
 
-		Bandera banderaActual();
+		Bandera banderaActual;
 		banderaActual = banderas->obtenerCursor();
 
 		if(!banderaActual.seDestapoEnTablero()){
@@ -149,11 +150,11 @@ void Mapa::llenarMapaCasillasDestapadas(Lista<Casilla>* casillas){
 
        casillas->iniciarCursor();
        while(casillas->avanzarCursor()){
-			Casilla casillaActual();
+			Casilla casillaActual;
 			casillaActual = casillas->obtenerCursor();
 			if(!casillaActual.seDestapoEnTablero()){
 				char valor;
-				valor = casillaActual->obtenerValor();
+				valor = casillaActual.obtenerValor();
 				cambiarEnBMP(valor, casillaActual.obtenerFila(),
 											  casillaActual.obtenerColumna());
 			}
@@ -204,7 +205,7 @@ void Mapa::colocarMarca(int filaRecibida,int columnaRecibida){
 bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna){ // validarYRemoverMarcaSiHay(this->fila , this->columna)
 	uint posicion=0;
 
-	Buscador buscador(this->pBanderas);
+	Buscador<Bandera> buscador(this->pBanderas);
 	bool seEncuentra=buscador.buscar(fila, columna, posicion);
 
 	if (seEncuentra)
@@ -215,16 +216,17 @@ bool Mapa::removerYDevolverSiHabiaMarca(unsigned int fila, unsigned int columna)
 
 bool Mapa::validarMina(unsigned int fila, unsigned int columna){
 
-	Buscador buscador(this->pMinas);
-	bool seEncuentra=buscador.buscar(fila, columna);
+	uint posicion=0;
+	Buscador<Mina> buscador (this->pMinas);
+	bool seEncuentra=buscador.buscar(fila, columna, posicion);
 	return seEncuentra;
 
 }
 
 bool Mapa::estaDestapadaLaCasilla(unsigned int fila, unsigned int columna){
-	Buscador buscador(this->pCasillasDestapadas);
-	bool seEncuentra=buscador.buscar(fila, columna);
+	uint posicion=0;
+	Buscador<Casilla> buscador(this->pCasillasDestapadas);
+	bool seEncuentra=buscador.buscar(fila, columna, posicion);
 	return seEncuentra;
 }
-
 
