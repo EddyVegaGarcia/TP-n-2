@@ -112,7 +112,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 
 }
 
-void avanzarPandemia(int avanzarNueva, uint &filaPasada, uint &columnaPasada)
+void avanzarPandemia(uint avanzarNueva, uint &filaPasada, uint &columnaPasada)
 {
 	
 		if(avanzarNueva == 1)
