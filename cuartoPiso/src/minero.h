@@ -17,7 +17,24 @@ private:
 	Mina* punteroAMinas;
 	Lista<Mina>* pMinas;
 
-	//pre: recibe el total de celdas que tendra el juego, es decir dim filas * dim columnas
+
+
+public:
+
+	//constructor por defecto 
+	Minero();
+
+	//pre: recibe una cantidad de filas, columnas, la dificultad para crear el minero, y un
+	// puntero a una lista de minas onde estas se crearan.
+	//post: crea un minero con estos valores
+	Minero(unsigned int filaRecibida, unsigned int columnaRecibida, char dificultadRecibida,  Lista<Mina>* punteroAListaMinas);
+
+	//pre:
+	//post: lleno la lista de minas con la catidad correspondient de minas en ubicaciones aleatorias
+	void sembrarMinas();
+	
+private:
+		//pre: recibe el total de celdas que tendra el juego, es decir dim filas * dim columnas
 	//post: devuelve el numero correspondiente de minas segun el total de celdas y la dificultad del minero.
 	int asignarNumeroMaximoMinas(int totalCeldas);
 
@@ -36,20 +53,6 @@ private:
 	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
 	//modifica los valores pasados por referencia con estos.
 	void pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener);
-
-public:
-
-	//constructor por defecto 
-	Minero();
-
-	//pre: recibe una cantidad de filas, columnas, la dificultad para crear el minero, y un
-	// puntero a una lista de minas onde estas se crearan.
-	//post: crea un minero con estos valores
-	Minero(unsigned int filaRecibida, unsigned int columnaRecibida, char dificultadRecibida,  Lista<Mina>* punteroAListaMinas);
-
-	//pre:
-	//post: lleno la lista de minas con la catidad correspondient de minas en ubicaciones aleatorias
-	void sembrarMinas();
 	
 	
 };
