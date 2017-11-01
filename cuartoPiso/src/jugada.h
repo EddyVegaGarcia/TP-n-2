@@ -5,6 +5,7 @@
 # include "destapador.h"
 # include "marcador.h"
 # include "mapa.h"
+# include "constantes.h"
 
 class Jugada{
 	
