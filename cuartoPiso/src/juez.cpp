@@ -55,17 +55,21 @@ void Juez::insertarJugador(Jugador* nuevo){
 
 	this->jugadores->insertar(nuevo);
 }
-Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
+Jugador* Juez::encontrarJugadorQueGanoPorPuntaje(){
 	jugadores->iniciarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = 0;
-	while(jugadores<=cantidadDeJugadores){
+
+	int puntajesMostrados=0;
+	bool seHaEncontrado=false;
+	while(puntajesMostrados<=cantidadDeJugadores && (!seHaEncontrado)){
 		
 		Jugador* jugadorActual;
 		jugadorActual = jugadores->obtenerCursor();
 		if(jugadorActual->obtenerPuntaje() > puntajeMaximo){
 			puntajeMaximo = jugadorActual->obtenerPuntaje();
 			jugadorGanador = jugadorActual;
+			seHaEncontrado=true;
 		}
 		
 		
@@ -73,10 +77,12 @@ Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int canti
 	return jugadorGanador;
 	
 }
-void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
+void Juez::crearArchivoConPuntajes(){
 
 	std::ofstream puntajes(archivoDePuntajes);
-       while(jugadores<=cantidadDeJugadores){
+	int puntajesGuardados=0;
+
+       while(puntajesGuardados<=cantidadDeJugadores){
 		char alias;
 	    int puntaje;
 		Jugador* jugadorActual;
@@ -124,9 +130,9 @@ void Juez::inicializarJuego(){
 	}
 	
 
-	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje(this->jugadores, cantidadDeJugadores);
+	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje();
 	mostrarFelicitaciones(jugadorGanador);
-	crearArchivoConPuntajes(this->jugadores, cantidadDeJugadores);
+	crearArchivoConPuntajes();
 
 
 }
