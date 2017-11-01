@@ -52,7 +52,7 @@ private:
 	// y una referencia a la fila y la columna que va a modificar.
 	//post: calcula a que fila y columna correspondiente a el numero que se recibio y 
 	//modifica los valores pasados por referencia con estos.
-	void pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener);
+	void pasarDeUnaDimADos(int numeroCasilla, uint& filaAObtener, uint& columnaAObtener);
 	
 	
 };
