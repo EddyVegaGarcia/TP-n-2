@@ -73,8 +73,8 @@ void Minero::asignarMinasAleatorias(int celdas,int minas){
 
 
 void Minero::asignarBomba(int posicionEnUnaDimension){
-	int fila;
-	int columna;
+	uint fila;
+	uint columna;
 	pasarDeUnaDimADos(posicionEnUnaDimension, fila, columna);
 	
 	Mina minaPorAgregar(fila, columna);
@@ -82,7 +82,7 @@ void Minero::asignarBomba(int posicionEnUnaDimension){
 	
 }
 
-void Minero::pasarDeUnaDimADos(int numeroCasilla, int& filaAObtener, int& columnaAObtener){
+void Minero::pasarDeUnaDimADos(int numeroCasilla, uint& filaAObtener, uint& columnaAObtener){
         filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
 	columnaAObtener = this->dimColumna*(2- filaAObtener);
 }
