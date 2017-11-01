@@ -1,6 +1,5 @@
 #include "juez.h"
 
-
 using namespace std;
 
 Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
@@ -30,7 +29,6 @@ void Juez::crearJugadores(){
 
 		this->jugadores->inicializarCursor();
 }
-
 
 /* Avanzar jugador hasta un jugador que siga jugando.*/
 void Juez::avanzarJugador(){
