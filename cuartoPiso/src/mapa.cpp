@@ -91,37 +91,37 @@ void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
 
 	BMP tipoDeCasilla;
 	if(valor == BANDERA){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoBandera);
+		tipoDeCasilla.ReadFromFile(archivoBandera);
 	}
 	else if (valor == VACIO){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoVacio);
+		tipoDeCasilla.ReadFromFile(archivoVacio);
 	}
 	else if (valor == MINA){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivoMina);
+		tipoDeCasilla.ReadFromFile(archivoMina);
 	}
 	else if (valor == '1'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo1);
+		tipoDeCasilla.ReadFromFile(archivo1);
 	}
 	else if (valor == '2'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo2);
+		tipoDeCasilla.ReadFromFile(archivo2);
 	}
 	else if (valor == '3'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo3);
+		tipoDeCasilla.ReadFromFile(archivo3);
 	}
 	else if (valor == '4'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo4);
+		tipoDeCasilla.ReadFromFile(archivo4);
 	}
 	else if (valor == '5'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo5);
+		tipoDeCasilla.ReadFromFile(archivo5);
 	}
 	else if (valor == '6'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo6);
+		tipoDeCasilla.ReadFromFile(archivo6);
 	}
 	else if (valor == '7'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo7);
+		tipoDeCasilla.ReadFromFile(archivo7);
 	}
 	else if (valor == '8'){
-		tipoDeCasilla = tipoDeCasilla.ReadFromFile(archivo8);
+		tipoDeCasilla.ReadFromFile(archivo8);
 	}
 
 	RangedPixelToPixelCopy(tipoDeCasilla,1,16,1,16,this->baseMapa,
