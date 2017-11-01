@@ -16,6 +16,10 @@ Diseniador::Diseniador(unsigned int filas, unsigned int columnas){
 	this->llenarBordes();
 
 }
+BMP Diseniador::obtenerDisenio(){
+	return this->disenio;
+}
+
 
 unsigned int Diseniador::calcularAncho(unsigned int dimColumnas){
 
