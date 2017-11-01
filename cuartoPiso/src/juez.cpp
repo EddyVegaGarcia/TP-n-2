@@ -62,13 +62,14 @@ Jugador* Juez::encontrarJugadorQueGanoPorPuntaje(){
 
 	int puntajesMostrados=0;
 	bool seHaEncontrado=false;
-	while(puntajesMostrados<=cantidadDeJugadores && (!seHaEncontrado)){
+	while(puntajesMostrados<cantidadDeJugadores && (!seHaEncontrado)){
 		
 		Jugador* jugadorActual;
 		jugadorActual = jugadores->obtenerCursor();
 		if(jugadorActual->obtenerPuntaje() > puntajeMaximo){
 			puntajeMaximo = jugadorActual->obtenerPuntaje();
 			jugadorGanador = jugadorActual;
+			puntajesMostrados++;
 			seHaEncontrado=true;
 		}
 		
@@ -82,14 +83,15 @@ void Juez::crearArchivoConPuntajes(){
 	std::ofstream puntajes(archivoDePuntajes);
 	int puntajesGuardados=0;
 
-       while(puntajesGuardados<=cantidadDeJugadores){
+       while(puntajesGuardados<cantidadDeJugadores){
 		char alias;
-	    int puntaje;
+	    	int puntaje;
 		Jugador* jugadorActual;
 		jugadorActual = jugadores->obtenerCursor();
 		alias = jugadorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
-	    puntajes << "el jugador" << alias << "obtuvo puntaje de: " << puntaje << endl;
+		puntajes << "el jugador" << alias << "obtuvo puntaje de: " << puntaje << endl;
+	       	puntajesGuardados++;
 	       
        }	
    puntajes.close();
