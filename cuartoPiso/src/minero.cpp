@@ -15,7 +15,7 @@ Minero::Minero(){
 	dificultad='F';
 }
 
-Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida, Lista<Mina>* punteroAListaMinas){
+Minero::Minero(uint dimFilaRecibida, uint dimColumnaRecibida, char dificultadRecibida, Lista<Mina>* punteroAListaMinas){
 
 	dimFila = dimFilaRecibida;
 	dimColumna = dimColumnaRecibida;
