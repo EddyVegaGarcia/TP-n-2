@@ -1,9 +1,3 @@
-#ifndef JUEZ_H_
-#define JUEZ_H_
-
-# include "mapa.h"
-# include "jugador.h"
-# include "constantes.h"
 # include "listaCircularCursor.h"
 # include <iostream>
 #include <fstream>
@@ -12,7 +6,7 @@ class Juez{
 
 private:
 	int cantidadDeJugadores;
-	Lista<Jugador*>* jugadores;
+	ListaCircularCursor<Jugador*>* jugadores;
 	Mapa* tableroDeJuego;
 
 public:
