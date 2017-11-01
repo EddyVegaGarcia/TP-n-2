@@ -7,7 +7,7 @@
  * dificil= %40 del tablero son minas
  */
 
-void Minero::Minero(){
+Minero::Minero(){
 
 	//sin parámetros toma como default estas opciones
 	dimFila=10;
@@ -15,7 +15,7 @@ void Minero::Minero(){
 	dificultad='F';
 }
 
-void Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida, Lista<Mina>* punteroAListaMinas){
+Minero::Minero(int dimFilaRecibida, int dimColumnaRecibida, char dificultadRecibida, Lista<Mina>* punteroAListaMinas){
 
 	dimFila = dimFilaRecibida;
 	dimColumna = dimColumnaRecibida;
