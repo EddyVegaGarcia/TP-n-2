@@ -1,4 +1,10 @@
+#ifndef JUEZ_H_
+#define JUEZ_H_
+
 # include "listaCircularCursor.h"
+# include "mapa.h"
+# include "jugador.h"
+# include "constantes.h"
 # include <iostream>
 #include <fstream>
 
