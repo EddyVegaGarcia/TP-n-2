@@ -44,4 +44,4 @@ class Jugada{
 		int realizarJugada();
 			
 };
-#endif /*JUGADA_H_/
+#endif /*JUGADA_H_*/
