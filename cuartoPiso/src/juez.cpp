@@ -14,7 +14,7 @@ Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 }
 
 void Juez::crearYAsignarListaDeJugadores(){
-	Lista<Jugador*> listaDeJugadores;
+	ListaCircularCursor<Jugador*> listaDeJugadores;
 	this-> jugadores = &listaDeJugadores;
 }
 
@@ -28,7 +28,7 @@ void Juez::crearJugadores(){
 			insertarJugador(entrante);
 		}
 
-		this->jugadores->iniciarCursor();
+		this->jugadores->inicializarCursor();
 }
 
 
@@ -38,7 +38,7 @@ void Juez::avanzarJugador(){
 	Jugador* siguiente;
 	bool puedeJugar=false;
 
-	this->jugadores->iniciarCursor();
+	this->jugadores->inicializarCursor();
 
 	do{
 		this->jugadores->avanzarCursor();
@@ -54,9 +54,11 @@ void Juez::avanzarJugador(){
 void Juez::insertarJugador(Jugador* nuevo){
 
 	this->jugadores->insertar(nuevo);
+
+
 }
 Jugador* Juez::encontrarJugadorQueGanoPorPuntaje(){
-	jugadores->iniciarCursor();
+	jugadores->inicializarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = 0;
 
@@ -85,13 +87,13 @@ void Juez::crearArchivoConPuntajes(){
 
        while(puntajesGuardados<cantidadDeJugadores){
 		char alias;
-	    	int puntaje;
+	    int puntaje;
 		Jugador* jugadorActual;
 		jugadorActual = jugadores->obtenerCursor();
 		alias = jugadorActual->obtenerAlias();
 		puntaje = jugadorActual->obtenerPuntaje();
-		puntajes << "el jugador" << alias << "obtuvo puntaje de: " << puntaje << endl;
-	       	puntajesGuardados++;
+	    puntajes << "el jugador" << alias << "obtuvo puntaje de: " << puntaje << endl;
+	    puntajesGuardados++;
 	       
        }	
    puntajes.close();
@@ -102,7 +104,7 @@ void Juez::inicializarJuego(){
 	uint minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
 	int jugadoresQuePerdieron = 0 ;
 
-	this->jugadores->iniciarCursor(); //para la lista circular
+	this->jugadores->inicializarCursor();
 	Jugador* jugadorActual;
 	jugadores->avanzarCursor();
 	bool terminoElJuego=false;
@@ -182,7 +184,7 @@ Juez::~Juez(){
 		Jugador* jugadorActual;
 		char alias;
 		int puntaje;
-		this->jugadores->iniciarCursor();
+		this->jugadores->inicializarCursor();
 		this->jugadores->avanzarCursor();
 		jugadorActual = this->jugadores->obtenerCursor();
 		alias = jugadorActual->obtenerAlias();
