@@ -1,7 +1,5 @@
 #include "juez.h"
-#include "constantes.h"
-# include "listaCircular.h"
-#include <fstream.h>
+
 
 using namespace std;
 
@@ -24,8 +22,8 @@ void Juez::crearJugadores(){
 	char alias = 'A';
 
 		Jugador* entrante;
-		for (int i=0; i<cantidadJugadores;i++){
-			Jugador jugador(alias+i,mapaRecibido);
+		for (int i=0; i<cantidadDeJugadores;i++){
+			Jugador jugador(alias+i,tableroDeJuego);
 			entrante=&jugador;		
 			insertarJugador(entrante);
 		}
@@ -40,9 +38,11 @@ void Juez::avanzarJugador(){
 	Jugador* siguiente;
 	bool puedeJugar=false;
 
+	this->jugadores->iniciarCursor();
+
 	do{
 		this->jugadores->avanzarCursor();
-		Jugador* siguiente = this->jugadores->obtenerCursor();
+		siguiente = this->jugadores->obtenerCursor();
 
 		if(siguiente->obtenerEstado() == SIGUE_JUGANDO)
 			puedeJugar = true;
@@ -56,7 +56,7 @@ void Juez::insertarJugador(Jugador* nuevo){
 	this->jugadores->insertar(nuevo);
 }
 Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
-	jugadores->inicializarCursor();
+	jugadores->iniciarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = 0;
 	while(jugadores<=cantidadDeJugadores){
@@ -74,7 +74,8 @@ Jugador* encontrarJugadorQueGanoPorPuntaje(Lista<Jugador*>* jugadores, int canti
 	
 }
 void crearArchivoConPuntajes(Lista<Jugador*>* jugadores, int cantidadDeJugadores){
-   ofstream puntajes(archivoDePuntajes); 
+
+	std::ofstream puntajes(archivoDePuntajes);
        while(jugadores<=cantidadDeJugadores){
 		char alias;
 	    int puntaje;
@@ -93,7 +94,7 @@ void Juez::inicializarJuego(){
 	uint minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
 	int jugadoresQuePerdieron = 0 ;
 
-	this->jugadores->inicializarCursor(); //para la lista circular
+	this->jugadores->iniciarCursor(); //para la lista circular
 	Jugador* jugadorActual;
 	jugadores->avanzarCursor();
 	bool terminoElJuego=false;
@@ -173,9 +174,11 @@ Juez::~Juez(){
 		Jugador* jugadorActual;
 		char alias;
 		int puntaje;
-		this->jugadores->inicializarCursor();
+		this->jugadores->iniciarCursor();
+		this->jugadores->avanzarCursor();
 		jugadorActual = this->jugadores->obtenerCursor();
-		alias = jugardorActual->obtenerAlias();
+		alias = jugadorActual->obtenerAlias();
+
 		puntaje = jugadorActual->obtenerPuntaje();
 
 		cout<<"El jugador: " << alias << " tiene " << puntaje << " puntos." << endl;
