@@ -86,7 +86,7 @@ void Destapador::destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada)
 	if((this->mapa->obtenerValorCasilla(filaPasada, columnaPasada) !=VACIO))
 		return; 
 	
-	uint avanzar = 1;
+	int avanzar = 1;
 
 	while(avanzar < 5)
 	{
