@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 
-  Menu elMenu();
+  Menu elMenu;
    
-
+  return 0;
 }
