@@ -66,7 +66,7 @@ void Menu::pedirYAsignarDimensiones(){
 }
 
 void Menu::pedirYAsignarDificultad(){
-	uint difUser;
+	char difUser;
 	std::cout << "Ingresar dificultad (un caracter): F (facil) / M (medio) / D (dificil):" << std::endl;
 	std::cin >> difUser;
 	
