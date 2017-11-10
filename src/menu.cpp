@@ -9,10 +9,23 @@ Menu::Menu(){
 	asignarDificultad(0);
 	asignarCantJugadores(0);
 	
+	Imprimir_Titulo();
+	
 	pedirOpcionesDeJuegoAUser();
 	crearAmbiente();
 	
 }
+
+void Menu::Imprimir_Linea(){
+	std::cout<<"\n--------------------------------------------------"<<std::endl;
+}
+
+void Menu::Imprimir_Titulo(){
+	Imprimir_Linea();
+	std::cout<<"\t***BIENVENIDOS A BUSCAMINAS***";
+	Imprimir_Linea();
+}
+
 
 void Menu::asignarFila(uint fila){
 	this->dimFila=fila;
