@@ -1,6 +1,7 @@
 #ifndef LISTA_H_
 #define LISTA_H_
 
+#include <iostream>
 #include "nodo.h"
 
 template <class T>
