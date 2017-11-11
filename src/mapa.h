@@ -38,6 +38,9 @@ class Mapa{
 		//post:crea un mapa con la cantidad de filas y columnas correspondientes y con tres listas
 		// una de minas, otra de casillas destapadas y otra de marcas.
 		Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida);
+	
+		//destructor
+		~Mapa();
 
 	
 	
