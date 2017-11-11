@@ -60,18 +60,18 @@ unsigned int calcularAlto(unsigned int dimFilas){
 
 
 void Mapa::crearListaMinasYAsignarPuntero(){
-	Lista<Mina> minas;
-	this->pMinas=&minas;
+
+	this->pMinas= new Lista<Mina>;
 }
 
 void Mapa::crearListaCasillasYAsignarPuntero(){
-	Lista<Casilla> casillasDestapadas;
-	this->pCasillasDestapadas=&casillasDestapadas;
+
+	this->pCasillasDestapadas= new Lista<Casilla>;
 }
 
 void Mapa::crearListaBanderasYAsignarPuntero(){
-	Lista<Bandera> banderas;
-	this->pBanderas=&banderas;
+
+	this->pBanderas= new Lista<Bandera>;
 }
 
 
