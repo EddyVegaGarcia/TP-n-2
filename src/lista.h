@@ -63,7 +63,7 @@ void Lista<T>::agregar(T elemento)
 template<class T>
 void Lista<T>::agregar(T elemento, unsigned int posicion)
 {
-	if((posicion>0)&&(posicion>=this->tamanio+1))
+	if((posicion>0)&&(posicion<=this->tamanio+1))
 	{
 		Nodo<T>* nuevo = new Nodo<T>(elemento);
 		if(posicion==1)
