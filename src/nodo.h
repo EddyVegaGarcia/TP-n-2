@@ -1,8 +1,8 @@
 #ifndef NODO_H_
 #define NODO_H_
 
-#ifndef NULL
-#define NULL 0
+#include "constantes.h"
+
 #endif
 
 template<class T>
