@@ -20,6 +20,13 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 }
 
+Mapa::~Mapa(){
+
+	delete pMinas;
+	delete pCasillasDestapadas;
+	delete pBanderas;
+}
+
 uint Mapa::obtenerFila(){
 	return this->dimFila;
 }
