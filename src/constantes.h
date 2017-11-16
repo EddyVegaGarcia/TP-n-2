@@ -32,7 +32,7 @@ const char archivoNE[] = "toprightblue.bmp";//noreste
 const char archivoSO[] = "bottomleft.bmp";	//suroeste
 const char archivoSE[] = "bottomright.bmp";	//sureste
 
-const char bloqueado[] = "blockedblue.bmp";
+const char archivoBloqueado[] = "blockedblue.bmp";
 const char archivoMina[] = "mineblue.bmp" ;
 const char archivoBandera[] = "flaggedblue.bmp" ;
 const char archivoVacio[] = "emptyblue.bmp" ;
