@@ -129,8 +129,8 @@ void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
 		tipoDeCasilla.ReadFromFile(archivo8);
 	}
 
-	RangedPixelToPixelCopy(tipoDeCasilla,1,16,1,16,this->baseMapa,
-			1+BORDES+((columna-1)*CELDAS),1+BORDES+(fila-1*CELDAS));
+	RangedPixelToPixelCopy(tipoDeCasilla,0,15,15,0,this->baseMapa,
+			BORDES+((columna-1)*CELDAS),BORDES+(fila-1*CELDAS));
 
 }
 
