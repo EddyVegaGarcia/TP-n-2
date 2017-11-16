@@ -1,3 +1,6 @@
+
+
+
 #include "diseniador.h"
 #include "constantes.h"
 
@@ -11,9 +14,13 @@ Diseniador::Diseniador(unsigned int filas, unsigned int columnas){
 
 	this-> disenio.SetSize(ancho,alto);
 
+	disenio.WriteToFile(archivoDeJuego);
+
 	this->llenarMapaBloqueado();
 	this->llenarEsquinas();
 	this->llenarBordes();
+
+	disenio.WriteToFile(archivoDeJuego);
 
 }
 
@@ -62,9 +69,9 @@ void Diseniador::llenarBordeSuperior(){
 	dibujoNorte.ReadFromFile(archivoN);
 
 
-	for(uint i= 0; i< (this->cantidadColumnas*2); i++){
-			RangedPixelToPixelCopy(dibujoNorte,1,8,8,1,this->disenio,
-					1+BORDES+(i*BORDES),1+BORDES);
+	for(uint i= 0; i<this->cantidadColumnas*2; i++){
+			RangedPixelToPixelCopy(dibujoNorte,0,7,7,0,this->disenio,
+					BORDES+(i*BORDES),0);
 	}
 	
 }
@@ -73,10 +80,10 @@ void Diseniador::llenarBordeInferior(){
 	BMP dibujoSur;
 	dibujoSur.ReadFromFile(archivoS);
 
-	for(uint i= 0; i<(this->cantidadColumnas*2); i++){
+	for(uint i= 0; i<this->cantidadColumnas*2; i++){
 
-			RangedPixelToPixelCopy(dibujoSur,1,8,8,1,disenio,
-					1+BORDES+(this->cantidadFilas*CELDAS), 1+BORDES+(i*BORDES));
+			RangedPixelToPixelCopy(dibujoSur,0,7,7,0,disenio,
+					BORDES+(i*BORDES),BORDES+(this->cantidadColumnas*CELDAS));
 	}
 }
 void Diseniador::llenarBordeIzquierdo(){
@@ -84,10 +91,10 @@ void Diseniador::llenarBordeIzquierdo(){
 	BMP dibujoOeste;
 	dibujoOeste.ReadFromFile(archivoO);
 
-	for(uint i= 0; i<this->cantidadFilas; i++){
+	for(uint i= 0; i<this->cantidadFilas*2; i++){
 
-		RangedPixelToPixelCopy(dibujoOeste,1,8,8,1,disenio,
-				1,1+BORDES+(i*BORDES));
+		RangedPixelToPixelCopy(dibujoOeste,0,7,7,0,disenio,
+				0,BORDES+(i*BORDES));
 	}
 
 }
@@ -96,24 +103,24 @@ void Diseniador::llenarBordeDerecho(){
 	BMP dibujoEste;
 	dibujoEste.ReadFromFile(archivoE);
 
-	for(uint i= 0; i<this->cantidadFilas; i++){
+	for(uint i= 0; i<this->cantidadFilas*2; i++){
 
-			RangedPixelToPixelCopy(dibujoEste,1,8,8,1,disenio,
-					1+BORDES+(this->cantidadColumnas*CELDAS),1+BORDES+(i*BORDES));
+			RangedPixelToPixelCopy(dibujoEste,0,7,7,0,disenio,
+					BORDES+(this->cantidadColumnas*CELDAS),BORDES+(i*BORDES));
 		}
 }
 
 void Diseniador::llenarMapaBloqueado(){
 
 	BMP dibujoBloqueado;
-	dibujoBloqueado.ReadFromFile(bloqueado);
+	dibujoBloqueado.ReadFromFile(archivoBloqueado);
 
 	for(uint i=0; i<this->cantidadFilas; i++){
 
-		for(uint j=0; j<this->cantidadColumnas; i++){
+		for(uint j=0; j<this->cantidadColumnas; j++){
 
-			RangedPixelToPixelCopy(dibujoBloqueado,1,16,16,1,disenio,
-					1+BORDES+(i*CELDAS),1+BORDES+(this->cantidadFilas*CELDAS));
+			RangedPixelToPixelCopy(dibujoBloqueado,0,15,15,0,disenio,
+					BORDES+(i*CELDAS),BORDES+(j*CELDAS));
 		}
 	}
 
@@ -125,8 +132,8 @@ void Diseniador::llenarEsquinaSuperiorDerecha(){
 	BMP dibujoNoreste;
 	dibujoNoreste.ReadFromFile(archivoNE);
 
-	RangedPixelToPixelCopy(dibujoNoreste,1,8,8,1,disenio,
-						1+BORDES+(this->cantidadColumnas*CELDAS),1+BORDES+(this->cantidadFilas*CELDAS));
+	RangedPixelToPixelCopy(dibujoNoreste,0,7,7,0,disenio,
+						BORDES+(this->cantidadColumnas*CELDAS),0);
 }
 void Diseniador::llenarEsquinaSuperiorIzquierda(){
 	
@@ -134,23 +141,23 @@ void Diseniador::llenarEsquinaSuperiorIzquierda(){
 	BMP dibujoNoroeste;
 	dibujoNoroeste.ReadFromFile(archivoNO);
 
-	RangedPixelToPixelCopy(dibujoNoroeste,1,8,8,1,disenio,
-			1,1+BORDES+(this->cantidadFilas*CELDAS));
+	RangedPixelToPixelCopy(dibujoNoroeste,0,7,7,0,disenio,
+			0,0);
 	
 }
 void Diseniador::llenarEsquinaInferiorDerecha(){
 	
 	BMP dibujoSuroeste;
-	dibujoSuroeste.ReadFromFile(archivoSO);
+	dibujoSuroeste.ReadFromFile(archivoSE);
 
-	RangedPixelToPixelCopy(dibujoSuroeste,1,8,8,1,disenio,
-			1+BORDES+(this->cantidadColumnas*CELDAS),1);
+	RangedPixelToPixelCopy(dibujoSuroeste,0,7,7,0,disenio,
+			BORDES+(this->cantidadFilas*CELDAS),BORDES+(this->cantidadColumnas*CELDAS));
 }
 void Diseniador::llenarEsquinaInferiorIzquierda(){
 	
 	BMP dibujoSureste;
-	dibujoSureste.ReadFromFile(archivoSE);
+	dibujoSureste.ReadFromFile(archivoSO);
 
-	RangedPixelToPixelCopy(dibujoSureste,1,8,8,1,disenio,
-			1,1);
+	RangedPixelToPixelCopy(dibujoSureste,0,7,7,0,disenio,
+			0,BORDES+(this->cantidadFilas*CELDAS));
 }
