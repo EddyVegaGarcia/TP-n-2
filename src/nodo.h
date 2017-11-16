@@ -3,7 +3,7 @@
 
 #include "constantes.h"
 
-#endif
+
 
 template<class T>
 class Nodo
