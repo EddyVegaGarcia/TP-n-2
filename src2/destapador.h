@@ -34,9 +34,9 @@ class Destapador{
 	private:
 		void crearListaCasillasYAsignarPuntero();
 
-		/* Pre: Recibe una variable "puntaje" de tipo int.
-		* Post: Destapa la casilla.*/
-		void puntajeAlDestapar(uint &puntaje);
+		/* Pre: 
+		* Post: Destapa la casilla y retorna el valor del puntaje al destaparla.*/
+		int puntajeAlDestapar();
 	
 		/* Pre: Recibe dos variables de tipo int, que indican la ubicación de la casilla central.
 		 *	La casilla central ya está destapada, y no es ni está rodeada por minas.
