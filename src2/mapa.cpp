@@ -99,7 +99,7 @@ void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
 
 	BMP tipoDeCasilla;
 	if(valor == BANDERA){
-		tipoDeCasilla.ReadFromFile(archivoVacio);
+		tipoDeCasilla.ReadFromFile(archivoBandera);
 	}
 	else if (valor == MINA){
 		tipoDeCasilla.ReadFromFile(archivoMina);
