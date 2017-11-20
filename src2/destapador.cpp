@@ -17,12 +17,13 @@ uint Destapador::destapar(uint filaJugada,uint columnaJugada)
 	uint puntaje = 0;
 	this->fila = filaJugada;
  	this->columna = columnaJugada;
-	puntajeAlDestapar(puntaje); //decía puntajeAlDestapar(*puntaje);
+	puntaje = this->puntajeAlDestapar(); //decía puntajeAlDestapar(*puntaje);
 	return puntaje;
 }
 
-void Destapador::puntajeAlDestapar(uint &puntaje)
+int Destapador::puntajeAlDestapar()
 {
+	int puntaje=0;
 	if( !this->mapa->estaDestapadaLaCasilla(this->fila, this->columna))
 	{
 		char valorCasilla = mapa->obtenerValorCasilla(this->fila, this->columna);
@@ -37,7 +38,7 @@ void Destapador::puntajeAlDestapar(uint &puntaje)
 			puntaje = destaparCasillaNoVacia(valorCasilla);
 		}
 	}
-	
+	return puntaje;
 }
 
 void Destapador::crearListaCasillasYAsignarPuntero()
