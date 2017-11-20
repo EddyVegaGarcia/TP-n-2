@@ -82,5 +82,11 @@ void Jugador::iniciarJugada(){
 	}
 }
 
+Jugador::~Jugador(){
+	delete this->pJugada;
+	
+}
+
+
 
 
