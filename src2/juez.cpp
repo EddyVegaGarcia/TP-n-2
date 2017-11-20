@@ -184,19 +184,23 @@ void Juez::mostrarFelicitaciones(Jugador* jugadorActual){
 
 
 Juez::~Juez(){
-
+	this->jugadores->inicializarCursor();
+	Jugador* jugadorActual;
+	jugadorActual = this->jugadores->obtenerCursor();
 	while( !(this->jugadores->estaVacia()) ){
-		Jugador* jugadorActual;
+
+		Jugador* jugadorABorrar;
 		char alias;
 		int puntaje;
-		this->jugadores->inicializarCursor();
+		alias = jugadorActual->obtenerAlias();
+		puntaje = jugadorActual->obtenerPuntaje();
+		cout<<"El jugador: " << alias << " tiene " << puntaje << " puntos." << endl;
+		jugadorABorrar = jugadorActual;
 		this->jugadores->avanzarCursor();
 		jugadorActual = this->jugadores->obtenerCursor();
-		alias = jugadorActual->obtenerAlias();
 
-		puntaje = jugadorActual->obtenerPuntaje();
 
-		cout<<"El jugador: " << alias << " tiene " << puntaje << " puntos." << endl;
+		delete jugadorABorrar;
 		this->jugadores->remover(1);
 	}
 	delete this->jugadores;
