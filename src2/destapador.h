@@ -33,7 +33,7 @@ class Destapador{
 	
 	private:
 	
-		bool Destapador::validarUbicacion(uint fila, uint columna);
+		bool validarUbicacion(uint fila, uint columna);
 	
 		void crearListaCasillasYAsignarPuntero();
 
