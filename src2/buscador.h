@@ -41,7 +41,7 @@ template<class T> bool Buscador<T>::buscar(uint filaBuscada, uint columnaBuscada
 
 		pLista->iniciarCursor();
 
-		while(pLista->avanzarCursor() && not encontrado){
+		while(pLista->avanzarCursor() &&  !encontrado){
 			elementoActual=pLista->obtenerCursor();
 			if (elementoActual.obtenerFila()==filaBuscada && elementoActual.obtenerColumna()==columnaBuscada){
 				posicionEncontrada++;
