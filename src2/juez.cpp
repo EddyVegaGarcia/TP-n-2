@@ -122,7 +122,7 @@ void Juez::inicializarJuego(){
 		if(casillasOcultas>minasPorDescubrir){
 
 			if (jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
-				sigueJugando(jugadorActual, tableroDeJuego, minasPorDescubrir);
+				minasPorDescubrir = sigueJugando(jugadorActual, tableroDeJuego, minasPorDescubrir);
 			}
 
 			jugadores->avanzarCursor();
@@ -147,8 +147,8 @@ void Juez::inicializarJuego(){
 }
 
 
-void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego, uint &minasPorDescubrir){
-
+uint Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego, uint minasPorDescubrir){
+        
 	jugadorActual->iniciarJugada();
 
 		if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
@@ -161,6 +161,7 @@ void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego, uint &mina
 			mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
 		}
 	 tableroDeJuego->mostrarMapa();
+	return minasPorDescubrir;
 }
 
 void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
