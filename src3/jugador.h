@@ -10,6 +10,7 @@ private:
 	int puntaje;
 	int estado;
 	Jugada* pJugada;
+	Mapa* mapa;
 
 	/* Pre: "letra" no es alias de ningun otro jugador.
 	 * Post: Deja al jugador con el alias "letra".*/
