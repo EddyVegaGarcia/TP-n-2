@@ -133,16 +133,10 @@ void Juez::inicializarJuego(){
 			jugadores->avanzarCursor();
 
 		}
-
-
-		else{
-			terminoLaPartida();
-			terminoElJuego=true;
-		}
-
-
 	}
 	
+	terminoLaPartida();
+	terminoElJuego=true;
 
 	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje();
 	mostrarFelicitaciones(jugadorGanador);
