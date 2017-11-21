@@ -155,4 +155,5 @@ Destapador::~Destapador()
 	for(uint i = 1; i < this->pVacios->contarElementos()+1; i++){
 		this->pVacios->remover(i);
 	}
+	delete pVacios;
 }
