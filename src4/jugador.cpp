@@ -26,6 +26,7 @@ Jugador::Jugador(char letra, Mapa* punteroAMapa){
 	asignarPuntaje(0);
 	asignarEstado(SIGUE_JUGANDO);
 	inicializarPunteroAJugada(punteroAMapa);
+	this->mapa=punteroAMapa;
 }
 
 // métodos privados
@@ -53,15 +54,22 @@ void Jugador::inicializarPunteroAJugada(Mapa* punteroAMapa){
 void Jugador::iniciarJugada(){
 	uint filaUser, colUser;
 	char opcionUser;
-    int puntos = 0;
-	cout << "turno del jugador: "<< this->alias << endl;
-	cout << "Ingrese numero de fila de la casilla "<<endl;
-	cin >>filaUser;
-	cout << "ingrese numero de columna de la casilla"<<endl;
-	cin >>colUser;
-	cout<<"digite 'd' o 'm' segun quiera destapar o marcar la casilla"<<endl;
-	cin >>opcionUser;
-
+    	int puntos = 0;
+	
+	std::cout << "turno del jugador: "<< this->alias << std::endl;
+	do{
+		std::cout<<"Ingrese fila y columna a jugar: "<<std::endl;
+		std::cin>>filaUser>>colUser;
+		std::cout<<std::endl;
+		/*cout << "Ingrese numero de fila de la casilla "<<endl;
+		cin >>filaUser;
+		cout << "ingrese numero de columna de la casilla"<<endl;
+		cin >>colUser;*/
+    	} while( (filaUser<0 || filaUser> mapa->obtenerFila()) || (colUser<0 || colUser > mapa->obtenerColumna()) );
+	
+	std::cout<<"ingrese 'd' (destapar) || 'm' (marcar) || 'r' retirarse "<<std::endl;
+	std::cin >>opcionUser;
+	std::cout<<std::endl;
 
 	// validar // debug // ver
 	this->pJugada->asignarOpcion(opcionUser);
