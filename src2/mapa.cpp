@@ -14,7 +14,7 @@ Mapa::Mapa(int filaRecibida, int columnaRecibida, char dificultadRecibida){
 
 	Minero minero(dimFila,dimColumna,dificultad,pMinas);
 	minero.sembrarMinas();
-
+	
 	Diseniador diseniador(dimFila,dimColumna);
 	this->baseMapa = diseniador.obtenerDisenio();
 
@@ -104,6 +104,9 @@ void Mapa::cambiarEnBMP(char valor, uint fila, uint columna){
 	else if (valor == MINA){
 		tipoDeCasilla.ReadFromFile(archivoMina);
 	}
+	else if (valor == '0'){
+		tipoDeCasilla.ReadFromFile(archivoVacio);
+	}
 	else if (valor == '1'){
 		tipoDeCasilla.ReadFromFile(archivo1);
 	}
@@ -177,18 +180,18 @@ char Mapa::calcularValorDeCasilla(uint filaCasilla, uint columnaCasilla){
 	pMinas->iniciarCursor();
 
 	Mina minaActual;
-	if (pMinas->avanzarCursor())
-		minaActual = pMinas->obtenerCursor();
 
-	if (minaActual.esMina(filaCasilla, columnaCasilla)){
+	do{
+		minaActual = pMinas->obtenerCursor();
+		if(minaActual.estaJuntoAMina(filaCasilla,columnaCasilla))
+			valor++;
+	}while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla,columnaCasilla) && (valor<'9'));
+
+	if(minaActual.esMina(filaCasilla,columnaCasilla)){
+
 		valor = MINA;
-	} else {
-		while(pMinas->avanzarCursor() && !minaActual.esMina(filaCasilla, columnaCasilla) && valor < '9'){
-			Mina minaActual = pMinas->obtenerCursor();
-			if(minaActual.estaJuntoAMina(filaCasilla , columnaCasilla))
-				valor++;
-		}
 	}
+
 	return valor;
 }
 
