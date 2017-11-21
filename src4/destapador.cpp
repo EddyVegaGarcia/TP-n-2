@@ -38,7 +38,26 @@ int Destapador::puntajeAlDestapar()
 			puntaje = destaparCasillaNoVacia(valorCasilla);
 		}
 	}
+	seDestapo();
+	
 	return puntaje;
+}
+
+void Destapador::seDestapo(){
+
+	Lista<Casilla>* casilla = this->mapa->obtenerPunteroCasillas();
+
+	casilla->iniciarCursor();
+
+	while (casilla->avanzarCursor()){
+
+		Casilla casillaAComparar = casilla->obtenerCursor();
+
+		if((casillaAComparar.obtenerFila() == this->fila) && (casillaAComparar.obtenerColumna() == this->columna))
+			casillaAComparar.destaparEnTablero();
+
+	}
+
 }
 
 void Destapador::crearListaCasillasYAsignarPuntero()
