@@ -28,7 +28,7 @@ int Destapador::puntajeAlDestapar()
 	{
 		char valorCasilla = mapa->obtenerValorCasilla(this->fila, this->columna);
 
-		if(valorCasilla == VACIO;
+		if(valorCasilla == VACIO)
 		{
 			destaparPandemia();
 		}
