@@ -83,3 +83,8 @@ void Jugador::iniciarJugada(){
 	else if (puntos == SE_RETIRO)
 		this->asignarEstado(SE_RETIRO);
 }
+
+Jugador::~Jugador(){
+        delete pJugada;
+}
+
