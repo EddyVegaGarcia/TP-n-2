@@ -40,6 +40,8 @@ class Destapador{
 		/* Pre: 
 		* Post: Destapa la casilla y retorna el valor del puntaje al destaparla.*/
 		int puntajeAlDestapar();
+		
+		void seDestapo();
 	
 		/* Pre: Recibe dos variables de tipo int, que indican la ubicación de la casilla central.
 		 *	La casilla central ya está destapada, y no es ni está rodeada por minas.
