@@ -132,11 +132,13 @@ void Juez::inicializarJuego(){
 			banderasCorrectas = buscarBanderasCorrectas();
 			jugadores->avanzarCursor();
 
+		else terminoElJuego=true;
+			
 		}
 	}
 	
 	terminoLaPartida();
-	terminoElJuego=true;
+	
 
 	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje();
 	mostrarFelicitaciones(jugadorGanador);
