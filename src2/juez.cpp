@@ -170,7 +170,10 @@ void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
 	alias = jugadorActual->obtenerAlias();
 	puntaje = jugadorActual->obtenerPuntaje();
 	cout<<" El jugador " << alias << " ha perdido XD XD"<<endl;
+	cout<<endl;
 	cout<< "Su puntaje es " << puntaje << endl;
+	cout<<endl;
+
 
 }
 
