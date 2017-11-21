@@ -78,15 +78,18 @@ void Minero::asignarBomba(int posicionEnUnaDimension){
 }
 
 void Minero::pasarDeUnaDimADos(int numeroCasilla, uint& filaAObtener, uint& columnaAObtener){
-        if(numeroCasilla%this->dimColumna == 0){
-		filaAObtener = (numeroCasilla/this->dimColumna);
-	}else{
-        	filaAObtener = (numeroCasilla/this->dimColumna) + 1 ;
+       bool convertido = false;
+	uint fila = 1;
+	uint columna = numeroCasilla;
+	while(!convertido){
+		if(columna>this->dimColumna){
+			fila++;
+			columna = columna-this-> dimColumna;
+			
+		}else{
+			convertido = true;
+		}
 	}
-        if(numeroCasilla<= this->dimColumna){
-        	columnaAObtener=numeroCasilla;
-        }else{
-        columnaAObtener = numeroCasilla%this->dimColumna;
-        }
-
+	filaAObtener = fila;
+	columnaAObtener = columna;
 }
