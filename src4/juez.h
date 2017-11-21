@@ -56,8 +56,8 @@ private:
 	* 	un puntero a Mapa, y una variable de tipo unsigned int que indica la cantidad de minas que quedan por descubrir
 	* 	en el tablero.
 	* Post: da su turno al jugadorActual y muestra el tablero de juego.*/
-	uint sigueJugando(Jugador* jugadorActual,Mapa* tableroDeJuego);
-
+	void sigueJugando(Jugador* jugadorActual,Mapa* tableroDeJuego);
+	
 	/* Pre: Recibe "jugadorActual", puntero a Jugador que perdió.
 	* Post: Muestra un mensaje a "jugadorActual" con su puntaje.*/
 	void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
