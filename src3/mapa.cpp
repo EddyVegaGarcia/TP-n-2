@@ -44,12 +44,12 @@ char Mapa::obtenerDificultad(){
 }
 
 uint Mapa::obtenerTamanioDeLaListaDeMinas(){
-	return this->pMinas->contarElementos();
+	return (uint)this->pMinas->contarElementos();
 }
 
 uint Mapa::obtenerCantidadDeCasillasOcultas(){
 	uint casillasTotales= (this->dimFila)*(this->dimColumna);
-	int casillasYaDestapadas=pCasillasDestapadas->contarElementos();
+	uint casillasYaDestapadas=(uint)pCasillasDestapadas->contarElementos();
 	return casillasTotales-casillasYaDestapadas;
 }
 
