@@ -123,7 +123,7 @@ void Juez::inicializarJuego(){
 		if(this->casillasOcultas>this->minasPorDescubrir){
 
 			if (jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
-				sigueJugando(jugadorActual, tableroDeJuego);
+				sigueJugando(jugadorActual, tableroDeJuego, this->minasPorDescubrir);
 			}
 
 			jugadores->avanzarCursor();
@@ -148,7 +148,7 @@ void Juez::inicializarJuego(){
 }
 
 
-void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
+void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego,  uint &minasPorDescubrir){
 
 	jugadorActual->iniciarJugada();
 
