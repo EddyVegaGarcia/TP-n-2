@@ -60,7 +60,7 @@ bool Destapador::validarUbicacion(uint fila, uint columna){
 }
 void Destapador::destaparPandemia(){
 
-	this-> pVacios = new Lista<Casilla>;
+	//this-> pVacios = new Lista<Casilla>;
 
 	pandemia(this->fila,this->columna);
 
