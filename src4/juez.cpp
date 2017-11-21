@@ -126,7 +126,7 @@ void Juez::inicializarJuego(){
 				&& banderasCorrectas<  this->minasPorDescubrir){
 
 			if (jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
-				minasPorDescubrir = sigueJugando(jugadorActual, tableroDeJuego);
+				sigueJugando(jugadorActual, tableroDeJuego);
 			}
 
 			banderasCorrectas = buscarBanderasCorrectas();
@@ -148,7 +148,7 @@ void Juez::inicializarJuego(){
 }
 
 
-uint Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
+void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 
 	jugadorActual->iniciarJugada();
 
@@ -164,7 +164,6 @@ uint Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 	this->casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
 	tableroDeJuego->mostrarMapa();
 
-return this->minasPorDescubrir;
 }
 
 uint Juez::buscarBanderasCorrectas(){
