@@ -104,59 +104,65 @@ void Juez::crearArchivoConPuntajes(){
    puntajes.close();
 
 }
+
+
 void Juez::inicializarJuego(){
-	uint casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
-	uint minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
+	this->casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
+	this->minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
 
 	this->jugadores->inicializarCursor();
-
+	Jugador* jugadorActual;
 	jugadores->avanzarCursor();
 	bool terminoElJuego=false;
 
-	Jugador* jugadorActual;
-	while(this->jugadoresQuePerdieron<this->cantidadDeJugadores){
+
+	while((jugadoresQuePerdieron<cantidadDeJugadores)&& (!terminoElJuego)){
 
 		jugadorActual = this->jugadores->obtenerCursor();
 
-		if(jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
-			sigueJugando(jugadorActual, tableroDeJuego, minasPorDescubrir);
-			casillasOcultas = tableroDeJuego->obtenerCantidadDeCasillasOcultas();
+		if(this->casillasOcultas>this->minasPorDescubrir){
+
+			if (jugadorActual->obtenerEstado() == SIGUE_JUGANDO){
+				sigueJugando(jugadorActual, tableroDeJuego);
+			}
+
+			jugadores->avanzarCursor();
+
 		}
-		jugadores->avanzarCursor();
-	}
 
-	while(jugadorActual->obtenerEstado() == SIGUE_JUGANDO && casillasOcultas>minasPorDescubrir){
-		sigueJugando(jugadorActual, tableroDeJuego, minasPorDescubrir);
-		casillasOcultas = tableroDeJuego->obtenerCantidadDeCasillasOcultas();
-	}
 
-	if (casillasOcultas == minasPorDescubrir)
-				mostrarFelicitaciones(jugadorActual);
+		else{
+			terminoLaPartida();
+			terminoElJuego=true;
+		}
 
-	if(jugadorActual->obtenerEstado() == SE_RETIRO){
-		Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje();
-		mostrarFelicitaciones(jugadorGanador);
-		crearArchivoConPuntajes();
+
 	}
-	terminoLaPartida();
 	
+
+	Jugador* jugadorGanador = encontrarJugadorQueGanoPorPuntaje();
+	mostrarFelicitaciones(jugadorGanador);
 	crearArchivoConPuntajes();
+
+
 }
 
-void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego, uint &minasPorDescubrir){
+
+void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 
 	jugadorActual->iniciarJugada();
 
-		if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
+	if(jugadorActual->obtenerEstado() == PERDIO_PARTIDA){
 
-			this->jugadoresQuePerdieron++;
-			minasPorDescubrir--;
-						
-			jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
+		jugadoresQuePerdieron++;
+		this->minasPorDescubrir--;
 
-			mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
-		}
-	 tableroDeJuego->mostrarMapa();
+		jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
+
+		mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
+	}
+	this->casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
+	tableroDeJuego->mostrarMapa();
 }
 
 void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
