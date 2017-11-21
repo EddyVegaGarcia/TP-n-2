@@ -27,14 +27,14 @@ int Destapador::puntajeAlDestapar()
 	if( !this->mapa->estaDestapadaLaCasilla(this->fila, this->columna))
 	{
 		char valorCasilla = mapa->obtenerValorCasilla(this->fila, this->columna);
-		this->mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
 
-		if(valorCasilla == VACIO)
+		if(valorCasilla == VACIO;
 		{
 			destaparPandemia();
 		}
 		else
 		{
+			this->mapa->agregarCasillaDestapada(this->fila, this->columna, valorCasilla);
 			puntaje = destaparCasillaNoVacia(valorCasilla);
 		}
 	}
