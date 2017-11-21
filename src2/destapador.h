@@ -32,9 +32,9 @@ class Destapador{
 
 	
 	private:
-	
+
 		bool validarUbicacion(uint fila, uint columna);
-	
+
 		void crearListaCasillasYAsignarPuntero();
 
 		/* Pre: 
@@ -49,12 +49,7 @@ class Destapador{
 		 *	última que será destapada en esa dirección.*/
 		void destaparPandemia();
 
-		void avanzarPandemia(uint avanzarNueva, uint &filaPasada, uint &columnaPasada);
-
-		void destaparPandemiaRecursiva( uint filaPasada, uint columnaPasada);
-	
-
-
+		void pandemia(uint fila, uint columna);
 
 		void agregarVacio(uint filaPasada, uint columnaPasada);
 
