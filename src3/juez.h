@@ -15,7 +15,9 @@ private:
 	ListaCircularCursor<Jugador*>* jugadores;
 	Mapa* tableroDeJuego;
 	int jugadoresQuePerdieron;
-
+	uint casillasOcultas;
+	uint minasPorDescubrir;
+	
 public:
 	/* Pre: Recibe una "cantidadDeJugadores" de tipo int, y un puntero a Mapa o "tableroDeJuego".
 	* Post: Se crea un Juez con la cantidadDeJugadores y tableroDeJuego pasados por parámetros,
