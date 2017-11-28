@@ -212,6 +212,19 @@ void Juez::realizarCambios(){
 		std::cout<<"ingrese 'f' para rehacer alguna de las jugadas desde este punto"<<std::endl;
 		std::cout<<"ingrese cualquier otra letra para dejar de realizar cambios en las jugadas"<<std::endl;
 
+		std::cout<<"lista de banderas"<<std::endl;
+		Lista<Bandera>* banderas = this->tableroDeJuego->obtenerPunteroBanderas();
+		banderas->iniciarCursor();
+
+		Bandera actual;
+		while(banderas->avanzarCursor()){
+
+			actual = banderas->obtenerCursor();
+
+			std::cout<<"fila: "<<actual.obtenerFila()<<"columna: "<<actual.obtenerColumna()<<"Se destapo: "<<std::endl;
+
+		}
+
 		std::cin>>opcionDeUsuario;
 
 		if(opcionDeUsuario == 'p' || opcionDeUsuario == 'P')
@@ -225,12 +238,12 @@ void Juez::realizarCambios(){
 
 void Juez::deshacerJugada(){
 
-	Jugada* jugadaABorrar = this->jugadas->obtenerDatoActual();
-	char opcion = jugadaABorrar->obtenerOpcion();
+	Jugada* jugadaADeshacer = this->jugadas->obtenerDatoActual();
+	char opcion = jugadaADeshacer->obtenerOpcion();
 
 	if (opcion == 'm' || opcion == 'M'){
 		Marcador inverso(tableroDeJuego);
-		inverso.marcar(jugadaABorrar->obtenerFila(),jugadaABorrar->obtenerColumna());
+		inverso.marcar(jugadaADeshacer->obtenerFila(),jugadaADeshacer->obtenerColumna());
 
 	}
 
@@ -353,4 +366,3 @@ Juez::~Juez()
 	
 	delete this->jugadores;
 }
-
