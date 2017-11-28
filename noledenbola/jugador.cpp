@@ -143,6 +143,7 @@ void Jugador::iniciarJugada(){
 		else{
 			puntos += obtenerPuntaje();
 			this->modificarPuntaje(puntos);
+			this->asignarEstado(SIGUE_JUGANDO);
 		}
 	}
 }
