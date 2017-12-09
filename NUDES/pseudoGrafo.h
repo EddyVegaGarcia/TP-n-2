@@ -2,7 +2,6 @@
 #define PSEUDOGRAFO_H_
 
 #include "nodoGrafo.h"
-#include "jugada.h"
 
 template <class T> class PseudoGrafo{
 
@@ -22,8 +21,8 @@ public:
 	bool avanzarCursor();
 	bool avanzarCursorAParalela();
 
-	~PseudoGrafo();
 	void borrarNodo(NodoGrafo<T>* aBorrar);
+	~PseudoGrafo();
 
 };
 
@@ -57,9 +56,14 @@ void PseudoGrafo<T>::insertar(T dato){
 		  NodoGrafo<T>* paraleloSiguiente;
 
 		  if(siguiente->tieneParalelo()){
+
 			  paraleloSiguiente = siguiente->obtenerParalelo();
-			  while(paraleloSiguiente->tieneParalelo())
-				  paraleloSiguiente->cambiarSiguiente(paraleloSiguiente->obtenerParalelo());
+
+			  while(paraleloSiguiente->tieneParalelo()) //obtener el ultimo de los paralelos
+				  paraleloSiguiente=paraleloSiguiente->obtenerParalelo();
+
+			  paraleloSiguiente->cambiarParalelo(nuevo);
+			  nuevo->cambiarAnterior(actual);
 		  }
 		  else{
 			  siguiente->cambiarParalelo(nuevo);
@@ -150,7 +154,7 @@ PseudoGrafo<T>::~PseudoGrafo(){
 			borrarNodo(ultimo);
 			ultimo = anterior;
 		}
-		borrarNodo(ultimo);
+		delete ultimo;
 	}
 }
 
@@ -163,7 +167,10 @@ void PseudoGrafo<T>::borrarNodo(NodoGrafo<T>* aBorrar){
 	if(aBorrar->tieneParalelo()){
 		borrarNodo(aBorrar->obtenerParalelo());
 	}
-	delete *aBorrar; // <- agrego esta línea
+
+	NodoGrafo<T>* anterior = aBorrar->obtenerAnterior();
+	anterior->cambiarSiguiente(NULL);
+	anterior->cambiarParalelo(NULL);
 	delete aBorrar;
 
 }
