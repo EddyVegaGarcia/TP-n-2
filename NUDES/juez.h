@@ -89,9 +89,9 @@ private:
 
 	void realizarCambios();
 
-	void deshacerJugada();
+	bool deshacerJugada();
 
-	void rehacerJugada();
+	bool rehacerJugada();
 
 	void rehacerParalela(uint posicion);
 };
