@@ -178,12 +178,13 @@ void Menu::comprobarDatos(){
 void Menu::pedirYAsignarDimensiones(){
 
 	uint filUser, colUser;
-
+        do{
 	std::cout<<std::endl;
 	std::cout << "FILAS y COLUMNAS totales para su tablero (ej: 40 60): " << std::endl;
 	std::cin >> filUser >> colUser;
 	std::cout<<std::endl;
-
+        }While(filUser<=0 || colUser<=0);
+		
 	asignarFila(filUser);
 	asignarColumna(colUser);
 }
