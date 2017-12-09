@@ -208,10 +208,11 @@ void Juez::realizarCambios(){
 
 	bool terminoDeHacerCambios = false;
 	char opcionDeUsuario;
+	bool puedeHacerCambios = true;
 
 	NodoGrafo<JugadaLight*>* actual= this->jugadas->obtenerActual();
 
-	while (!terminoDeHacerCambios){
+	while (!terminoDeHacerCambios &&  puedeHacerCambios ){
 
 		std::cout<<"VOLVER AL PASADO 'deshacer' (P) || ";
 		std::cout<<"VOLVER AL FUTURO 'rehacer' (F) || "<<std::endl;
@@ -221,7 +222,7 @@ void Juez::realizarCambios(){
 
 		if(opcionDeUsuario == 'p' || opcionDeUsuario == 'P'){
 			if(actual->tieneAnterior() ){
-				deshacerJugada();
+				puedeHacerCambios= deshacerJugada();
 				tableroDeJuego->mostrarMapa();
 			}
 			else{
@@ -230,7 +231,7 @@ void Juez::realizarCambios(){
 			}
 		}
 		else if(opcionDeUsuario == 'f' || opcionDeUsuario == 'F'){
-			rehacerJugada();
+			puedeHacerCambios = rehacerJugada();
 			tableroDeJuego->mostrarMapa();
 		}
 		else terminoDeHacerCambios = true;
@@ -240,8 +241,8 @@ void Juez::realizarCambios(){
 
 }
 
-void Juez::deshacerJugada(){
-
+bool Juez::deshacerJugada(){
+    bool puedeDeshacer = true;
 	JugadaLight* jugadaADeshacer = this->jugadas->obtenerDatoActual();
 	char opcion = jugadaADeshacer->obtenerOpcion();
 	char alias = jugadaADeshacer->obtenerJugador();
@@ -267,12 +268,23 @@ void Juez::deshacerJugada(){
 	}
 
 	this->jugadas->retrocederCursor();
+	NodoGrafo<JugadaLight*>* jugadaActual = this->jugadas->obtenerActual();
+	if(jugadaActual->obtenerAnterior()== NULL){
+
+		std::cout<<"no se puede retroceder mas"<<std::endl;
+
+		puedeDeshacer = false;
+
+	}
+
+	return puedeDeshacer;
 }
 
-void Juez::rehacerJugada(){
+bool Juez::rehacerJugada(){
 	//imprime la siguiente y sus paralelas
 	uint contador = 1;
 	uint opcionUsuario;
+	bool puedeRehacerJugada = true;
 
 	JugadaLight* actual;
 
@@ -280,6 +292,10 @@ void Juez::rehacerJugada(){
 
 	this->jugadas->avanzarCursor();
 	actual = this->jugadas->obtenerDatoActual();
+	if(actual == NULL){
+		puedeRehacerJugada = false;
+	}
+
 
 	std::cout<<"jugada 1: ";
 	std::cout<<"fila: "<<actual->obtenerFila()<<" columna: "<<actual->obtenerColumna()
@@ -298,6 +314,7 @@ void Juez::rehacerJugada(){
 	std::cin>>opcionUsuario; //falta validar que la opcion este entre 1 y contador
 
 	rehacerParalela(opcionUsuario);
+	return puedeRehacerJugada;
 
 }
 
