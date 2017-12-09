@@ -5,11 +5,11 @@
  *      Author: marcela
  */
 
-void playGame(){
+void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
 }
-char pedirOpcionPasadoFuturo (){
+char Pantalla::pedirOpcionPasadoFuturo (){
     
    char opcionDeUsuario;
 
@@ -22,7 +22,7 @@ char pedirOpcionPasadoFuturo (){
     return opcionDeUsuario;
  }
 
-int pedirOpcionRehacerJugada (PseudoGrafo<JugadaLight*>* jugadas ){
+int Pantalla::pedirOpcionRehacerJugada (PseudoGrafo<JugadaLight*>* jugadas ){
 uint contador = 1;
 	uint opcionUsuario;
 	bool puedeRehacerJugada = true;
@@ -56,4 +56,28 @@ uint contador = 1;
 		
         }while (opcionUsuario < 1||opcionUsuario );
     return opcionUsuario;
+}
+void Pantalla::noSePuedeRetroceder (){
+    std::cout<<"no se puede retroceder mas"<<std::endl;
+
+}
+
+void Pantalla::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
+
+	int puntaje = 0;
+	char alias;
+	alias = jugadorActual->obtenerAlias();
+	puntaje = jugadorActual->obtenerPuntaje();
+	std::cout<<std::endl;
+	std::cout<<".:EL JUGADOR " << alias << " OBTUVO SU GAME OVER:. "<<std::endl;
+	std::cout<< "PUNTAJE OBTENIDO: " << puntaje << std::endl;
+
+}
+
+void Pantalla::terminoLaPartida(){
+
+	std::cout<<std::endl;
+	std::cout << "\t\t\t.:GAME OVER:." << std::endl;
+	std::cout<<std::endl;
+
 }
