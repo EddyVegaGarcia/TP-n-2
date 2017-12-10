@@ -1,5 +1,10 @@
 # include "pantalla.h"
 
+////////////////////////////////////
+/////// Llamados desde Juez ////////
+////////////////////////////////////
+
+
 void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
@@ -109,27 +114,30 @@ void Pantalla::imprimirReglasDeJuego(){
 	std::cout<<std::endl;
 	std::cout<<"• Se puede desmarcar una bandera, si en la posición de la"<<std::endl;
 	std::cout<<"marca que se retiró efectivamente no habia una mina, el"<<std::endl;
-	std::cout<<"jugador gana dos puntos, si por el contrario si había una"<<std::endl;
+	std::cout<<"jugador gana dos puntos; si por el contrario si había una"<<std::endl;
 	std::cout<<"mina, se quita dos puntos."<<std::endl;
-	std::cout<<std::endl;
-	std::cout<<"• Cuando se pide al usuario la ubicación de la casilla que"<<std::endl;
-	std::cout<<"quiera modificar (fila y columna), estos datos deben ser"<<std::endl;
-	std::cout<<"números adecuados a las opciones que el usuario marcó"<<std::endl;
-	std::cout<<"en un principio, siendo números entre 1 y la dimensión"<<std::endl;
-	std::cout<<"que haya elegido, y de igual manera las opciones de "<<std::endl;
-	std::cout<<"M(marcar), D (destapar) y R (retirarse)."<<std::endl;
-	std::cout<<"• Se debe evitar a toda costa las minas, con ayuda de los"<<std::endl;
-	std::cout<<"casilleros numerados, sino el “GAME OVER” te elimina del"<<std::endl;
-	std::cout<<"juego."<<std::endl;
 	std::cout<<std::endl;
 	std::cout<<"• Las condiciones para ganar o perder se deciden de la"<<std::endl;
 	std::cout<<"siguiente forma:"<<std::endl;
 	std::cout<<std::endl;
-	std::cout<<"Si todos los jugadores se retiran antes de ganar el juego"<<std::endl;
-	std::cout<<"el ganador será quien tenga el mayor puntaje, si no, gana"<<std::endl;
-	std::cout<<"el jugador que llegó hasta el final, los puntajes se"<<std::endl;
-	std::cout<<"mostrarán hasta el final del juego junto con el nombre del"<<std::endl;
-	std::cout<<"ganador."<<std::endl;
+	std::cout<<"\t Si todos los jugadores se retiran antes de ganar el juego"<<std::endl;
+	std::cout<<"\t el ganador será quien tenga el mayor puntaje, si no, gana"<<std::endl;
+	std::cout<<"\t el jugador que llegó hasta el final, los puntajes se"<<std::endl;
+	std::cout<<"\t mostrarán hasta el final del juego junto con el nombre del"<<std::endl;
+	std::cout<<"\t ganador."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Las condiciones para jugar una JUGADA ESPECIAL es de la "<<std::endl;
+	std::cout<<"siguiente forma:"<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"\t Se deberá llegar al puntaje requerido de '4' puntos, como "<<std::endl;
+	std::cout<<"\t minimo, ya que la jugada quita esa cantidad a sus puntos actuales."<<std::endl;
+	std::cout<<"\t Si ya se a realizado una jugada, como minimo, se podrá usar la "<<std::endl;
+	std::cout<<"\t JUGADA ESPECIAL de volver al pasado para regresar al ultimo estado"<<std::endl;
+	std::cout<<"\t de juego que sería tantas como el jugador desee, podría llegar "<<std::endl;
+	std::cout<<"\t incluso al estado inicial del juego. "<<std::endl;
+	std::cout<<"\t Si se volvio al pasado, como minimo en la jugada anterior, se podra"<<std::endl;
+	std::cout<<"\t realizar la JUGADA ESPECIAL de volver al futuro, donde se presenta "<<std::endl;
+	std::cout<<"\t varios caminos paralelos de juego, solo si existen."<<std::endl;
 	std::cout<<std::endl;
 	std::cout<<"• Recuerde que para disfrutar plenamente del juego se"<<std::endl;
 	std::cout<<"debe siempre respetar los valores válidos que se deben"<<std::endl;
@@ -149,6 +157,34 @@ void Pantalla::imprimirTitulo(){
 
 void Pantalla::imprimirPidiendoDatos(){
 	std::cout<<".:PIDIENDO DATOS:."<<std::endl;
+}
+
+void Pantalla::comprobarDatos(char dificultad, uint dimFila, uint dimColumna, uint cantJugadores){
+	std::string dificultadPalabra;
+	uint dificultadNumerica;
+
+	if (dificultad=='D'|| dificultad=='d')
+	{
+		dificultadPalabra = "DIFICIL";
+		dificultadNumerica = DIFICIL;
+	}
+	else if (dificultad=='M'||dificultad=='m')
+	{
+		dificultadPalabra = "MEDIO";
+		dificultadNumerica = MEDIO;
+	}
+	else{
+		dificultadPalabra = "FACIL";
+		dificultadNumerica = FACIL;
+	}
+	
+	int numeroDeMinas = (dimFila*dimColumna*dificultadNumerica)/100;
+	
+	if (numeroDeMinas==0)
+		numeroDeMinas = 1;
+	
+	this->imprimirDatosIngresados(dimFila, dimColumna, dificultadPalabra, numeroDeMinas, cantJugadores);
+
 }
 
 void Pantalla::imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
