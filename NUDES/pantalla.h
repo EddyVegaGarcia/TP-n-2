@@ -37,9 +37,6 @@ class Pantalla{
 
 		void imprimirPidiendoDatos();
 
-		void imprimirDatosIngresados();
-
-
 		void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
 				int numeroDeMinas, uint cantJugadores);
 
