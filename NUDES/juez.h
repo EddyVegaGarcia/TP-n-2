@@ -9,7 +9,8 @@
 # include <fstream>
 # include "jugadaLight.h"
 # include "antiDestapador.h"
-#include "pseudoGrafo.h"
+# include "pseudoGrafo.h"
+# include "pantalla.h"
 
 class Juez{
 
