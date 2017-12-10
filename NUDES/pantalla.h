@@ -40,6 +40,8 @@ public:
 	void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
 			int numeroDeMinas, uint cantJugadores);
 
+	void pedirDimensiones(uint &filaUser, uint &colUser);
+		
 	char pedirDificultad();
 
 	uint pedirCantidadJugadores();
