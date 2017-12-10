@@ -65,24 +65,14 @@ private:
 	* 	en el tablero.
 	* Post: da su turno al jugadorActual y muestra el tablero de juego.*/
 	void sigueJugando(Jugador* jugadorActual,Mapa* tableroDeJuego);
-
-	/* Pre: Recibe "jugadorActual", puntero a Jugador que perdió.
-	* Post: Muestra un mensaje a "jugadorActual" con su puntaje.*/
-	void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
 	
 	/* Pre: Recibe "jugadorActual", puntero a Jugador que ganó.
 	* Post: Muestra un mensaje de felicitaciones a "jugadorActual" con su puntaje.*/
 	void mostrarFelicitaciones(Jugador* jugadorActual , int puntajesMaximosIguales);
-
-	
 	
 	void crearArchivoConPuntajes();
 	
-	
 	void encontrarJugadorQueGanoPorPuntaje();
-
-	/* Post: Emite un mensaje informando que el juego ha terminado.*/
-	void terminoLaPartida();
 
 	uint buscarBanderasCorrectas();
 
