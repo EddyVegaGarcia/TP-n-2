@@ -13,9 +13,6 @@ private:
 	uint dimColumna;
 	char dificultad;
 	uint cantJugadores;
-
-	void Imprimir_Linea();
-	void Imprimir_Titulo();
 	
 	
 	/* Pre: Recibe una fila dentro del rango válido.
