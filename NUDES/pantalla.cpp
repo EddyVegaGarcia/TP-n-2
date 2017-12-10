@@ -142,9 +142,9 @@ void Pantalla::imprimirLinea(){
 }
 
 void Pantalla::imprimirTitulo(){
-	imprimirLinea();
+	this->imprimirLinea();
 	std::cout<<"\t.:JUGANDO BUSCAMINAS:.";
-	imprimirLinea();
+	this->imprimirLinea();
 }
 
 void Pantalla::imprimirPidiendoDatos(){
