@@ -4,17 +4,16 @@ void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
 }
-char Pantalla::pedirOpcionPasadoFuturo(){
+char Pantalla::pedirOpcionPasadoFuturo (){
     
    	char opcionDeUsuario;
 
-    	std::cout<<"VOLVER AL PASADO 'deshacer' (P) || ";
+    std::cout<<"VOLVER AL PASADO 'deshacer' (P) || ";
  	std::cout<<"VOLVER AL FUTURO 'rehacer' (F) || "<<std::endl;
  	std::cout<<"Ya no realizar JUGADA ESPECIAL (N) : "<<std::endl;
-
-    	std::cin>>opcionDeUsuario;
+    std::cin>>opcionDeUsuario;
     
-    	return opcionDeUsuario;
+   	return opcionDeUsuario;
  }
 
 int Pantalla::pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas){
@@ -26,8 +25,8 @@ int Pantalla::pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas){
         do {
 		std::cout<<"jugadas realizadas desde este punto: "<<std::endl;
 
-		this->jugadas->avanzarCursor();
-		actual = this->jugadas->obtenerDatoActual();
+		jugadas->avanzarCursor();
+		actual = jugadas->obtenerDatoActual();
 	
 		if(actual == NULL){
 			puedeRehacerJugada = false;
@@ -38,19 +37,19 @@ int Pantalla::pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas){
 		std::cout<<"fila: "<<actual->obtenerFila()<<" columna: "<<actual->obtenerColumna()
 				<<" opcion: "<<actual->obtenerOpcion()<<std::endl;
 
-		while(this->jugadas->avanzarCursorAParalela()){
+		while(jugadas->avanzarCursorAParalela()){
 			contador++;
-			actual=this->jugadas->obtenerDatoActual();
+			actual=jugadas->obtenerDatoActual();
 			std::cout<<"jugada "<<contador<<": ";
 			std::cout<<"fila: "<<actual->obtenerFila()<<" columna: "<<actual->obtenerColumna()
 				<<" opcion: "<<actual->obtenerOpcion()<<std::endl;
 		}
-		this->jugadas->retrocederCursor();
+		jugadas->retrocederCursor();
 
 		std::cout<<std::endl<<"elija una de las jugadas para rehacer"<<std::endl;
 		std::cin>>opcionUsuario;
 
-        } while (opcionUsuario < 1|| opcionUsuario > contador);
+        }while (opcionUsuario < 1|| opcionUsuario > contador);
 	
   	return opcionUsuario;
 }
@@ -79,22 +78,10 @@ void Pantalla::terminoLaPartida(){
 
 }
 
-void Pantalla::noHayJugadas(){
-	std::cout<<"No hay jugadas para deshacer"<<std::endl;
-}
 
-void Pantalla::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales){
-
-	if(puntajesMaximosIguales == 0){
-		std::cout << jugadorActual->obtenerAlias() << "!!! GANASTE !!!" << std::endl;
-		std::cout << "Tu puntaje es: " << jugadorActual->obtenerPuntaje() << "."<< std::endl;
-	}
-
-	if(puntajesMaximosIguales > 0)
-		std::cout<<"SE OBTUVO UN EMPATE... INTENTEN DE NUEVO."<<std::endl;
-
-	std::cout<<std::endl;
-}
+////////////////////////////////////
+/////// Llamados desde Menu ////////
+////////////////////////////////////
 
 char Pantalla::imprimirOpcionesDeMenu(){
 	char opcionChar='0';
@@ -107,7 +94,6 @@ char Pantalla::imprimirOpcionesDeMenu(){
 	std::cout<<".:ELIJA OPCION: ";
 	std::cin>>opcionChar;
 	return opcionChar;
-
 }
 
 void Pantalla::imprimirReglasDeJuego(){
@@ -156,26 +142,27 @@ void Pantalla::imprimirLinea(){
 }
 
 void Pantalla::imprimirTitulo(){
-	Imprimir_Linea();
+	imprimirLinea();
 	std::cout<<"\t.:JUGANDO BUSCAMINAS:.";
-	Imprimir_Linea();
+	imprimirLinea();
 }
 
 void Pantalla::imprimirPidiendoDatos(){
 	std::cout<<".:PIDIENDO DATOS:."<<std::endl;
 }
 
-void Pantalla::imprimirDatosIngresados(){
-
+void Pantalla::imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
+										int numeroDeMinas, uint cantJugadores){
+	
 	std::cout<<".:COMPROBANDO COMANDOS:."<<std::endl;
 	std::cout<<std::endl;
-	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<this->dimFila<<" X "<<this->dimColumna<<std::endl;
+	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<dimFila<<" X "<<dimColumna<<std::endl;
 
 	std::cout<<"Dificultad pedida: \t\t\t\t.:"<<dificultadPalabra<<":."<<std::endl;
 	std::cout<<"Cantidad de MINAS en el BUSCAMINAS: \t\t"<<numeroDeMinas<<std::endl;
 	std::cout<<"Cantidad de JUGADORES: \t\t\t\t"<<cantJugadores<<std::endl;
 	std::cout<<std::endl;
-	
+
 }
 
 
@@ -195,4 +182,3 @@ uint Pantalla::pedirCantidadJugadores(){
 	std::cout<<std::endl;
 	return cantidadUser;
 }
-
