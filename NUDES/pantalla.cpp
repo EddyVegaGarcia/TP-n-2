@@ -81,6 +81,8 @@ void Pantalla::noHayJugadas(){
 	std::cout<<"No hay jugadas para deshacer"<<std::endl;
 }
 
+
+
 char Pantalla::imprimirOpcionesDeMenu(){
 	char opcionChar='0';
 	std::cout<<"\t\t.:BUSCAMINAS:."<<std::endl;
@@ -91,6 +93,8 @@ char Pantalla::imprimirOpcionesDeMenu(){
 	std::cout<<"3.SALIR DE MENU"<<std::endl;
 	std::cout<<".:ELIJA OPCION: ";
 	std::cin>>opcionChar;
+	return opcionChar;
+
 }
 
 void Pantalla::imprimirReglasDeJuego(){
@@ -143,3 +147,39 @@ void Pantalla::imprimirTitulo(){
 	std::cout<<"\t.:JUGANDO BUSCAMINAS:.";
 	Imprimir_Linea();
 }
+
+void Pantalla::imprimirPidiendoDatos(){
+	std::cout<<".:PIDIENDO DATOS:."<<std::endl;
+}
+
+void Pantalla::imprimirDatosIngresados(){
+
+	std::cout<<".:COMPROBANDO COMANDOS:."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<this->dimFila<<" X "<<this->dimColumna<<std::endl;
+
+	std::cout<<"Dificultad pedida: \t\t\t\t.:"<<dificultadPalabra<<":."<<std::endl;
+	std::cout<<"Cantidad de MINAS en el BUSCAMINAS: \t\t"<<numeroDeMinas<<std::endl;
+	std::cout<<"Cantidad de JUGADORES: \t\t\t\t"<<cantJugadores<<std::endl;
+	std::cout<<std::endl;
+	
+}
+
+
+char Pantalla::pedirDificultad(){
+	char dificultadUser;
+	std::cout << "Ingresar dificultad (un caracter): F (facil) / M (medio) / D (dificil):" << std::endl;
+	std::cin >> dificultadUser;
+	std::cout<<std::endl;
+	return dificultadUser;
+
+}
+
+uint Pantalla::pedirCantidadJugadores(){
+	uint cantidadUser;
+	std::cout << "Ingresar la cantidad de jugadores:" << std::endl;
+	std::cin >> cantidadUser;
+	std::cout<<std::endl;
+	return cantidadUser;
+}
+
