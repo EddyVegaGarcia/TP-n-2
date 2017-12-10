@@ -2,49 +2,52 @@
 #define PANTALLA_H_
 
 # include <iostream>
+# include <string>
 # include "constantes.h"
 # include "pseudoGrafo.h"
 # include "jugadaLight.h"
 # include "jugador.h"
+
+
 class Pantalla{
 
-public:
+	public:
 
-	void playGame();
+		void playGame();
 
-	char pedirOpcionPasadoFuturo();
+		char pedirOpcionPasadoFuturo();
 
-	int pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas);
+		int pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas);
 
-	void noSePuedeRetroceder();
+		void noSePuedeRetroceder();
 
-	void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
+		void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
 
-	void terminoLaPartida();
+		void terminoLaPartida();
 
-	void noHayJugadas();
+		void noHayJugadas();
 
-	char imprimirOpcionesDeMenu();
+		char imprimirOpcionesDeMenu();
 
-	void imprimirReglasDeJuego();
+		void imprimirReglasDeJuego();
 
-	void imprimirLinea();
+		void imprimirLinea();
 
-	void imprimirTitulo();
+		void imprimirTitulo();
 
-	void imprimirPidiendoDatos();
+		void imprimirPidiendoDatos();
 
-	void imprimirDatosIngresados();
+		void imprimirDatosIngresados();
 
 
-	void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
-			int numeroDeMinas, uint cantJugadores);
+		void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
+				int numeroDeMinas, uint cantJugadores);
 
-	void pedirDimensiones(uint &filaUser, uint &colUser);
-		
-	char pedirDificultad();
+		void pedirDimensiones(uint &filaUser, uint &colUser);
 
-	uint pedirCantidadJugadores();
+		char pedirDificultad();
+
+		uint pedirCantidadJugadores();
 
 };
 #endif
