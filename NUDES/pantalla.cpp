@@ -77,6 +77,10 @@ void Pantalla::terminoLaPartida(){
 
 }
 
+void Pantalla::noHayJugadas(){
+	std::cout<<"No hay jugadas para deshacer"<<std::endl;
+}
+
 char Pantalla::imprimirOpcionesDeMenu(){
 	char opcionChar='0';
 	std::cout<<"\t\t.:BUSCAMINAS:."<<std::endl;
