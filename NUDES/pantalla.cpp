@@ -154,17 +154,18 @@ void Pantalla::imprimirPidiendoDatos(){
 	std::cout<<".:PIDIENDO DATOS:."<<std::endl;
 }
 
-void Pantalla::imprimirDatosIngresados(){
+void Pantalla::imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
+							int numeroDeMinas, uint cantJugadores){
 
 	std::cout<<".:COMPROBANDO COMANDOS:."<<std::endl;
 	std::cout<<std::endl;
-	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<this->dimFila<<" X "<<this->dimColumna<<std::endl;
+	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<dimFila<<" X "<<dimColumna<<std::endl;
 
 	std::cout<<"Dificultad pedida: \t\t\t\t.:"<<dificultadPalabra<<":."<<std::endl;
 	std::cout<<"Cantidad de MINAS en el BUSCAMINAS: \t\t"<<numeroDeMinas<<std::endl;
 	std::cout<<"Cantidad de JUGADORES: \t\t\t\t"<<cantJugadores<<std::endl;
 	std::cout<<std::endl;
-	
+
 }
 
 
