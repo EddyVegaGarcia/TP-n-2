@@ -88,3 +88,44 @@ char Pantalla::imprimirOpcionesDeMenu(){
 	std::cout<<".:ELIJA OPCION: ";
 	std::cin>>opcionChar;
 }
+
+void Pantalla::imprimirReglasDeJuego(){
+
+	std::cout<<"•Juego multijugador con sistema de juego por turnos y "<<std::endl;
+	std::cout<<"evaluado con puntajes."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Cada jugador comienza con un puntaje de 0."<<std::endl;
+	std::cout<<"• Se adquiere un punto si marca una casilla con una"<<std::endl;
+	std::cout<<"bandera y esta efectivamente tiene una mina, y se"<<std::endl;
+	std::cout<<"pierde un punto si se marca una casilla y esta no tiene"<<std::endl;
+	std::cout<<"una mina."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Se puede desmarcar una bandera, si en la posición de la"<<std::endl;
+	std::cout<<"marca que se retiró efectivamente no habia una mina, el"<<std::endl;
+	std::cout<<"jugador gana dos puntos, si por el contrario si había una"<<std::endl;
+	std::cout<<"mina, se quita dos puntos."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Cuando se pide al usuario la ubicación de la casilla que"<<std::endl;
+	std::cout<<"quiera modificar (fila y columna), estos datos deben ser"<<std::endl;
+	std::cout<<"números adecuados a las opciones que el usuario marcó"<<std::endl;
+	std::cout<<"en un principio, siendo números entre 1 y la dimensión"<<std::endl;
+	std::cout<<"que haya elegido, y de igual manera las opciones de "<<std::endl;
+	std::cout<<"M(marcar), D (destapar) y R (retirarse)."<<std::endl;
+	std::cout<<"• Se debe evitar a toda costa las minas, con ayuda de los"<<std::endl;
+	std::cout<<"casilleros numerados, sino el “GAME OVER” te elimina del"<<std::endl;
+	std::cout<<"juego."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Las condiciones para ganar o perder se deciden de la"<<std::endl;
+	std::cout<<"siguiente forma:"<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"Si todos los jugadores se retiran antes de ganar el juego"<<std::endl;
+	std::cout<<"el ganador será quien tenga el mayor puntaje, si no, gana"<<std::endl;
+	std::cout<<"el jugador que llegó hasta el final, los puntajes se"<<std::endl;
+	std::cout<<"mostrarán hasta el final del juego junto con el nombre del"<<std::endl;
+	std::cout<<"ganador."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"• Recuerde que para disfrutar plenamente del juego se"<<std::endl;
+	std::cout<<"debe siempre respetar los valores válidos que se deben"<<std::endl;
+	std::cout<<"usar al momento de jugar."<<std::endl;
+
+}
