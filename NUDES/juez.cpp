@@ -57,6 +57,8 @@ void Juez::avanzarJugador(){
 
 
 void Juez::encontrarJugadorQueGanoPorPuntaje(){
+	
+	Pantalla pantalla;
 	jugadores->inicializarCursor();
 	Jugador* jugadorGanador;
 	int puntajeMaximo = PUNTAJE_MINIMO;
@@ -64,7 +66,6 @@ void Juez::encontrarJugadorQueGanoPorPuntaje(){
 	int puntajesMostrados=0;
 
 	int puntajesMaximosIguales=0;
-
 
 	while(this->jugadores->avanzarCursor() && (puntajesMostrados < this->cantidadDeJugadores) ){
 
@@ -81,7 +82,7 @@ void Juez::encontrarJugadorQueGanoPorPuntaje(){
 
 	}
 
-	mostrarFelicitaciones(jugadorGanador, puntajesMaximosIguales);
+	pantalla.mostarFelicitaciones(jugadorGanador, puntajesMaximosIguales);
 
 	
 }
@@ -94,15 +95,15 @@ void Juez::crearArchivoConPuntajes(){
 
        	while(this->jugadores->avanzarCursor() && puntajesGuardados<cantidadDeJugadores){
 
-			char alias;
-			int puntaje;
-			Jugador* jugadorActual;
-			jugadorActual = jugadores->obtenerCursor();
-			alias = jugadorActual->obtenerAlias();
-			puntaje = jugadorActual->obtenerPuntaje();
-			puntajes << "el jugador .:" << alias << ":. obtuvo puntaje de: " << puntaje << std::endl;
-			puntajesGuardados++;
-	       
+		char alias;
+		int puntaje;
+		Jugador* jugadorActual;
+		jugadorActual = jugadores->obtenerCursor();
+		alias = jugadorActual->obtenerAlias();
+		puntaje = jugadorActual->obtenerPuntaje();
+		puntajes << "el jugador .:" << alias << ":. obtuvo puntaje de: " << puntaje << std::endl;
+		puntajesGuardados++;
+
        	}	
 
 	puntajes.close();
@@ -344,20 +345,6 @@ bool Juez::banderaEsCorrecta(Bandera actual,Lista<Mina>*minas){
 	}
 
 	return encontrada;
-}
-
-void Juez::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales){
-
-	if(puntajesMaximosIguales == 0){
-		std::cout << jugadorActual->obtenerAlias() << "!!! GANASTE !!!" << std::endl;
-		std::cout << "Tu puntaje es: " << jugadorActual->obtenerPuntaje() << "."<< std::endl;
-	}
-
-	if(puntajesMaximosIguales > 0)
-		std::cout<<"SE OBTUVO UN EMPATE... INTENTEN DE NUEVO."<<std::endl;
-
-	std::cout<<std::endl;
-	
 }
 
 
