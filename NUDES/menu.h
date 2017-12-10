@@ -3,7 +3,7 @@
 
 # include "mapa.h"
 # include "juez.h"
-# include <iostream>
+
 # include "pantalla.h"
 # include "constantes.h"
 
