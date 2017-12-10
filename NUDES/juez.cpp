@@ -112,6 +112,8 @@ void Juez::crearArchivoConPuntajes(){
 
 void Juez::inicializarJuego(){
 	
+	Pantalla pantalla;
+	
 	this->casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
 	this->minasPorDescubrir=tableroDeJuego->obtenerTamanioDeLaListaDeMinas();
 
@@ -121,7 +123,7 @@ void Juez::inicializarJuego(){
 	Jugador* jugadorActual;
 	bool terminoElJuego=false;
 
-	std::cout<<".:PLAY GAME::."<<std::endl;
+	pantalla.playGame();
 
 
 	while(jugadores->avanzarCursor() && (jugadoresQuePerdieron<cantidadDeJugadores)&& (!terminoElJuego)){
@@ -187,24 +189,14 @@ void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 
 	this->casillasOcultas=tableroDeJuego->obtenerCantidadDeCasillasOcultas();
 
-	//DEBYG
-	bool termino = false;
-		std::cout<<"adentro de la lista estan:"<<std::endl;
-		NodoGrafo<JugadaLight*>* jugadaActualARecorrer = this->jugadas->obtenerPrimero();
-		while(!termino){
-		JugadaLight* jugada = jugadaActualARecorrer->obtenerDato();
-		std::cout<<jugada->obtenerFila()<<" "<<jugada->obtenerColumna()<<std::endl;
-		if (jugadaActualARecorrer->obtenerSiguiente() == NULL)
-			termino = true;
-		else jugadaActualARecorrer = jugadaActualARecorrer->obtenerSiguiente();
-		}
-
 	this->tableroDeJuego->mostrarMapa();
 
 }
 
 void Juez::realizarCambios(){
 
+	Pantalla pantalla;
+	
 	bool terminoDeHacerCambios = false;
 	char opcionDeUsuario;
 	bool puedeHacerCambios = true;
@@ -213,11 +205,7 @@ void Juez::realizarCambios(){
 
 	while (!terminoDeHacerCambios &&  puedeHacerCambios ){
 
-		std::cout<<"VOLVER AL PASADO 'deshacer' (P) || ";
-		std::cout<<"VOLVER AL FUTURO 'rehacer' (F) || "<<std::endl;
-		std::cout<<"Ya no realizar JUGADA ESPECIAL (N) : "<<std::endl;
-
-		std::cin>>opcionDeUsuario;
+		opcionDeUsuario = pantalla.pedirOpcionPasadoFuturo();
 
 		if(opcionDeUsuario == 'p' || opcionDeUsuario == 'P'){
 			if(actual->tieneAnterior() ){
@@ -241,7 +229,8 @@ void Juez::realizarCambios(){
 }
 
 bool Juez::deshacerJugada(){
-    bool puedeDeshacer = true;
+	Pantalla pantalla;
+    	bool puedeDeshacer = true;
 	JugadaLight* jugadaADeshacer = this->jugadas->obtenerDatoActual();
 	char opcion = jugadaADeshacer->obtenerOpcion();
 	char alias = jugadaADeshacer->obtenerJugador();
@@ -270,8 +259,7 @@ bool Juez::deshacerJugada(){
 	NodoGrafo<JugadaLight*>* jugadaActual = this->jugadas->obtenerActual();
 	if(jugadaActual->obtenerAnterior()== NULL){
 
-		std::cout<<"no se puede retroceder mas"<<std::endl;
-
+		pantalla.noSePuedeRetroceder();
 		puedeDeshacer = false;
 
 	}
@@ -280,38 +268,12 @@ bool Juez::deshacerJugada(){
 }
 
 bool Juez::rehacerJugada(){
-	//imprime la siguiente y sus paralelas
-	uint contador = 1;
+	
 	uint opcionUsuario;
-	bool puedeRehacerJugada = true;
+	Pantalla pantalla;
 
-	JugadaLight* actual;
-
-	std::cout<<"jugadas realizadas desde este punto: "<<std::endl;
-
-	this->jugadas->avanzarCursor();
-	actual = this->jugadas->obtenerDatoActual();
-	if(actual == NULL){
-		puedeRehacerJugada = false;
-	}
-
-
-	std::cout<<"jugada 1: ";
-	std::cout<<"fila: "<<actual->obtenerFila()<<" columna: "<<actual->obtenerColumna()
-			<<" opcion: "<<actual->obtenerOpcion()<<std::endl;
-
-	while(this->jugadas->avanzarCursorAParalela()){
-		contador++;
-		actual=this->jugadas->obtenerDatoActual();
-		std::cout<<"jugada "<<contador<<": ";
-		std::cout<<"fila: "<<actual->obtenerFila()<<" columna: "<<actual->obtenerColumna()
-			<<" opcion: "<<actual->obtenerOpcion()<<std::endl;
-	}
-	this->jugadas->retrocederCursor();
-
-	std::cout<<std::endl<<"elija una de las jugadas para rehacer"<<std::endl;
-	std::cin>>opcionUsuario; //falta validar que la opcion este entre 1 y contador
-
+	opcionUsuario = pantalla.pedirOpcionRehacerJugada(this->jugadas);
+	
 	rehacerParalela(opcionUsuario);
 	return puedeRehacerJugada;
 
@@ -388,21 +350,15 @@ bool Juez::banderaEsCorrecta(Bandera actual,Lista<Mina>*minas){
 
 void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
 	
-	int puntaje = 0;
-	char alias;
-	alias = jugadorActual->obtenerAlias();
-	puntaje = jugadorActual->obtenerPuntaje();
-	std::cout<<std::endl;
-	std::cout<<".:EL JUGADOR " << alias << " OBTUVO SU GAME OVER:. "<<std::endl;
-	std::cout<< "PUNTAJE OBTENIDO: " << puntaje << std::endl;
+	Pantalla pantalla;
+	pantalla.mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
 
 }
 
 void Juez::terminoLaPartida(){
 	
-	std::cout<<std::endl;
-	std::cout << "\t\t\t.:GAME OVER:." << std::endl;
-	std::cout<<std::endl;
+	Pantalla pantalla;
+	pantalla.terminoLaPartida();
 	
 }
 
