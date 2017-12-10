@@ -1,10 +1,3 @@
-/*
- * pantalla.cpp
- *
- *  Created on: Dec 9, 2017
- *      Author: marcela
- */
-
 void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
@@ -82,4 +75,16 @@ void Pantalla::terminoLaPartida(){
 	std::cout << "\t\t\t.:GAME OVER:." << std::endl;
 	std::cout<<std::endl;
 
+}
+
+char Pantalla::imprimirOpcionesDeMenu(){
+	char opcionChar='0';
+	std::cout<<"\t\t.:BUSCAMINAS:."<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"\t.:MENU INICIAL:."<<std::endl;
+	std::cout<<"1.JUGAR"<<std::endl;
+	std::cout<<"2.REGLAS"<<std::endl;
+	std::cout<<"3.SALIR DE MENU"<<std::endl;
+	std::cout<<".:ELIJA OPCION: ";
+	std::cin>>opcionChar;
 }
