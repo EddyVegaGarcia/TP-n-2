@@ -129,3 +129,13 @@ void Pantalla::imprimirReglasDeJuego(){
 	std::cout<<"usar al momento de jugar."<<std::endl;
 
 }
+
+void Pantalla::imprimirLinea(){
+	std::cout<<"\n--------------------------------------------------"<<std::endl;
+}
+
+void Pantalla::imprimirTitulo(){
+	Imprimir_Linea();
+	std::cout<<"\t.:JUGANDO BUSCAMINAS:.";
+	Imprimir_Linea();
+}
