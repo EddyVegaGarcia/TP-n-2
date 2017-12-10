@@ -82,38 +82,7 @@ void Menu::pedirOpcionesDeJuegoAUser(){
 	pedirYAsignarDificultad();
 	pedirYAsignarCantJugadores();
 
-	comprobarDatos();
-}
-
-void Menu::comprobarDatos(){
-
-	std::string dificultadPalabra;
-	uint dificultadNumerica;
-	Pantalla pantalla;
-
-	if (dificultad=='D'|| dificultad=='d')
-	{
-		dificultadPalabra = "DIFICIL";
-		dificultadNumerica = DIFICIL;
-	}
-	else if (dificultad=='M'||dificultad=='m')
-	{
-		dificultadPalabra = "MEDIO";
-		dificultadNumerica = MEDIO;
-	}
-	else{
-		dificultadPalabra = "FACIL";
-		dificultadNumerica = FACIL;
-	}
-	
-	int numeroDeMinas = (this->dimFila*this->dimColumna*dificultadNumerica)/100;
-	
-	if (numeroDeMinas==0)
-		numeroDeMinas = 1;
-	
-	pantalla.imprimirDatosIngresados(this->dimFila,this->dimColumna,dificultadPalabra,
-						numeroDeMinas, this->cantJugadores);
-
+	pantalla.comprobarDatos(this->dificultad, this->dimFila, this->dimColumna, this->cantJugadores);
 }
 
 void Menu::pedirYAsignarDimensiones(){
