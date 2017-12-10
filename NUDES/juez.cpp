@@ -1,7 +1,6 @@
 #include "juez.h"
 
-Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido)
-{
+Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido){
 	
 	this->cantidadDeJugadores = cantidadJugadores;
 	this->tableroDeJuego = mapaRecibido;
@@ -14,10 +13,10 @@ Juez::Juez(unsigned int cantidadJugadores,Mapa* mapaRecibido)
 
 }
 
-void Juez::crearYAsignarListaDeJugadores()
-{
+void Juez::crearYAsignarListaDeJugadores(){
 	this-> jugadores =  new ListaCircularCursor<Jugador*>;
 }
+
 void Juez::crearYAsignarGrafoDeJugadas(){
 
 	this-> jugadas = new PseudoGrafo<JugadaLight*>();
