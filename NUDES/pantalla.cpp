@@ -165,6 +165,14 @@ void Pantalla::imprimirDatosIngresados(uint dimFila, uint dimColumna, std::strin
 
 }
 
+void Pantalla::pedirDimensiones(uint &filaUser, uint &colUser){
+	
+	std::cout<<std::endl;
+	std::cout << "FILAS y COLUMNAS totales para su tablero (ej: 40 60): " << std::endl;
+	std::cin >> filaUser >> colUser;
+	std::cout<<std::endl;
+	
+}
 
 char Pantalla::pedirDificultad(){
 	char dificultadUser;
