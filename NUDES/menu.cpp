@@ -111,7 +111,8 @@ void Menu::comprobarDatos(){
 	if (numeroDeMinas==0)
 		numeroDeMinas = 1;
 	
-	pantalla.imprimirDatosIngresados();
+	pantalla.imprimirDatosIngresados(this->dimFila,this->dimColumna,dificultadPalabra,
+						numeroDeMinas, this->cantJugadores);
 
 }
 
@@ -120,7 +121,7 @@ void Menu::pedirYAsignarDimensiones(){
 	uint filUser, colUser;
         do{
 		pantalla.pedirDimensiones(filUser, colUser);
-        }While(filUser<=0 || colUser<=0);
+        } while(filUser<=0 || colUser<=0);
 		
 	asignarFila(filUser);
 	asignarColumna(colUser);
