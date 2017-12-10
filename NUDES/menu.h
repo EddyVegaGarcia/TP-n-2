@@ -4,8 +4,8 @@
 # include "mapa.h"
 # include "juez.h"
 # include <iostream>
-
-#include "constantes.h"
+# include "pantalla.h"
+# include "constantes.h"
 
 class Menu {
 private:
