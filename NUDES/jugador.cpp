@@ -116,7 +116,7 @@ bool Jugador::PreguntarSiQuiereModificarJugadas(){
 	char opcionUser;
 	do{
 		std::cout<<"\t.:JUGADA ESPECIAL:.\t.:DESHACER/REHACER"<<std::endl;
-		std::cout<<"Se le restaran 4 puntos - CONFIRMAR (S/N) : "<<std::endl;
+		std::cout<<"Se le restaran "<< COSTO_MODIFICAR << " puntos - CONFIRMAR (S/N) : "<<std::endl;
 		std::cin>>opcionUser;
 	}while(this->validarOpcionUserConfirmacion(opcionUser));
 
