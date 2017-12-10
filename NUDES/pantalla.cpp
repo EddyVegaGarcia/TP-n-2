@@ -2,7 +2,7 @@ void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
 }
-char Pantalla::pedirOpcionPasadoFuturo (){
+char Pantalla::pedirOpcionPasadoFuturo(){
     
    	char opcionDeUsuario;
 
@@ -15,7 +15,7 @@ char Pantalla::pedirOpcionPasadoFuturo (){
     	return opcionDeUsuario;
  }
 
-int Pantalla::pedirOpcionRehacerJugada (PseudoGrafo<JugadaLight*>* jugadas ){
+int Pantalla::pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas){
 	uint contador = 1;
 	uint opcionUsuario;
 	bool puedeRehacerJugada = true;
@@ -48,11 +48,11 @@ int Pantalla::pedirOpcionRehacerJugada (PseudoGrafo<JugadaLight*>* jugadas ){
 		std::cout<<std::endl<<"elija una de las jugadas para rehacer"<<std::endl;
 		std::cin>>opcionUsuario;
 
-        }while (opcionUsuario < 1|| opcionUsuario > contador);
+        } while (opcionUsuario < 1|| opcionUsuario > contador);
 	
   	return opcionUsuario;
 }
-void Pantalla::noSePuedeRetroceder (){
+void Pantalla::noSePuedeRetroceder(){
     std::cout<<"no se puede retroceder mas"<<std::endl;
 
 }
