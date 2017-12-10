@@ -31,20 +31,25 @@ class Pantalla{
 
 		void imprimirReglasDeJuego();
 
-		void imprimirLinea();
-
 		void imprimirTitulo();
 
 		void imprimirPidiendoDatos();
-
-		void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
-				int numeroDeMinas, uint cantJugadores);
+	
+		void comprobarDatos(char dificultad, uint dimFila, uint dimColumna, uint cantJugadores)
 
 		void pedirDimensiones(uint &filaUser, uint &colUser);
 
 		char pedirDificultad();
 
 		uint pedirCantidadJugadores();
+	
+	private:
+	
+		void imprimirLinea();
+	
+		void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
+				int numeroDeMinas, uint cantJugadores);
+
 
 };
 #endif
