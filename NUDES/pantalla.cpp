@@ -1,3 +1,5 @@
+# include "pantalla.h"
+
 void Pantalla::playGame(){
     std::cout<<".:PLAY GAME::."<<std::endl;
 
