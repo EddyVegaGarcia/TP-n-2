@@ -70,10 +70,7 @@ public:
 	 * un nuevo objeto Juez.*/
 	Menu();
 
-
 	void menuPrincipal();
-
-	void reglas();
 
 	/* Pre: Se llamò al mètodo pedirOpcionesDeJuegoAUser().
 	 * Post: Crea un objeto Mapa con los datos ya obtenidos del usuario, y pasa su puntero a un nuevo objeto Juez.*/
