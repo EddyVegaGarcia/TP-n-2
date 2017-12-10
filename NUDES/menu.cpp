@@ -1,6 +1,4 @@
 #include "menu.h"
-# include <string>
-
 
 // Constructor
 Menu::Menu(){
@@ -33,7 +31,7 @@ void Menu::menuPrincipal(){
 		if((opcion - 48) == 2){
 			pantalla.imprimirReglasDeJuego();
 		}
-		
+
 	}while(opcion!=51);
 }
 
@@ -88,6 +86,8 @@ void Menu::pedirOpcionesDeJuegoAUser(){
 void Menu::pedirYAsignarDimensiones(){
 
 	uint filUser, colUser;
+	Pantalla pantalla;
+	
         do{
 		pantalla.pedirDimensiones(filUser, colUser);
         } while(filUser<=0 || colUser<=0);
