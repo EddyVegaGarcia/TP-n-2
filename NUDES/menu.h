@@ -34,8 +34,6 @@ private:
 
 	/// interacción con user.
 
-	void comprobarDatos();
-
 	/* post: pide a user las dimensiones del tablero de juego y las asigna. */
 	void pedirYAsignarDimensiones();
 
