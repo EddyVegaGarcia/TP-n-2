@@ -4,50 +4,45 @@
 # include <iostream>
 # include "constantes.h"
 # include "pseudoGrafo.h"
-# include "jugadaLight.h
+# include "jugadaLight.h"
 # include "jugador.h"
-
 class Pantalla{
-  
-public:  
 
-  void playGame();
+public:
 
-  char pedirOpcionPasadoFuturo();
+	void playGame();
 
-  int pedirOpcionRehacerJugada (PseudoGrafo<JugadaLight*>* jugadas);
+	char pedirOpcionPasadoFuturo();
 
-  void noSePuedeRetroceder();
+	int pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas);
 
-  void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
+	void noSePuedeRetroceder();
 
-  void terminoLaPartida();
+	void mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual);
 
-  void noHayJugadas();
+	void terminoLaPartida();
+
+	void noHayJugadas();
+
+	char imprimirOpcionesDeMenu();
+
+	void imprimirReglasDeJuego();
+
+	void imprimirLinea();
+
+	void imprimirTitulo();
+
+	void imprimirPidiendoDatos();
+
+	void imprimirDatosIngresados();
 
 
-  char imprimirOpcionesDeMenu();
+	void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
+			int numeroDeMinas, uint cantJugadores);
 
-  void imprimirReglasDeJuego();
+	char pedirDificultad();
 
-  void imprimirLinea();
+	uint pedirCantidadJugadores();
 
-  void imprimirTitulo();
-
-  void imprimirPidiendoDatos();
-
-  void imprimirDatosIngresados();
-  
-  void imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
-							int numeroDeMinas, uint cantJugadores)
-
-  char pedirDificultad();
-
-  uint pedirCantidadJugadores();
-  
 };
-
 #endif
-
-
-
