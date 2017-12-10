@@ -1,10 +1,11 @@
 #ifndef PANTALLA_H_
 #define PANTALLA_H_
 
-# include "pseudoGrafo.h"
-# include "jugadaLight.h"
-# include "constantes.h"
 # include <iostream>
+# include "constantes.h"
+# include "pseudoGrafo.h"
+# include "jugadaLight.h
+# include "jugador.h"
 
 class Pantalla{
   
