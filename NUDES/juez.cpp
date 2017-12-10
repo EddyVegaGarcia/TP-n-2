@@ -125,7 +125,6 @@ void Juez::inicializarJuego(){
 
 	pantalla.playGame();
 
-
 	while(jugadores->avanzarCursor() && (jugadoresQuePerdieron<cantidadDeJugadores)&& (!terminoElJuego)){
 
 		jugadorActual = this->jugadores->obtenerCursor();
@@ -145,7 +144,7 @@ void Juez::inicializarJuego(){
 
 	}
 	
-	terminoLaPartida();
+	pantalla.terminoLaPartida();
 	encontrarJugadorQueGanoPorPuntaje();
 	crearArchivoConPuntajes();
 
@@ -155,6 +154,7 @@ void Juez::inicializarJuego(){
 void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 
 	Jugada* jugadaActual;
+	Pantalla pantalla;
 
 	jugadorActual->iniciarJugada();
 	jugadaActual = jugadorActual->obtenerPJugada();
@@ -178,7 +178,7 @@ void Juez::sigueJugando(Jugador* jugadorActual, Mapa* tableroDeJuego){
 
 		jugadorActual->asignarEstado(NO_ESTA_JUGANDO);
 
-		mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
+		pantalla.mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
 		
 	}
 
@@ -214,7 +214,7 @@ void Juez::realizarCambios(){
 			}
 			else{
 				terminoDeHacerCambios = true;
-				std::cout<<"No hay jugadas para deshacer"<<std::endl;
+				pantalla.noHayJugadas();
 			}
 		}
 		else if(opcionDeUsuario == 'f' || opcionDeUsuario == 'F'){
@@ -222,8 +222,6 @@ void Juez::realizarCambios(){
 			tableroDeJuego->mostrarMapa();
 		}
 		else terminoDeHacerCambios = true;
-
-
 	}
 
 }
@@ -346,20 +344,6 @@ bool Juez::banderaEsCorrecta(Bandera actual,Lista<Mina>*minas){
 	}
 
 	return encontrada;
-}
-
-void Juez::mostrarPuntajeDeJugadorQueHaPerdido(Jugador* jugadorActual){
-	
-	Pantalla pantalla;
-	pantalla.mostrarPuntajeDeJugadorQueHaPerdido(jugadorActual);
-
-}
-
-void Juez::terminoLaPartida(){
-	
-	Pantalla pantalla;
-	pantalla.terminoLaPartida();
-	
 }
 
 void Juez::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales){
