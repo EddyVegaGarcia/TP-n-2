@@ -83,7 +83,18 @@ void Pantalla::noHayJugadas(){
 	std::cout<<"No hay jugadas para deshacer"<<std::endl;
 }
 
+void Pantalla::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales){
 
+	if(puntajesMaximosIguales == 0){
+		std::cout << jugadorActual->obtenerAlias() << "!!! GANASTE !!!" << std::endl;
+		std::cout << "Tu puntaje es: " << jugadorActual->obtenerPuntaje() << "."<< std::endl;
+	}
+
+	if(puntajesMaximosIguales > 0)
+		std::cout<<"SE OBTUVO UN EMPATE... INTENTEN DE NUEVO."<<std::endl;
+
+	std::cout<<std::endl;
+}
 
 char Pantalla::imprimirOpcionesDeMenu(){
 	char opcionChar='0';
@@ -154,18 +165,17 @@ void Pantalla::imprimirPidiendoDatos(){
 	std::cout<<".:PIDIENDO DATOS:."<<std::endl;
 }
 
-void Pantalla::imprimirDatosIngresados(uint dimFila, uint dimColumna, std::string dificultadPalabra,
-							int numeroDeMinas, uint cantJugadores){
+void Pantalla::imprimirDatosIngresados(){
 
 	std::cout<<".:COMPROBANDO COMANDOS:."<<std::endl;
 	std::cout<<std::endl;
-	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<dimFila<<" X "<<dimColumna<<std::endl;
+	std::cout<<"Tamanio de la tabla de BUSCAMINAS: \t\t"<<this->dimFila<<" X "<<this->dimColumna<<std::endl;
 
 	std::cout<<"Dificultad pedida: \t\t\t\t.:"<<dificultadPalabra<<":."<<std::endl;
 	std::cout<<"Cantidad de MINAS en el BUSCAMINAS: \t\t"<<numeroDeMinas<<std::endl;
 	std::cout<<"Cantidad de JUGADORES: \t\t\t\t"<<cantJugadores<<std::endl;
 	std::cout<<std::endl;
-
+	
 }
 
 
