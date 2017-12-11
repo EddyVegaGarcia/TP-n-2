@@ -270,8 +270,12 @@ bool Juez::rehacerJugada(){
 	
 	uint opcionUsuario;
 	Pantalla pantalla;
+	bool puedeRehacerJugada = true;
 
 	opcionUsuario = pantalla.pedirOpcionRehacerJugada(this->jugadas);
+	if(opcionUsuario == -1){
+		puedeRehacerJugada = false;
+	}
 	
 	rehacerParalela(opcionUsuario);
 	return puedeRehacerJugada;
