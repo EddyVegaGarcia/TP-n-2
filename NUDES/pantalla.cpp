@@ -82,7 +82,19 @@ void Pantalla::terminoLaPartida(){
 	std::cout<<std::endl;
 
 }
+void Pantalla::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales){
 
+	if(puntajesMaximosIguales == 0){
+		std::cout << jugadorActual->obtenerAlias() << "!!! GANASTE !!!" << std::endl;
+		std::cout << "Tu puntaje es: " << jugadorActual->obtenerPuntaje() << "."<< std::endl;
+	}
+
+	if(puntajesMaximosIguales > 0)
+		std::cout<<"SE OBTUVO UN EMPATE... INTENTEN DE NUEVO."<<std::endl;
+
+	std::cout<<std::endl;
+
+}
 
 ////////////////////////////////////
 /////// Llamados desde Menu ////////
