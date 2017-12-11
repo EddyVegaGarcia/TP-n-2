@@ -54,7 +54,11 @@ int Pantalla::pedirOpcionRehacerJugada(PseudoGrafo<JugadaLight*>* jugadas){
 		std::cout<<std::endl<<"elija una de las jugadas para rehacer"<<std::endl;
 		std::cin>>opcionUsuario;
 
-        }while (opcionUsuario < 1|| opcionUsuario > contador);
+        }while (opcionUsuario < 1|| opcionUsuario > contador || !puedeRehacerJugada);
+
+        if(!puedeRehacerJugada){
+        	opcionUsuario = -1;
+        }
 	
   	return opcionUsuario;
 }
