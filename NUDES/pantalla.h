@@ -42,6 +42,8 @@ class Pantalla{
 		char pedirDificultad();
 
 		uint pedirCantidadJugadores();
+		
+		void Pantalla::mostrarFelicitaciones(Jugador* jugadorActual, int puntajesMaximosIguales);
 	
 	private:
 	
